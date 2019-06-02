@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Introduction to Continuum Mechanics</title>
+        <title>Python for Researchers</title>
         <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
         <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
 </head>
@@ -20,25 +20,39 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="https://saiwal.github.io/drafts/cm-1.html" rel="bookmark"
-           title="Permalink to Introduction to Continuum Mechanics">Introduction to Continuum Mechanics</a></h1>
+        <a href="https://saiwal.github.io/engineering/python-research/" rel="bookmark"
+           title="Permalink to Python for Researchers">Python for Researchers</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-07-08T19:18:11+05:30">
-                Published: Wed 08 July 2015
+        <abbr class="published" title="2015-06-19T17:46:33+05:30">
+                Published: Fri 19 June 2015
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
         </address>
 <p>In <a href="https://saiwal.github.io/category/engineering.html">Engineering</a>.</p>
-<p>tags: <a href="https://saiwal.github.io/tags/mechanics.html">mechanics</a> </p>
-</footer><!-- /.post-info -->      <p>Continuum Mechanics deals with treating bodies as a continuous media instead of lumped mass as in classical mechanics. In this series of posts, I have tried to give a better understanding of the mathematical approach we take in describing the motion of a solid deformable body.</p>
-<h2 id="solid body">Solid Body</h2>
-<p>In the study of solid bodies, we usually consider them as a point object with the total mass at the center of mass and apply the equations of motion to the body w.r.t the center of mass. This approach is acceptable when we want to study the motion od discreet bodies which do not undergo deformation on their own. But when we start to talk about the forces experienced by each point of mass in the body we can no longer work with the concept of lumped mass. A solid body would have to be lumped into infinitely many point masses to get a reasonably accurate approximation. This is where the field of continuum mechanics comes into picture.</p>
-<p>We start by defining a set of mathematical rules which govern the motion of the body. Each point in the body is defined by a set of co-ordinates and the motion is described by a mathematical equation.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/python.html">python</a> <a href="https://saiwal.github.io/tags/linux.html">linux</a> </p>
+</footer><!-- /.post-info -->      <h2 id="python for computing">Python for computing</h2>
+<p>While switching to ubuntu from windows I also decided to embrace open-source softwares for my research/academic work. After a lot of reading on what to use as an optimum computing package I decided to use python as it had the best reviews. Using python as a calculator is pretty simple. Simply type python at the terminal and you&rsquo;ll get the python interpreter as :</p>
+<p><img alt="python" src="https://saiwal.github.io/images/python.png"/></p>
+<p>Some simple calculations are done as shown, note the difference while dividing! a decimal point makes a lot of difference in python2</p>
+<p><img alt="python" src="https://saiwal.github.io/images/python_math.png"/></p>
+<p>For some advanced calculations we have the ipython notebook which is sort of like a worksheet.</p>
+<p>start it up by typing ipython notebook at the terminal. It should look like this:</p>
+<p><img alt="python" src="https://saiwal.github.io/images/python_note.png"/></p>
+<p>and a new browser window should open up as shown:</p>
+<p><img alt="python" src="https://saiwal.github.io/images/python_notebook.png"/></p>
+<p>This is where we would be running our programs and calculations or even plotting. The worksheet can later be printed too! click on the &lsquo;new notebook&rsquo; button and get started. To execute a set of instructions press Shift+Enter.</p>
+<p>For those looking for a matlab experience, we have an excellent free solution &ldquo;spyder&rdquo;. If you are familiar with matlab workspace you would have no problem working with spyder. Install it by typing 
+    sudo apt-get install spyder</p>
+<p><img alt="spyder" src="https://saiwal.github.io/images/spyder.jpg"/></p>
+<p>Looks familiar? It is ! and here&rsquo;s it plotting some data:</p>
+<p><img alt="spyder" src="https://saiwal.github.io/images/spyder2.jpg"/></p>
+<p>It has a variable explorer, a command line interpreter and an editor for writing code. Feel free to explore !</p>
+<p>Next we will look into SymPy for symbolic math operations like integrating, differentiating and solving differential equations.</p>
     </div><!-- /.entry-content -->
 
   </article>

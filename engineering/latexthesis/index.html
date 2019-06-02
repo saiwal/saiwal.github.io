@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Linking Intel fortran compiler to ABAQUS and using UMAT</title>
+        <title>Latex template for Thesis (IITK)</title>
         <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
         <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
 </head>
@@ -12,8 +12,7 @@
                 <h1><a href="https://saiwal.github.io/">Saiwal's Notes </a></h1>
                 <nav><ul>
                     <li><a href="https://saiwal.github.io/category/academia.html">Academia</a></li>
-                    <li class="active"><a href="https://saiwal.github.io/category/computing.html">Computing</a></li>
-                    <li><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
+                    <li class="active"><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
                     <li><a href="https://saiwal.github.io/category/misc.html">Misc</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
@@ -21,43 +20,31 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="https://saiwal.github.io/computing/intel-abaqus/" rel="bookmark"
-           title="Permalink to Linking Intel fortran compiler to ABAQUS and using UMAT">Linking Intel fortran compiler to ABAQUS and using UMAT</a></h1>
+        <a href="https://saiwal.github.io/engineering/latexthesis/" rel="bookmark"
+           title="Permalink to Latex template for Thesis (IITK)">Latex template for Thesis (IITK)</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2014-06-30T00:00:00+05:30">
-                Published: Mon 30 June 2014
+        <abbr class="published" title="2015-05-29T00:12:09+05:30">
+                Published: Fri 29 May 2015
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
         </address>
-<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
-<p>tags: <a href="https://saiwal.github.io/tags/abaqus.html">abaqus</a> </p>
-</footer><!-- /.post-info -->      <p>Prerequisites:
-    sudo apt-get install rpm build-essential
-    sudo apt-get install libstdc++6
-    sudo apt-get install ia32-libs</p>
-<p>Download the Intel&reg; Fortran Composer XE 2013 for Linux from https://software.intel.com/en-us/non-commercial-software-development
-You will recieve activation code via email.</p>
-<p>Prefer the online installer as it is smaller in size and you can choose what components to install.</p>
-<p>The installer is of the form l_fcompxe_online_2013_sp1.3.174.sh
-Execute the file from terminal with root privileges. Install the compiler. you may choose not to install other components.</p>
-<p>Add compiler path to ~/.bashrc by adding following lines at the end:</p>
-<div class="highlight"><pre><span></span>PATH=&rdquo;/opt/intel/composer_xe_2013_sp1.3.174/bin/intel64:$PATH&rdquo;
-export PATH
-LD_LIBRARY_PATH=&rdquo;/opt/intel/lib/intel64:$LD_LIBRARY_PATH&rdquo;
-</pre></div>
-<p>then run the following,</p>
-<div class="highlight"><pre><span></span>source .bashrc
-</pre></div>
-<p>check for the path, change it appropriately according to your system. the intel64 at the end of lines would change to intel32 for 32 bit systems.</p>
-<p>type the command ifort in the terminal and check if compiler is recognized.</p>
-<p>to submit a job to abaqus using command line use the following syntax:</p>
-<div class="highlight"><pre><span></span>abaqus job=(job name) inp=(input file name) user=(user subroutine)
-</pre></div>
+<p>In <a href="https://saiwal.github.io/category/engineering.html">Engineering</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/latex.html">Latex</a> <a href="https://saiwal.github.io/tags/research.html">research</a> <a href="https://saiwal.github.io/tags/iitk.html">iitk</a> </p>
+</footer><!-- /.post-info -->      <p>A template in Latex for PhD/Masters degree. Includes chapters, bibliography, toc, appendix, etc. complete template.</p>
+<h2 id="download">Download</h2>
+<p>The entire package can be downloaded from <a href="https://github.com/saiwal/latexthesis">here</a>. A sample of the final layout can be seen <a href="https://github.com/saiwal/latexthesis/blob/master/main.pdf">here</a></p>
+<h2 id="installing latex">Installing Latex</h2>
+<p>MikTex is the main package which is available for free for both windows and linux. You will also be needing an editor for writing tex files. Texstudio is a good choice for starters as it has auto completion, special characters insert and lots of tools to make typing quick and easy.</p>
+<h2 id="how to use">How to Use</h2>
+<p>Extract the contents to the folder of your choice. Replace the user variables, i.e. authorname, supervisor name, thesis title, etc. in the file &ldquo;Thesis.cls&rdquo;. The bibliography can be cited using &ldquo;/cite&rdquo;. The bibliography file is already filled with entries to serve as a template. Replace the fields as required. Add Chapters as per the template in the folder &lsquo;Chapter&rsquo;.</p>
+<h2 id="editor">Editor</h2>
+<p>The editor I use for managing latex projects is TexStudio. It has a great interface, easy to use and an inbuilt document viewer.</p>
+<p>The editor window is shown below: <img alt="texstudio" src="https://saiwal.github.io/images/texstudio.jpg"/></p>
     </div><!-- /.entry-content -->
 
   </article>
@@ -71,6 +58,7 @@ LD_LIBRARY_PATH=&rdquo;/opt/intel/lib/intel64:$LD_LIBRARY_PATH&rdquo;
                             <li><a href="http://iitk.ac.in/ce">IITK CE</a></li>
                             <li><a href="http://solidmechanics.org/">Solid Mechanics</a></li>
                             <li><a href="http://ocw.mit.edu/courses/civil-and-environmental-engineering/">MIT OCW</a></li>
+                            <li><a href="http://home.iitk.ac.in/~saiwal">my iitk homepage</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">

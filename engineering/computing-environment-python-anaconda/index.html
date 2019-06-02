@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Python for Researchers</title>
+        <title>Setting up Computing environment on ubuntu using python</title>
         <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
         <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
 </head>
@@ -12,8 +12,7 @@
                 <h1><a href="https://saiwal.github.io/">Saiwal's Notes </a></h1>
                 <nav><ul>
                     <li><a href="https://saiwal.github.io/category/academia.html">Academia</a></li>
-                    <li class="active"><a href="https://saiwal.github.io/category/computing.html">Computing</a></li>
-                    <li><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
+                    <li class="active"><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
                     <li><a href="https://saiwal.github.io/category/misc.html">Misc</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
@@ -21,39 +20,31 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="https://saiwal.github.io/computing/python-research/" rel="bookmark"
-           title="Permalink to Python for Researchers">Python for Researchers</a></h1>
+        <a href="https://saiwal.github.io/engineering/computing-environment-python-anaconda/" rel="bookmark"
+           title="Permalink to Setting up Computing environment on ubuntu using python">Setting up Computing environment on ubuntu using python</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-06-19T17:46:33+05:30">
-                Published: Fri 19 June 2015
+        <abbr class="published" title="2016-01-05T23:44:32+05:30">
+                Published: Tue 05 January 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
         </address>
-<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
-<p>tags: <a href="https://saiwal.github.io/tags/python.html">python</a> <a href="https://saiwal.github.io/tags/linux.html">linux</a> </p>
-</footer><!-- /.post-info -->      <h2 id="python for computing">Python for computing</h2>
-<p>While switching to ubuntu from windows I also decided to embrace open-source softwares for my research/academic work. After a lot of reading on what to use as an optimum computing package I decided to use python as it had the best reviews. Using python as a calculator is pretty simple. Simply type python at the terminal and you&rsquo;ll get the python interpreter as :</p>
-<p><img alt="python" src="https://saiwal.github.io/images/python.png"/></p>
-<p>Some simple calculations are done as shown, note the difference while dividing! a decimal point makes a lot of difference in python2</p>
-<p><img alt="python" src="https://saiwal.github.io/images/python_math.png"/></p>
-<p>For some advanced calculations we have the ipython notebook which is sort of like a worksheet.</p>
-<p>start it up by typing ipython notebook at the terminal. It should look like this:</p>
-<p><img alt="python" src="https://saiwal.github.io/images/python_note.png"/></p>
-<p>and a new browser window should open up as shown:</p>
-<p><img alt="python" src="https://saiwal.github.io/images/python_notebook.png"/></p>
-<p>This is where we would be running our programs and calculations or even plotting. The worksheet can later be printed too! click on the &lsquo;new notebook&rsquo; button and get started. To execute a set of instructions press Shift+Enter.</p>
-<p>For those looking for a matlab experience, we have an excellent free solution &ldquo;spyder&rdquo;. If you are familiar with matlab workspace you would have no problem working with spyder. Install it by typing 
-    sudo apt-get install spyder</p>
-<p><img alt="spyder" src="https://saiwal.github.io/images/spyder.jpg"/></p>
-<p>Looks familiar? It is ! and here&rsquo;s it plotting some data:</p>
-<p><img alt="spyder" src="https://saiwal.github.io/images/spyder2.jpg"/></p>
-<p>It has a variable explorer, a command line interpreter and an editor for writing code. Feel free to explore !</p>
-<p>Next we will look into SymPy for symbolic math operations like integrating, differentiating and solving differential equations.</p>
+<p>In <a href="https://saiwal.github.io/category/engineering.html">Engineering</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/python.html">python</a> <a href="https://saiwal.github.io/tags/research.html">research</a> <a href="https://saiwal.github.io/tags/linux.html">linux</a> </p>
+</footer><!-- /.post-info -->      <p><a href="http://continuum.io/">Continuum Analytics</a> provides Anaconda, a platform which provides many python libraries bundled together as a single environment package. The bundle can be <a href="https://www.continuum.io/downloads">downloaded</a> from the website for different OS. Once installed you can set it up to use as a separate environment for computing without interfering with the already installed python modules on your system.</p>
+<p>To activate the environment, we use the commmand</p>
+<div class="highlight"><pre><span></span>cd anaconda3/
+source ~/bin/activate ~/anaconda3/
+</pre></div>
+<p>Assuming the the anaconda package has been installed at <em>~/anaconda3/</em></p>
+<p>To deactivate after you're done, use :</p>
+<div class="highlight"><pre><span></span>source deactivate
+</pre></div>
+<p>The package also includes <em>spyder</em> which provides a very helpful interface to code and inspect variables in matlab style.</p>
     </div><!-- /.entry-content -->
 
   </article>
@@ -67,6 +58,7 @@
                             <li><a href="http://iitk.ac.in/ce">IITK CE</a></li>
                             <li><a href="http://solidmechanics.org/">Solid Mechanics</a></li>
                             <li><a href="http://ocw.mit.edu/courses/civil-and-environmental-engineering/">MIT OCW</a></li>
+                            <li><a href="http://home.iitk.ac.in/~saiwal">my iitk homepage</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">

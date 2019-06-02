@@ -5,14 +5,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://saiwal.github.io/</loc>
-<lastmod>2019-06-03T00:25:52-00:00</lastmod>
+<lastmod>2019-06-03T00:55:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://saiwal.github.io/archives.html</loc>
-<lastmod>2019-06-03T00:25:52-00:00</lastmod>
+<lastmod>2019-06-03T00:55:53-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -32,42 +32,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/useful-commands-tips-for-using-abaqus-over-command-line-in-linux/</loc>
+<loc>https://saiwal.github.io/engineering/useful-commands-tips-for-using-abaqus-over-command-line-in-linux/</loc>
 <lastmod>2018-11-30T00:00:00+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/abaqus2016-2017-gfortran-compiler/</loc>
+<loc>https://saiwal.github.io/engineering/abaqus2016-2017-gfortran-compiler/</loc>
 <lastmod>2017-05-04T00:00:00+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/abaqus-gfortran-compiler/</loc>
+<loc>https://saiwal.github.io/engineering/abaqus-gfortran-compiler/</loc>
 <lastmod>2016-09-25T00:00:00+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/install-abaqus2016-ubuntu/</loc>
+<loc>https://saiwal.github.io/engineering/install-abaqus2016-ubuntu/</loc>
 <lastmod>2016-09-19T00:00:00+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/setup-latex-on-ubuntu/</loc>
+<loc>https://saiwal.github.io/engineering/setup-latex-on-ubuntu/</loc>
 <lastmod>2016-01-16T18:12:43+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/computing-environment-python-anaconda/</loc>
+<loc>https://saiwal.github.io/engineering/computing-environment-python-anaconda/</loc>
 <lastmod>2016-01-05T23:44:32+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -109,7 +109,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/ansys-ubuntu-install/</loc>
+<loc>https://saiwal.github.io/engineering/ansys-ubuntu-install/</loc>
 <lastmod>2015-06-30T15:39:31+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -123,35 +123,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/sympy-program/</loc>
+<loc>https://saiwal.github.io/engineering/sympy-program/</loc>
 <lastmod>2015-06-19T17:51:20+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/python-research/</loc>
+<loc>https://saiwal.github.io/engineering/python-research/</loc>
 <lastmod>2015-06-19T17:46:33+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/install-abaqus-ubuntu/</loc>
+<loc>https://saiwal.github.io/engineering/install-abaqus-ubuntu/</loc>
 <lastmod>2015-06-19T16:20:42+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/latexthesis/</loc>
+<loc>https://saiwal.github.io/engineering/latexthesis/</loc>
 <lastmod>2015-05-29T00:12:09+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/computing/intel-abaqus/</loc>
+<loc>https://saiwal.github.io/engineering/intel-abaqus/</loc>
 <lastmod>2014-06-30T00:00:00+05:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -160,13 +160,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://saiwal.github.io/category/academia.html</loc>
 <lastmod>2015-11-09T02:10:43+05:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://saiwal.github.io/category/computing.html</loc>
-<lastmod>2018-11-30T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
