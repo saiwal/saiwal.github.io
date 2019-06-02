@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Saiwal's Notes - webdev</title>
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://saiwal.github.io/">Saiwal's Notes </a></h1>
+                <nav><ul>
+                    <li><a href="https://saiwal.github.io/category/academia.html">Academia</a></li>
+                    <li><a href="https://saiwal.github.io/category/computing.html">Computing</a></li>
+                    <li><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
+                    <li><a href="https://saiwal.github.io/category/misc.html">Misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://saiwal.github.io/academia/website-pelican/">Static Website/Blog with pelican</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-06-24T00:37:45+05:30">
+                Published: Wed 24 June 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/academia.html">Academia</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/webdev.html">webdev</a> </p>
+</footer><!-- /.post-info --><p>Create your own static website/blog with pelican. This website is generated using pelican.</p>
+<h2 id="pelican">Pelican</h2>
+<p>Pelican is one of the most popular website generators available. It is written in python and comes with a lot of plugins to extend its functionality. <a href="http://blog.getpelican.com/">Pelican</a> is free/open source. The fetures that make it easy to use are:
+<em> posts and pages are written in markdown. Custom html snippets can also be used.
+</em> A large collection of themes and plugins available.
+<em> write your own themes and plugins easily.
+</em> Completely static output, can host anywhere.</p>
+<p><img alt="pelican" src="https://saiwal.github.io/images/pelican.png"/></p>
+<h2 id="this website">This website</h2>
+<p>My website uses the theme <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a>. The bootstrap theme has been changed to 'yeti'. My pelicanconfig.py is below:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*- #</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">AUTHOR</span> <span class="o">=</span> <span class="s1">'Saiwal Krishna'</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s1">'Saiwal Krishna'</span>
+<span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">'http://home.iitk.ac.in/~saiwal'</span>
+<span class="n">SITESUBTITLE</span> <span class="o">=</span> <span class="s1">'A Blog and Personal Homepage'</span>
+<span class="n">EMAIL</span> <span class="o">=</span> <span class="s1">'saiwal@iitk.ac.in'</span>
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s1">'Asia/Kolkata'</span>
+<span class="n">YEAR</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span>
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s1">'en'</span>
+
+<span class="c1"># Feed generation is usually not desired when developing</span>
+<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">THEME</span> <span class="o">=</span> <span class="s1">'pelican-twitchy'</span>
+<span class="n">BOOTSTRAP_THEME</span> <span class="o">=</span> <span class="s1">'superhero'</span>
+<span class="n">PYGMENTS_STYLE</span> <span class="o">=</span> <span class="s1">'emacs'</span>
+
+<span class="c1"># Blogroll</span>
+<span class="n">LINKS</span> <span class="o">=</span>  <span class="p">((</span><span class="s1">'IITK'</span><span class="p">,</span> <span class="s1">'http://iitk.ac.in'</span><span class="p">),</span>
+          <span class="p">)</span>
+<span class="c1"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s1">'Facebook'</span><span class="p">,</span> <span class="s1">'http://www.facebook.com/saiwal.krishna'</span><span class="p">),(</span><span class="s1">'Linkedin'</span><span class="p">,</span> \
+<span class="s1">'https://www.linkedin.com/pub/saiwal-</span><span class="si">%E</span><span class="s1">1%A0%8Ckrishna/50/9a/a0'</span><span class="p">),</span> \
+<span class="p">(</span><span class="s1">'Youtube'</span><span class="p">,</span><span class="s1">'https://www.youtube.com/user/MrSaiwal'</span><span class="p">),</span> \
+<span class="p">(</span><span class="s1">'Github'</span><span class="p">,</span><span class="s1">'https://github.com/saiwal'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'Email'</span><span class="p">,</span><span class="s1">'mailto:saiwal@iitk.ac.in'</span><span class="p">),)</span>
+
+<span class="c1"># PLUGIN_PATHS = [ "something", ]</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'toc'</span><span class="p">,</span><span class="s1">'sitemap'</span><span class="p">,</span> <span class="p">]</span>
+<span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># theme options</span>
+<span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s1">'xxxxxxxxxx'</span>
+<span class="c1">#BOOTSTRAP_FLUID = True</span>
+<span class="c1">#DISPLAY_BREADCRUMBS = True</span>
+<span class="c1">#BOOTSTRAP_NAVBAR_INVERSE = True</span>
+<span class="n">FAVICON</span> <span class="o">=</span> <span class="s1">'images/favicon.ico'</span>
+<span class="c1">#SITELOGO = 'images/profile.jpg'</span>
+<span class="n">GOOGLE_ANALYTICS</span> <span class="o">=</span> <span class="s1">'xxxxxxxxxx'</span>
+<span class="c1">#license</span>
+<span class="n">CC_LICENSE</span> <span class="o">=</span> <span class="s2">"CC-BY-NC-SA"</span>
+<span class="n">CC_ATTR_MARKUP</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="n">TOC</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'TOC_HEADERS'</span> <span class="p">:</span> <span class="s1">'^h[1-6]'</span><span class="p">,</span>  <span class="c1"># What headers should be included in the generated toc</span>
+                                <span class="c1"># Expected format is a regular expression</span>
+
+    <span class="s1">'TOC_RUN'</span>     <span class="p">:</span> <span class="s1">'true'</span>      <span class="c1"># Default value for toc generation, if it does not evaluate</span>
+                                <span class="c1"># to 'true' no toc will be generated</span>
+<span class="p">}</span>
+
+<span class="n">DISPLAY_RECENT_POSTS_ON_MENU</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">DISPLAY_CATEGORIES_ON_MENU</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">DISPLAY_PAGES_ON_MENU</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">DISPLAY_TAGS_ON_MENU</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">EXPAND_LATEST_ON_INDEX</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">USE_FOLDER_AS_CATEGORY</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">DEFAULT_DATE</span> <span class="o">=</span> <span class="s1">'fs'</span>
+<span class="c1">#DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search')</span>
+
+<span class="n">SITEMAP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'format'</span><span class="p">:</span> <span class="s1">'xml'</span><span class="p">,</span>
+    <span class="s1">'priorities'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'articles'</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s1">'indexes'</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s1">'pages'</span><span class="p">:</span> <span class="mf">0.5</span>
+    <span class="p">},</span>
+    <span class="s1">'changefreqs'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'articles'</span><span class="p">:</span> <span class="s1">'daily'</span><span class="p">,</span>
+        <span class="s1">'indexes'</span><span class="p">:</span> <span class="s1">'daily'</span><span class="p">,</span>
+        <span class="s1">'pages'</span><span class="p">:</span> <span class="s1">'weekly'</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">ARTICLE_SAVE_AS</span> <span class="o">=</span> <span class="s1">'{slug}.html'</span>
+<span class="n">ARTICLE_URL</span> <span class="o">=</span> <span class="s1">'{slug}.html'</span>
+<span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'images'</span><span class="p">,</span><span class="s1">'attachments'</span><span class="p">]</span>
+
+<span class="c1"># Uncomment following line if you want document-relative URLs when developing</span>
+<span class="c1">#RELATIVE_URLS = True</span>
+</pre></div>
+</td></tr></table>
+<h2 id="publishing a static website with pelican &amp; github">Publishing a static website with pelican &amp; github</h2>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>Create an empty repository where you'd host the generated content</li>
+<li>On your local storage, create a folder where your website contents will be stored and open a terminal.</li>
+<li>In the terminal type the following command to clone the repository
+    <code>git clone &lt;repository address&gt;</code></li>
+<li>This should create a .git folder in the current folder. </li>
+<li>Now we can start building our website by typing <code>pelican-quickstart</code></li>
+<li>In the question whether you want to host on github, type Y.</li>
+<li>If this is your user page, accept yes otherwise no.</li>
+<li>To upload your website to github, use <code>make github</code></li>
+</ol>
+<h3 id="restoring repository">Restoring repository</h3>
+<p>If by chance you end up changing one of the files online, <code>make github</code> would refuse to upload your files, in this case clone the repository in your output folder and move the .git folder back to your working directory.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://iitk.ac.in">Indian Institute of Technology Kanpur</a></li>
+                            <li><a href="http://www.imechanica.org">iMechanica</a></li>
+                            <li><a href="http://iitk.ac.in/ce">IITK CE</a></li>
+                            <li><a href="http://solidmechanics.org/">Solid Mechanics</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/civil-and-environmental-engineering/">MIT OCW</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://home.iitk.ac.in/~saiwal/feeds/all.atom.xml">RSS</a></li>
+                            <li><a href="https://www.youtube.com/mrsaiwal">Youtube</a></li>
+                            <li><a href="https://github.com/saiwal">Github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Installing Abaqus 2016 on Ubuntu</title>
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://saiwal.github.io/">Saiwal's Notes </a></h1>
+                <nav><ul>
+                    <li><a href="https://saiwal.github.io/category/academia.html">Academia</a></li>
+                    <li class="active"><a href="https://saiwal.github.io/category/computing.html">Computing</a></li>
+                    <li><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
+                    <li><a href="https://saiwal.github.io/category/misc.html">Misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://saiwal.github.io/computing/install-abaqus2016-ubuntu/" rel="bookmark"
+           title="Permalink to Installing Abaqus 2016 on Ubuntu">Installing Abaqus 2016 on Ubuntu</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-09-19T00:00:00+05:30">
+                Published: Mon 19 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/linux.html">linux</a> <a href="https://saiwal.github.io/tags/abaqus.html">abaqus</a> </p>
+</footer><!-- /.post-info -->      <p>Abaqus 2016 adopted a new installation method and refuses to install on Ubuntu system with the following error message:</p>
+<div class="highlight"><pre><span></span>~/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1/StartGUI.sh
+CurrentMediaDir initial="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"
+CurrentMediaDir="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"
+Current operating system: "Linux"
+DSY_OS_Release="Ubuntu"
+Unknown linux release "Ubuntu"
+exit 8
+</pre></div>
+<p>To force an installation I found a way to disguise system operating system name to CentOS to proceed with the installation. The process is as follows:</p>
+<p>After extracting the installation files, open the following file in a text editor:
+    AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1/inst/common/init/Linux.sh</p>
+<p>edit line 4 from</p>
+<div class="highlight"><pre><span></span>DSY_OS_Release=`lsb_release --short --id |sed 's/ //g'`
+</pre></div>
+<p>to</p>
+<div class="highlight"><pre><span></span>DSY_OS_Release="CentOS"
+</pre></div>
+<p><img alt="edit" src="https://saiwal.github.io/images/abq2016_2.png"/></p>
+<p>and that's it.</p>
+<p>The rest of the installation procedure is similar and straight forward.</p>
+<p><img alt="install" src="https://saiwal.github.io/images/abq2016.png"/></p>
+<p>for other package the process is similar, the same file "Linux.sh" needs to be edited.</p>
+<h1 id="useful links">Useful links</h1>
+<h3 id="online documentation (for iitk campus only)"><a href="http://172.31.1.4:2080/">Online documentation</a> (for iitk campus only)</h3>
+<h3 id="abaqus servers (campus only)">ABAQUS servers (campus only)</h3>
+<div class="highlight"><pre><span></span>172.31.1.2, 172.31.1.3, 172.31.1.4, 172.31.1.5, 172.31.1.6, 172.31.1.7
+</pre></div>
+<p><a href="http://imechanica.org/node/13804">useful link</a></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://iitk.ac.in">Indian Institute of Technology Kanpur</a></li>
+                            <li><a href="http://www.imechanica.org">iMechanica</a></li>
+                            <li><a href="http://iitk.ac.in/ce">IITK CE</a></li>
+                            <li><a href="http://solidmechanics.org/">Solid Mechanics</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/civil-and-environmental-engineering/">MIT OCW</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://home.iitk.ac.in/~saiwal/feeds/all.atom.xml">RSS</a></li>
+                            <li><a href="https://www.youtube.com/mrsaiwal">Youtube</a></li>
+                            <li><a href="https://github.com/saiwal">Github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

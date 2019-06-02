@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Install ANSYS 15 on ubuntu (x64)</title>
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://saiwal.github.io/">Saiwal's Notes </a></h1>
+                <nav><ul>
+                    <li><a href="https://saiwal.github.io/category/academia.html">Academia</a></li>
+                    <li class="active"><a href="https://saiwal.github.io/category/computing.html">Computing</a></li>
+                    <li><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
+                    <li><a href="https://saiwal.github.io/category/misc.html">Misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://saiwal.github.io/computing/ansys-ubuntu-install/" rel="bookmark"
+           title="Permalink to Install ANSYS 15 on ubuntu (x64)">Install ANSYS 15 on ubuntu (x64)</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-06-30T15:39:31+05:30">
+                Published: Tue 30 June 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/ansys.html">ansys</a> <a href="https://saiwal.github.io/tags/linux.html">linux</a> </p>
+</footer><!-- /.post-info -->      <p>I've outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i followed to get ansys running on my machine. If you face any problems other than those shown here, it could be an unavailable library issue.</p>
+<p>Files Required:</p>
+<div class="highlight"><pre><span></span>Ansys setup
+
+License files
+</pre></div>
+<p>Procedure</p>
+<ol>
+<li>
+<p>make a directory where you need to install ansys. Clear any previous installation files mainly:
+~/.config/ansys
+~/.ansys</p>
+</li>
+<li>
+<p>mount the installation iso using the mount command
+    sudo mount ANSYS DVD1 /mnt/a</p>
+</li>
+<li>
+<p>cd to the installation directiry and run
+    sudo ./INSTALL</p>
+</li>
+</ol>
+<p>4.Install using the graphical manager, skip installation of license server for now and only install the product.</p>
+<ol>
+<li>
+<p>Copy the ansyslmd.ini and license.dat to the folder /usr/ansys_inc/shared_files/licensing/</p>
+</li>
+<li>
+<p>Modify the Linux environment variable ANSYS quick start of each component
+Modify the hidden files.Bashrc your Ubuntu home directory. Add the following code in.Bashrc.
+Method for typing in the terminal code: VIM.Bashrc</p>
+</li>
+</ol>
+<p>Open.Bashrc, paste the following code:</p>
+<div class="highlight"><pre><span></span># add environment variables:
+
+#ANSYS
+
+PATH=/usr/ansys_inc/v150/ansys/bin:$PATH
+Export PATH
+
+#CFX
+
+PATH=/usr/ansys_inc/v150/CFX/bin:$PATH
+Export PATH
+
+#FLUENT
+
+PATH=/usr/ansys_inc/v150/fluent/bin:$PATH
+Export PATH
+
+#ICEM
+
+PATH=/usr/ansys_inc/v150/icemcfd/linux64_amd/bin:$PATH
+Export PATH
+
+#WORKBENCH
+
+PATH=/usr/ansys_inc/v150/Framework/bin/Linux64:$PATH
+Export PATH
+
+#TurboGrid
+
+PATH=/usr/ansys_inc/v150/TurboGrid/bin:$PATH
+Export PATH
+
+#ANSYS Sevice Manager
+PATH=/usr/ansys_inc/shared_files/licensing/lic_admin:$PATH
+
+Export PATH
+</pre></div>
+<p>And then let it take effect in the terminal, type the following code</p>
+<div class="highlight"><pre><span></span>source .Bashrc
+</pre></div>
+<ol>
+<li>To start ansys use any of the following commands:</li>
+</ol>
+<p>Ansys CFX Launcher</p>
+<div class="highlight"><pre><span></span>CFX5
+</pre></div>
+<p>CFX-pre </p>
+<div class="highlight"><pre><span></span>cfx5pre
+</pre></div>
+<p>CFX-Solver Manager</p>
+<div class="highlight"><pre><span></span>cfx5-solve
+</pre></div>
+<p>CFD-post </p>
+<div class="highlight"><pre><span></span>cfdpost
+</pre></div>
+<p>Turborid </p>
+<div class="highlight"><pre><span></span>cfxtg
+</pre></div>
+<p>Fluent </p>
+<div class="highlight"><pre><span></span>fluent
+</pre></div>
+<p>ICEM CFD </p>
+<div class="highlight"><pre><span></span>icemcfd
+</pre></div>
+<p>Ansys APDL </p>
+<div class="highlight"><pre><span></span>ansys150       # is really in command mode
+Ansys150 -g    # graphics mode
+</pre></div>
+<p>Ansys Workbench </p>
+<div class="highlight"><pre><span></span>runwb2
+</pre></div>
+<p>Use the get command to help command -help</p>
+<p>Note: The Linux version of Ansys is installed in the Ubuntu is installed by default in /usr/ansys_inc. If you change the default installation location, please modify the path specified in the ansyslmd.ini. Use VIM to open ansyslmd.ini, as follows
+    ANSYSLI_NOFLEX=1
+    LICKEYFIL=/usr/ansys_inc/shared_files/licensing/license.dat</p>
+<p>If the fonts are not displayed correctly in gui, run the following:
+    sudo apt-get install xfonts-75dpi xfonts-100dpi xterm ttf-mscorefonts-installer</p>
+<p>You do need to restart your system (it might be enough to restart the X server)! </p>
+<p><img alt="ansys" src="https://saiwal.github.io/images/Ansys_logo.jpg"/></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://iitk.ac.in">Indian Institute of Technology Kanpur</a></li>
+                            <li><a href="http://www.imechanica.org">iMechanica</a></li>
+                            <li><a href="http://iitk.ac.in/ce">IITK CE</a></li>
+                            <li><a href="http://solidmechanics.org/">Solid Mechanics</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/civil-and-environmental-engineering/">MIT OCW</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://home.iitk.ac.in/~saiwal/feeds/all.atom.xml">RSS</a></li>
+                            <li><a href="https://www.youtube.com/mrsaiwal">Youtube</a></li>
+                            <li><a href="https://github.com/saiwal">Github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

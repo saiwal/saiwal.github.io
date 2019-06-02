@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Having fun with Deformation Gradients (2D)</title>
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://saiwal.github.io/">Saiwal's Notes </a></h1>
+                <nav><ul>
+                    <li><a href="https://saiwal.github.io/category/academia.html">Academia</a></li>
+                    <li><a href="https://saiwal.github.io/category/computing.html">Computing</a></li>
+                    <li class="active"><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
+                    <li><a href="https://saiwal.github.io/category/misc.html">Misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://saiwal.github.io/engineering/def-grad-fun/" rel="bookmark"
+           title="Permalink to Having fun with Deformation Gradients (2D)">Having fun with Deformation Gradients (2D)</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-07-09T00:32:29+05:30">
+                Published: Thu 09 July 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/engineering.html">Engineering</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/continuum-mechanics.html">continuum-mechanics</a> </p>
+</footer><!-- /.post-info -->      <p>In this article I plotted various deformation gradient on a 2-D grid to show how the displacement field would look like. Visualizing a deformation gradient greatly helps in understanding how a body deforms and how we calculate the various deformation measures.
+share_post: facebook, google-plus, email, twitter</p>
+<h2 id="what is the deformation gradient?">What is the Deformation Gradient?</h2>
+<p>Deformation Gradient is a measure of how different fibres of a body stretch when subjected to a deformation. We can try to understand it physically by taking an example of a 2D surface where each point is at its original location denoted by its coordinate $ (x,y) $ and which is mapped to a final position $ (X,Y) $ according to a deformation gradient <strong>[F]</strong>. Here, <strong>[F]</strong> is defined as follows: \[ F_{ij} = \frac{\partial{x_i}}{\partial{X_j}} \]</p>
+<p>Let's see with an example:</p>
+<p>Suppose there is deformation described as follows:
+\[ x = aX + bY \]
+and 
+\[ y = cX + dY \]</p>
+<p>then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}a &amp; b\\c &amp; d\end{bmatrix} \]</p>
+<p>and the deformation field is given as:</p>
+<p>\[ u = x - X = (a-1)X + bY \]
+\[ v = y - Y = cX - (d-1)Y \]</p>
+<p>The matrix <strong>F</strong> gives the stretch of a fibre from the initial state to the deformed state. So, a fibre lying along x axis gets stretched by 'a' amount in the same direction but by 'b' in the perpendicular direction.</p>
+<h2 id="plots of some typical deformation gradients.">Plots of some typical deformation gradients.</h2>
+<h3 id="case i">Case I</h3>
+<p>\[ x = 1 + X \]
+and 
+\[ y = Y \]
+the displacements are:
+\[ u = 1 \]
+\[ v = 0 \]
+then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}1 &amp; 0\\0 &amp; 1\end{bmatrix} \]</p>
+<p>The following code is used to plot the resulting displacement field</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ma</span>
+
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="kp">meshgrid</span><span class="p">(</span> <span class="kp">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span><span class="kp">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">0</span><span class="o">*</span><span class="n">X</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">figure</span><span class="p">()</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">quiver</span><span class="p">(</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">'y'</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">'Displacement Field'</span><span class="p">)</span>
+</pre></div>
+<p>which looks like </p>
+<p><img alt="uniform" src="https://saiwal.github.io/images/def-grad1.png"/></p>
+<p>Note that there is no stretching but merely a uniform displacement of 1 unit along the x-axis.</p>
+<h3 id="case ii">Case II</h3>
+<p>\[ x = 1.2X \]
+and
+\[ y = Y \]
+the displacements are: 
+\[ u = 0.2X \]
+\[ v = 0 \]
+then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}1.2 &amp; 0\\0 &amp; 1\end{bmatrix} \]</p>
+<p>The following code is used to plot the resulting displacement field</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ma</span>
+
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="kp">meshgrid</span><span class="p">(</span> <span class="kp">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span><span class="kp">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">X</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">figure</span><span class="p">()</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">quiver</span><span class="p">(</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">'y'</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">'Displacement Field'</span><span class="p">)</span>
+</pre></div>
+<p>which looks like </p>
+<p><img alt="linear" src="https://saiwal.github.io/images/def-grad2.png"/></p>
+<p>Note that now there is a linear variation in the stretching along the x-axis.</p>
+<h3 id="case iii">Case III</h3>
+<p>\[ x = X + Y \]
+and 
+\[ y = Y \]
+the displacements are:
+\[ u = Y \]
+\[ v = 0 \]
+then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}1 &amp; 1\\0 &amp; 1\end{bmatrix} \]</p>
+<p>The following code is used to plot the resulting displacement field</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ma</span>
+
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="kp">meshgrid</span><span class="p">(</span> <span class="kp">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span><span class="kp">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">Y</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">figure</span><span class="p">()</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">quiver</span><span class="p">(</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">'y'</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">'Displacement Field'</span><span class="p">)</span>
+</pre></div>
+<p>which looks like </p>
+<p><img alt="shear" src="https://saiwal.github.io/images/def-grad3.png"/></p>
+<p>This is a case of simple shear where the solid is sheared along the x-axis. Note the <strong>F</strong> in this case and the significance of its values.</p>
+<h3 id="case iv">Case IV</h3>
+<p>\[ x = X + Y \]
+and
+\[ y = 1.2X + 0.3Y \]
+the displacements are:
+\[ u = Y \]</p>
+<p>\[ v = 1.2X - 0.7Y \]
+then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}1 &amp; 1\\1.2 &amp; 0.3\end{bmatrix} \]</p>
+<p>The following code is used to plot the resulting displacement field</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ma</span>
+
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="kp">meshgrid</span><span class="p">(</span> <span class="kp">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span><span class="kp">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">Y</span>
+<span class="n">V</span> <span class="o">=</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">X</span> <span class="o">-</span> <span class="mf">0.7</span><span class="o">*</span><span class="n">Y</span>
+
+<span class="n">figure</span><span class="p">()</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">quiver</span><span class="p">(</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">'y'</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">'Displacement Field'</span><span class="p">)</span>
+</pre></div>
+<p>which looks like </p>
+<p><img alt="mix" src="https://saiwal.github.io/images/def-grad4.png"/></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://iitk.ac.in">Indian Institute of Technology Kanpur</a></li>
+                            <li><a href="http://www.imechanica.org">iMechanica</a></li>
+                            <li><a href="http://iitk.ac.in/ce">IITK CE</a></li>
+                            <li><a href="http://solidmechanics.org/">Solid Mechanics</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/civil-and-environmental-engineering/">MIT OCW</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://home.iitk.ac.in/~saiwal/feeds/all.atom.xml">RSS</a></li>
+                            <li><a href="https://www.youtube.com/mrsaiwal">Youtube</a></li>
+                            <li><a href="https://github.com/saiwal">Github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

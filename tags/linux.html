@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Saiwal's Notes - linux</title>
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://saiwal.github.io/">Saiwal's Notes </a></h1>
+                <nav><ul>
+                    <li><a href="https://saiwal.github.io/category/academia.html">Academia</a></li>
+                    <li><a href="https://saiwal.github.io/category/computing.html">Computing</a></li>
+                    <li><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
+                    <li><a href="https://saiwal.github.io/category/misc.html">Misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://saiwal.github.io/computing/useful-commands-tips-for-using-abaqus-over-command-line-in-linux/">Useful commands, tips for using ABAQUS over command-line in linux</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-11-30T00:00:00+05:30">
+                Published: Fri 30 November 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/abaqus.html">abaqus</a> <a href="https://saiwal.github.io/tags/linux.html">linux</a> </p>
+</footer><!-- /.post-info --><h2 id="coming from windows">Coming from Windows</h2>
+<p>If you are a windows user then you'll need a ssh client like 'putty' to have access to your remote server over ssh and a file transfer client such as 'FileZilla' for transferring large files across machines conveniently.</p>
+<p>Once you have access to your remote server you need to be familiar with some basic unix commands to be able to makeuse of abaqus via the command line.</p>
+<h2 id="server addresses at iitk: (internal use only)">Server addresses at iitk: (Internal use only)</h2>
+<p>The following link lists the various servers available in computer center at iitk campus:</p>
+<p><a href="http://www.iitk.ac.in/ccnew/index.php/labs/linux-lab">http://www.iitk.ac.in/ccnew/index.php/labs/linux-lab</a></p>
+<h2 id="basic linux commands">Basic Linux Commands</h2>
+<h3 id="pwd">pwd</h3>
+<p>short for "present working directory", this command displays the full path to the directory you are currently working in. It helps you make sense of your location on the server.</p>
+<h3 id="cd">cd <directory name=""></directory></h3>
+<p>To navigate to a directory</p>
+<p>To navigate out of a directory one level up, use <code>cd ..</code></p>
+<h3 id="mkdir">mkdir <directory name=""></directory></h3>
+<p>To create a new directory</p>
+<h3 id="rm">rm <filename></filename></h3>
+<p>To delete a file/directory.</p>
+<h3 id="man">man <command name=""/></h3>
+<p>To display any command manual/help. Lists available options for that particular command.</p>
+<h3 id="top">top</h3>
+<p>A task manager to display list of running processes. You can stop/kill unresponsive commands from here, get an overview of consumed system resources, etc. To exit use <code>q</code>.</p>
+<h3 id="bash">bash</h3>
+<p>Some remote servers do not display the bash prompt by default which often leads to some keys not working, keys behaving unexpectedly. If that happens  you may run <code>bash</code> from your current shell to start a bash shell.</p>
+<h3 id="nano">nano <filename></filename></h3>
+<p>A lightweight text viewer/editor. To exit use <code>ctrl + x</code>.</p>
+<h3 id="vi/vim">vi/vim <filename></filename></h3>
+<p>An advanced text editor which offers additional options from nano. Meant for advanced users only. To exit use <code>:q</code>.</p>
+<h3 id="miscellaneous tips">Miscellaneous Tips</h3>
+<ul>
+<li><code>Ctrl+C</code>, <code>Ctrl+Z</code> are your friends when it comes to unresponsive programs at the terminal.</li>
+<li>Use the <code>Up</code> and <code>Down</code> keys at the terminal to go through your command history. Saves you from retyping the entire line again and again.</li>
+<li>at bash prompt you can use <code>Ctrl+R</code> to search through your command  history.</li>
+<li>Use the <code>Tab</code> key to auto-complete commands and file-names.</li>
+</ul>
+<h2 id="job submission_1">Job submission</h2>
+<p>Oncce you have copied your input file, user subroutine file (if any) over to the remote server directory using filezilla, the following command can be used to submit a job remotely.</p>
+<p><code>abaqus job=&lt;jobname&gt; inp=&lt;input filename&gt;</code></p>
+<p>If your analysis requires a subroutine,</p>
+<p><code>abaqus job=&lt;jobname&gt; user=&lt;subroutine filename&gt; inp=&lt;input filename&gt;</code></p>
+<p>where the values within &lt;&gt; can be of your choice.</p>
+<p>To monitor the  progress of your analysis job, you can display the content of <jobname>.sta file using nano. however this does not update the status file as it progresses. To dynamically display the progress, you may use the tail command:</jobname></p>
+<p><code>tail -f &lt;jobname&gt;.sta</code></p>
+<p>If for some reason you need to kill your running jobs, you can either use <code>top</code> to kill the relebvant process or use <code>killall &lt;process name&gt;</code> to end the proceess.</p>
+<p>The process name can be found from the <code>top</code> command.</p>
+<p>After the pre-processing,analysis is finished you will end up with your odb file in your working directory. You can then copy it over to your machine using filezilla.</p>
+<h2 id="remote access via abaqus gui">Remote access via Abaqus GUI</h2>
+<p>ABAQUS has support for submitting a job on a remote server and accessing the odb file remotely. In this case the data will reside on the remote computer. This is a good way to do the modelling on your personal computer and do the heavy computational work on a remote HPC machine. </p>
+<p>There are two main steps involved in setting up remote access, namely network odb connector and remote job submission. We will take a look at both of them individually.</p>
+<h3 id="network odb connector">Network ODB Connector</h3>
+<h4 id="pre-requisites">Pre-requisites</h4>
+<ol>
+<li>Both the host and remote should be running on linux.</li>
+<li>The login username should be identical on both machines.</li>
+<li>Password-less ssh login should be setup on remote server. The procedure is described <a href="https://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/">here</a>.</li>
+</ol>
+<h4 id="steps">Steps</h4>
+<ol>
+<li>
+<p>Go to the network odb connector manager from the file menu.</p>
+<p><img alt="connector" src="https://saiwal.github.io/images/remote-abaqus1.png"/></p>
+</li>
+<li>
+<p>Create a new connection by clicking on Create...</p>
+<p><img alt="connector" src="https://saiwal.github.io/images/remote-abaqus2.png"/></p>
+</li>
+<li>
+<p>Fill up the details of host name and directory where files are located. In the Advanced tab, choose ssh, automatically start the server. In the <code>remote ABAQUS execution procedure</code> provide the full location of abaqus executable, for example <code>/usr/local/softs/Abaqus2017/DassaultSystemes/SIMULIA/Commands/abaqus</code>. Choose a lower time-out of 1-2 minutes.</p>
+</li>
+<li>
+<p>Click on start to start server.</p>
+</li>
+<li>
+<p>TO connect to remote directory, click open and browse to the Network Connections. Here you should find your remote directory.</p>
+</li>
+</ol>
+<h3 id="remote job submission to remote queue._1">Remote job submission to remote queue.</h3>
+<h4 id="pre-requisites_1">Pre-requisites</h4>
+<ol>
+<li>
+<p>The environment file on the host computer should have the ques and server address defined. e.g. </p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">onCaeStartup</span><span class="p">():</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">makeQueues</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="n">session</span><span class="o">.</span><span class="n">Queue</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'ceq'</span><span class="p">,</span>
+          <span class="n">queueName</span><span class="o">=</span><span class="s1">'myqueue'</span><span class="p">,</span>
+          <span class="n">driver</span><span class="o">=</span><span class="s1">'/usr/local/softs/Abaqus2017/DassaultSystemes/SIMULIA/Commands/abaqus'</span><span class="p">,</span>
+          <span class="n">hostName</span><span class="o">=</span><span class="s1">'172.20.44.111'</span><span class="p">,</span>
+          <span class="n">directory</span><span class="o">=</span><span class="s1">'/home/saiwal/scratch'</span><span class="p">)</span>
+<span class="n">addImportCallback</span><span class="p">(</span><span class="s1">'job'</span><span class="p">,</span> <span class="n">makeQueues</span><span class="p">)</span>
+</pre></div>
+</li>
+<li>
+<p>The environment file on remote computer should also have queue class definition as below.</p>
+<div class="highlight"><pre><span></span><span class="c1">#Queue define</span>
+<span class="n">run_mode</span> <span class="o">=</span> <span class="n">BATCH</span>
+<span class="kn">from</span> <span class="nn">driverQueues</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">queues</span><span class="p">[</span><span class="s1">'atq'</span><span class="p">]</span>    <span class="o">=</span> <span class="n">AtQueue</span><span class="p">()</span>
+<span class="n">queues</span><span class="p">[</span><span class="s1">'batchq'</span><span class="p">]</span> <span class="o">=</span> <span class="n">BatchQueue</span><span class="p">()</span>
+<span class="n">queues</span><span class="p">[</span><span class="s1">'hold'</span><span class="p">]</span>   <span class="o">=</span> <span class="n">HoldQueue</span><span class="p">()</span>
+
+<span class="n">run_mode</span> <span class="o">=</span> <span class="n">BATCH</span>
+<span class="kn">from</span> <span class="nn">driverQueues</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="k">class</span> <span class="nc">NiceQueue</span><span class="p">(</span><span class="n">Queue</span><span class="p">):</span>
+    <span class="c1">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">'Executes analysis using Linux nice command.'</span>
+    <span class="c1">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+    <span class="k">def</span> <span class="nf">submit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
+    <span class="n">job</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="s1">'job'</span><span class="p">]</span>
+    <span class="n">after</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'after'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="n">verbose</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'verbose'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'after'</span><span class="p">,</span> <span class="s1">''</span><span class="p">):</span>
+        <span class="c1"># a descriptive string must be supplied as data when</span>
+        <span class="c1"># raising a QueueError exception</span>
+        <span class="c1">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+        <span class="k">raise</span> <span class="n">QueueError</span><span class="p">,</span> \
+          <span class="s1">'"after" is not a valid argument for this queue.'</span>
+    <span class="c1"># run nice under bourne shell to eliminate platform dependencies</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s2">"/bin/bash -c 'nice </span><span class="si">%s</span><span class="s2"> python ./</span><span class="si">%s</span><span class="s2">.com 1&amp;gt;./</span><span class="si">%s</span><span class="s2">.log 2&amp;gt;&amp;amp;1 &amp;amp;'"</span> \
+          <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getDriverName</span><span class="p">(),</span> <span class="n">job</span><span class="p">,</span> <span class="n">job</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+
+<span class="c1">#queue definitions</span>
+<span class="n">queues</span><span class="p">[</span><span class="s1">'myqueue'</span><span class="p">]</span>     <span class="o">=</span> <span class="n">NiceQueue</span><span class="p">()</span>
+</pre></div>
+<p>This is merely an example, the parameters would change according to how you would like to submit your job.</p>
+<p>Remember that queueName should be identical on both machines. The local machine would show <code>name</code> as submission queue but the job would be submitted to the queue named <code>myqueue</code>.</p>
+</li>
+<li>
+<p>While submitting the job make sure to choose remote queue in job submission dialogue box.</p>
+<p><img alt="connector" src="https://saiwal.github.io/images/remote-abaqus3.png"/></p>
+</li>
+</ol>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://saiwal.github.io/computing/install-abaqus2016-ubuntu/" rel="bookmark"
+                           title="Permalink to Installing Abaqus 2016 on Ubuntu">Installing Abaqus 2016 on Ubuntu</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-09-19T00:00:00+05:30">
+                Published: Mon 19 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/linux.html">linux</a> <a href="https://saiwal.github.io/tags/abaqus.html">abaqus</a> </p>
+</footer><!-- /.post-info -->                <p>Abaqus 2016 adopted a new installation method and refuses to install on Ubuntu system with the following error message:</p>
+<div class="highlight"><pre><span></span>~/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1/StartGUI.sh
+CurrentMediaDir initial="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"
+CurrentMediaDir="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"
+Current …</pre></div>
+                <a class="readmore" href="https://saiwal.github.io/computing/install-abaqus2016-ubuntu/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://saiwal.github.io/computing/setup-latex-on-ubuntu/" rel="bookmark"
+                           title="Permalink to Setup $ \LaTeX $ on a Ubuntu/Linux system">Setup $ \LaTeX $ on a Ubuntu/Linux system</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-01-16T18:12:43+05:30">
+                Published: Sat 16 January 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/latex.html">latex</a> <a href="https://saiwal.github.io/tags/linux.html">linux</a> </p>
+</footer><!-- /.post-info -->                <h2 id="latex environment">Latex Environment</h2>
+<p>Latex is a versatile typsetting system that allows you to produce professional looking books, articles, presentations, handouts, thesis or any other publication. Setting up latex on ubuntu is straight forward. The main requirements for a complete setup are:</p>
+<ul>
+<li>A <strong>Latex distribution</strong>, this is a set of programs and …</li></ul>
+                <a class="readmore" href="https://saiwal.github.io/computing/setup-latex-on-ubuntu/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://saiwal.github.io/computing/computing-environment-python-anaconda/" rel="bookmark"
+                           title="Permalink to Setting up Computing environment on ubuntu using python">Setting up Computing environment on ubuntu using python</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-01-05T23:44:32+05:30">
+                Published: Tue 05 January 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/python.html">python</a> <a href="https://saiwal.github.io/tags/research.html">research</a> <a href="https://saiwal.github.io/tags/linux.html">linux</a> </p>
+</footer><!-- /.post-info -->                <p><a href="http://continuum.io/">Continuum Analytics</a> provides Anaconda, a platform which provides many python libraries bundled together as a single environment package. The bundle can be <a href="https://www.continuum.io/downloads">downloaded</a> from the website for different OS. Once installed you can set it up to use as a separate environment for computing without interfering with the already installed …</p>
+                <a class="readmore" href="https://saiwal.github.io/computing/computing-environment-python-anaconda/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://saiwal.github.io/computing/ansys-ubuntu-install/" rel="bookmark"
+                           title="Permalink to Install ANSYS 15 on ubuntu (x64)">Install ANSYS 15 on ubuntu (x64)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-06-30T15:39:31+05:30">
+                Published: Tue 30 June 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/ansys.html">ansys</a> <a href="https://saiwal.github.io/tags/linux.html">linux</a> </p>
+</footer><!-- /.post-info -->                <p>I've outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i followed to get ansys running on my machine. If you face any problems other than those shown here, it could be an unavailable library issue.</p>
+<p>Files Required:</p>
+<div class="highlight"><pre><span></span>Ansys …</pre></div>
+                <a class="readmore" href="https://saiwal.github.io/computing/ansys-ubuntu-install/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://saiwal.github.io/computing/sympy-program/" rel="bookmark"
+                           title="Permalink to SymPy for symbolic calculations">SymPy for symbolic calculations</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-06-19T17:51:20+05:30">
+                Published: Fri 19 June 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/linux.html">Linux</a> <a href="https://saiwal.github.io/tags/python.html">python</a> </p>
+</footer><!-- /.post-info -->                <p>Continuing our journey towards python for research, we take a look at sympy, a library for symbolic math. Installation on a linux system is simple through apt-get. The most efficient way to use this package would be through ipython notebook. Lets take a look.
+Start a ipython notebook by typing …</p>
+                <a class="readmore" href="https://saiwal.github.io/computing/sympy-program/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://saiwal.github.io/computing/python-research/" rel="bookmark"
+                           title="Permalink to Python for Researchers">Python for Researchers</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-06-19T17:46:33+05:30">
+                Published: Fri 19 June 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/python.html">python</a> <a href="https://saiwal.github.io/tags/linux.html">linux</a> </p>
+</footer><!-- /.post-info -->                <h2 id="python for computing">Python for computing</h2>
+<p>While switching to ubuntu from windows I also decided to embrace open-source softwares for my research/academic work. After a lot of reading on what to use as an optimum computing package I decided to use python as it had the best reviews. Using python as a …</p>
+                <a class="readmore" href="https://saiwal.github.io/computing/python-research/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://saiwal.github.io/computing/install-abaqus-ubuntu/" rel="bookmark"
+                           title="Permalink to Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)">Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-06-19T16:20:42+05:30">
+                Published: Fri 19 June 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/linux.html">linux</a> <a href="https://saiwal.github.io/tags/abaqus.html">abaqus</a> </p>
+</footer><!-- /.post-info -->                <p>I have outlined the process to install ABAQUS on Ubuntu 14.04. The license information may vary depending on your product.</p>
+<p>Lots of folk have issues with switching to linux that there is not much support for fea softwares such as Abaqus. Here I show the installation procedure for Abaqus …</p>
+                <a class="readmore" href="https://saiwal.github.io/computing/install-abaqus-ubuntu/">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://iitk.ac.in">Indian Institute of Technology Kanpur</a></li>
+                            <li><a href="http://www.imechanica.org">iMechanica</a></li>
+                            <li><a href="http://iitk.ac.in/ce">IITK CE</a></li>
+                            <li><a href="http://solidmechanics.org/">Solid Mechanics</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/civil-and-environmental-engineering/">MIT OCW</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://home.iitk.ac.in/~saiwal/feeds/all.atom.xml">RSS</a></li>
+                            <li><a href="https://www.youtube.com/mrsaiwal">Youtube</a></li>
+                            <li><a href="https://github.com/saiwal">Github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

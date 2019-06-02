@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Volumetric Strain</title>
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://saiwal.github.io/">Saiwal's Notes </a></h1>
+                <nav><ul>
+                    <li><a href="https://saiwal.github.io/category/academia.html">Academia</a></li>
+                    <li><a href="https://saiwal.github.io/category/computing.html">Computing</a></li>
+                    <li class="active"><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
+                    <li><a href="https://saiwal.github.io/category/misc.html">Misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://saiwal.github.io/engineering/volumetric-strain/" rel="bookmark"
+           title="Permalink to Volumetric Strain">Volumetric Strain</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-11-09T18:58:41+05:30">
+                Published: Mon 09 November 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/engineering.html">Engineering</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/continuum-mechanics.html">continuum-mechanics</a> </p>
+</footer><!-- /.post-info -->      <p>Visualize the approximation of volumetric strain to the hydrostatic strain.</p>
+<p>The hydrostatic strain is given by</p>
+<p>\[ \epsilon_h = \frac{\epsilon_{1}+\epsilon_{2}+\epsilon_{3}}{3} \]</p>
+<p>Consider a small element of a deformable material in the shape of a cuboid of some edge length with its sides oriented along the axes. The initial volume of this cube is $ V_o = L_0B_0H_0 $, lets define principal strains as $ \epsilon_{ii} = \frac{\Delta L}{L_0} $. therefore now the final dimensions after deformation can be written as:
+\[ L_F = L_0(1 + \epsilon_1) \]
+\[ B_F = B_0(1 + \epsilon_2) \]
+\[ H_F = H_0(1 + \epsilon_3) \]</p>
+<p><img alt="cube" src="https://saiwal.github.io/images/volstr1.png"/></p>
+<p>Thus, $ V_F = L_FB_FH_F $
+$ Volumetric strain = \frac{V_F}{V_0} $
+substituting the strains, we get
+\[ \frac{V_F}{V_0} = (1+\epsilon_1)(1+\epsilon_2)(1+ \epsilon_3) \]
+expanding this,
+\[ \frac{V_F}{V_0} = 1+ \epsilon_1 +\epsilon_2 + \epsilon_3 + \epsilon_1\epsilon_2+\epsilon_2\epsilon_3 + \epsilon_3\epsilon_1 + \epsilon_1\epsilon_2\epsilon_3 \]
+The different terms can be visualized as shown in figure below. The different changes in volume can be seen as different parts of the deformed cube. The flat plates represent the first order terms, the bars represent the second order terms and the small cube is the third order term.</p>
+<p><img alt="cube_f" src="https://saiwal.github.io/images/volstr2.png"/></p>
+<p>The small cuboids represent the higher order terms of $ \epsilon_1\epsilon_2, \epsilon_2\epsilon_3,  \epsilon_3\epsilon_1 and \epsilon_1\epsilon_2\epsilon_3  $ which can be neglected to obtain the expression for small strains. Thus,</p>
+<p>\[ \frac{V_F}{V_0} = 1 + \epsilon_1 +\epsilon_2 + \epsilon_3 \]</p>
+<p>which is same as,</p>
+<p>\[ \frac{V_F}{V_0} = 1 + 3\left(\frac{\epsilon_1 +\epsilon_2 + \epsilon_3}{3}\right) \]
+or,
+\[ \frac{V_F}{V_0} = 1 + 3\epsilon_h \]</p>
+<p>Thus the small strain condition leads to the result that volume change is related to the hydrostatic strain.</p>
+<p>if we represent volumetric strain by $ \epsilon_v = \frac{\Delta V}{V_0} $ then, we get,
+\[ \epsilon_v = \epsilon_1 +\epsilon_2 + \epsilon_3 \]
+or,
+\[ \epsilon_v = 3\epsilon_h \]</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://iitk.ac.in">Indian Institute of Technology Kanpur</a></li>
+                            <li><a href="http://www.imechanica.org">iMechanica</a></li>
+                            <li><a href="http://iitk.ac.in/ce">IITK CE</a></li>
+                            <li><a href="http://solidmechanics.org/">Solid Mechanics</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/civil-and-environmental-engineering/">MIT OCW</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://home.iitk.ac.in/~saiwal/feeds/all.atom.xml">RSS</a></li>
+                            <li><a href="https://www.youtube.com/mrsaiwal">Youtube</a></li>
+                            <li><a href="https://github.com/saiwal">Github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

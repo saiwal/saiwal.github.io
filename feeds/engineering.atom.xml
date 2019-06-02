@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Saiwal's Notes - Engineering</title><link href="https://saiwal.github.io/" rel="alternate"></link><link href="https://saiwal.github.io/feeds/engineering.atom.xml" rel="self"></link><id>https://saiwal.github.io/</id><updated>2019-03-16T00:00:00+05:30</updated><entry><title>FreeCAD for Finite Element Analysis, a review</title><link href="https://saiwal.github.io/engineering/freecad-for-finite-element-analysis-a-review/" rel="alternate"></link><published>2019-03-16T00:00:00+05:30</published><updated>2019-03-16T00:00:00+05:30</updated><author><name>Saiwal</name></author><id>tag:saiwal.github.io,2019-03-16:/engineering/freecad-for-finite-element-analysis-a-review/</id><summary type="html">&lt;p&gt;Diving into the world of open-source software is not easy but its a rewarding experience. The opportunity to look behind the hood and tinker with things as you learn is both fun and an unparalleled experience. However when it comes to engineering, the number of tools available for CAD, FEA …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Diving into the world of open-source software is not easy but its a rewarding experience. The opportunity to look behind the hood and tinker with things as you learn is both fun and an unparalleled experience. However when it comes to engineering, the number of tools available for CAD, FEA, analysis and design are severly limited. &lt;/p&gt;
+&lt;p&gt;FreeCAD came as a surprisingly good option for 2D/3D drafting replacement in linux. However what blew my mind was discovering that it has a built in FEM toolbox! With a range of choices of solvers to choose from (CalculiX, Elmer, Z88, etc.) and the flexibilty of making your own additions to the program this seems like a perfect project to embark upon. The complete set of features are available &lt;a href="https://www.freecadweb.org/wiki/FEM_Module"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I shall explore the fem and work out the implementation of various models in FreeCAD over time. &lt;/p&gt;
+&lt;h2 id="links:"&gt;Links:&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://forum.freecadweb.org/viewforum.php?f=18"&gt;The Forum&lt;/a&gt; for development related discussions.&lt;/p&gt;</content></entry><entry><title>Volumetric Strain</title><link href="https://saiwal.github.io/engineering/volumetric-strain/" rel="alternate"></link><published>2015-11-09T18:58:41+05:30</published><updated>2015-11-09T18:58:41+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-11-09:/engineering/volumetric-strain/</id><summary type="html">&lt;p&gt;Visualize the approximation of volumetric strain to the hydrostatic strain.&lt;/p&gt;
+&lt;p&gt;The hydrostatic strain is given by&lt;/p&gt;
+&lt;p&gt;\[ \epsilon_h = \frac{\epsilon_{1}+\epsilon_{2}+\epsilon_{3}}{3} \]&lt;/p&gt;
+&lt;p&gt;Consider a small element of a deformable material in the shape of a cuboid of some edge length with its sides oriented along the axes …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Visualize the approximation of volumetric strain to the hydrostatic strain.&lt;/p&gt;
+&lt;p&gt;The hydrostatic strain is given by&lt;/p&gt;
+&lt;p&gt;\[ \epsilon_h = \frac{\epsilon_{1}+\epsilon_{2}+\epsilon_{3}}{3} \]&lt;/p&gt;
+&lt;p&gt;Consider a small element of a deformable material in the shape of a cuboid of some edge length with its sides oriented along the axes. The initial volume of this cube is $ V_o = L_0B_0H_0 $, lets define principal strains as $ \epsilon_{ii} = \frac{\Delta L}{L_0} $. therefore now the final dimensions after deformation can be written as:
+\[ L_F = L_0(1 + \epsilon_1) \]
+\[ B_F = B_0(1 + \epsilon_2) \]
+\[ H_F = H_0(1 + \epsilon_3) \]&lt;/p&gt;
+&lt;p&gt;&lt;img alt="cube" src="https://saiwal.github.io/images/volstr1.png"/&gt;&lt;/p&gt;
+&lt;p&gt;Thus, $ V_F = L_FB_FH_F $
+$ Volumetric strain = \frac{V_F}{V_0} $
+substituting the strains, we get
+\[ \frac{V_F}{V_0} = (1+\epsilon_1)(1+\epsilon_2)(1+ \epsilon_3) \]
+expanding this,
+\[ \frac{V_F}{V_0} = 1+ \epsilon_1 +\epsilon_2 + \epsilon_3 + \epsilon_1\epsilon_2+\epsilon_2\epsilon_3 + \epsilon_3\epsilon_1 + \epsilon_1\epsilon_2\epsilon_3 \]
+The different terms can be visualized as shown in figure below. The different changes in volume can be seen as different parts of the deformed cube. The flat plates represent the first order terms, the bars represent the second order terms and the small cube is the third order term.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="cube_f" src="https://saiwal.github.io/images/volstr2.png"/&gt;&lt;/p&gt;
+&lt;p&gt;The small cuboids represent the higher order terms of $ \epsilon_1\epsilon_2, \epsilon_2\epsilon_3,  \epsilon_3\epsilon_1 and \epsilon_1\epsilon_2\epsilon_3  $ which can be neglected to obtain the expression for small strains. Thus,&lt;/p&gt;
+&lt;p&gt;\[ \frac{V_F}{V_0} = 1 + \epsilon_1 +\epsilon_2 + \epsilon_3 \]&lt;/p&gt;
+&lt;p&gt;which is same as,&lt;/p&gt;
+&lt;p&gt;\[ \frac{V_F}{V_0} = 1 + 3\left(\frac{\epsilon_1 +\epsilon_2 + \epsilon_3}{3}\right) \]
+or,
+\[ \frac{V_F}{V_0} = 1 + 3\epsilon_h \]&lt;/p&gt;
+&lt;p&gt;Thus the small strain condition leads to the result that volume change is related to the hydrostatic strain.&lt;/p&gt;
+&lt;p&gt;if we represent volumetric strain by $ \epsilon_v = \frac{\Delta V}{V_0} $ then, we get,
+\[ \epsilon_v = \epsilon_1 +\epsilon_2 + \epsilon_3 \]
+or,
+\[ \epsilon_v = 3\epsilon_h \]&lt;/p&gt;</content><category term="continuum-mechanics"></category></entry><entry><title>Complex functions as mappings</title><link href="https://saiwal.github.io/engineering/complex-mappings/" rel="alternate"></link><published>2015-07-28T09:30:42+05:30</published><updated>2015-07-28T09:30:42+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-07-28:/engineering/complex-mappings/</id><summary type="html">&lt;p&gt;I have plotted various complex functions as a mapping showing how the complex plane is transformed when subjected to a complex function.&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Complex Analysis is a topic which is not very easy to grasp. While the mathematics behind it is straight forward with simple rules, it is often difficult …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have plotted various complex functions as a mapping showing how the complex plane is transformed when subjected to a complex function.&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Complex Analysis is a topic which is not very easy to grasp. While the mathematics behind it is straight forward with simple rules, it is often difficult to visualize how the various operations take place. &lt;/p&gt;
+&lt;h2 id="a complex function"&gt;A Complex function&lt;/h2&gt;
+&lt;p&gt;A complex function is usually written as $ w = f(z) $, here w is referred to as the image of z and f is the transformation function which maps the complex plane z to w. The image of z (w) is plotted on another plane which is obtained after the transformation f. A sample is shown below where the z-plane is translated by adding another complex number to it.
+ \[ w = z + (2 + 3j) \]&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mapping1" src="https://saiwal.github.io/images/mapping1.jpg"/&gt;&lt;/p&gt;
+&lt;p&gt;It is clearly visible that the indicated region has translated by 2 units along the real axis and 3 units along the imaginary axis.&lt;/p&gt;
+&lt;h2 id="some more examples"&gt;Some more Examples&lt;/h2&gt;
+&lt;p&gt;I have plotted some more examples of complex functions using python. The code is also provided if you feel like experimenting. &lt;/p&gt;
+&lt;h3 id="example i (simple multiplication by a complex number)"&gt;Example I (Simple multiplication by a complex number)&lt;/h3&gt;
+&lt;p&gt;When $ w = z*(a + jb) $ the effect is that of stretching and subsequent rotation of the plane. The stretch amount is equal to the magnitude $ \sqrt{(a^2 + b^2)} $  and the rotation is by the amount $ tan^{-1} (b/a) $. Lets consider multiplication by 2 + 3j. In this case the points should stretch $ sqrt(13) $ times and rotate by 56.3 degrees.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;Created on Tue Jul 28 09:00:40 2015&lt;/span&gt;
+
+&lt;span class="sd"&gt;@author: saiwal&lt;/span&gt;
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+
+&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;z0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uu&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1j&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt;
+&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;3j&lt;/span&gt;
+&lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z0&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;
+&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;vv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; 
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'real points'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Re(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Im(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;real&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="kp"&gt;imag&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'mapped points'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Re(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Im(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gray&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The plot is shown below, note that the rotation and stretching do not depend on the sequence in which it is done. &lt;/p&gt;
+&lt;p&gt;&lt;img alt="mapping2" src="https://saiwal.github.io/images/mapping2.jpg"/&gt;&lt;/p&gt;
+&lt;h3 id="example ii (inverse of z)"&gt;Example II (Inverse of z)&lt;/h3&gt;
+&lt;p&gt;Now we try to see how $ 1/z $ looks when plotted. This mapping has a singularity at the origin so we should be careful while choosing the domain to plot.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+&lt;span class="sd"&gt;Created on Tue Jul 28 09:00:40 2015&lt;/span&gt;
+
+&lt;span class="sd"&gt;@author: saiwal&lt;/span&gt;
+&lt;span class="sd"&gt;"""&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+
+&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;z0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uu&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1j&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt;
+&lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;z0&lt;/span&gt;
+&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;vv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; 
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'real points'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Re(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Im(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;real&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="kp"&gt;imag&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'mapped points'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Re(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Im(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gray&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The plot is shown below, note the inversion that happens. Also the mapping may be verified manually by computing the maps of the four corner points.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mapping3" src="https://saiwal.github.io/images/mapping3.png"/&gt;&lt;/p&gt;
+&lt;p&gt;Another plot showing the whole plane,&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mapping7" src="https://saiwal.github.io/images/mapping7.jpg"/&gt;&lt;/p&gt;
+&lt;h3 id="example iii (simple rotation without stretching)"&gt;Example III (Simple rotation without stretching)&lt;/h3&gt;
+&lt;p&gt;For a simple rotation the multiplying complex number should have a modulus equal to 1. The argument would be the angle of rotation.&lt;/p&gt;
+&lt;p&gt;lets see the effect of multiplying by different comlplex numbers. &lt;/p&gt;
+&lt;h4 id="multiplying by j"&gt;Multiplying by j&lt;/h4&gt;
+&lt;p&gt;This results in rotation by $ \pi/2 $&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mapping4" src="https://saiwal.github.io/images/mapping4.jpg"/&gt;&lt;/p&gt;
+&lt;h4 id="multiplying by 0.6 + 0.8j"&gt;Multiplying by 0.6 + 0.8j&lt;/h4&gt;
+&lt;p&gt;Again the modulus is 1,
+Argument = 64.6 deg&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mapping5" src="https://saiwal.github.io/images/mapping5.jpg"/&gt;&lt;/p&gt;
+&lt;h4 id="multiplying by 0.98 + 0.2j"&gt;Multiplying by 0.98 + 0.2j&lt;/h4&gt;
+&lt;p&gt;Modulus = 1
+Argument = 11.53 deg&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mapping6" src="https://saiwal.github.io/images/mapping6.jpg"/&gt;&lt;/p&gt;
+&lt;h3 id="example iii (rasing z to a power)_1"&gt;Example III (rasing z to a power)&lt;/h3&gt;
+&lt;p&gt;$ z^n $ can be interpreted as raising the modulus to power n and multiplying the argument $ \theta $ by $ n $.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; Plot of $ z^2 $ &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I plotted the domain from Re(0,3) and Im(0,3) to $ z^2 $ and the result is shown. It is clearly visible that the argument is multiplied by 2 and the modulus is squared.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mapping8" src="https://saiwal.github.io/images/mapping8.jpg"/&gt;&lt;/p&gt;</content><category term="mathematics"></category></entry><entry><title>Having fun with Deformation Gradients (2D)</title><link href="https://saiwal.github.io/engineering/def-grad-fun/" rel="alternate"></link><published>2015-07-09T00:32:29+05:30</published><updated>2015-07-09T00:32:29+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-07-09:/engineering/def-grad-fun/</id><summary type="html">&lt;p&gt;In this article I plotted various deformation gradient on a 2-D grid to show how the displacement field would look like. Visualizing a deformation gradient greatly helps in understanding how a body deforms and how we calculate the various deformation measures.
+share_post: facebook, google-plus, email, twitter&lt;/p&gt;
+&lt;h2 id="what is the deformation gradient?"&gt;What is the Deformation …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;In this article I plotted various deformation gradient on a 2-D grid to show how the displacement field would look like. Visualizing a deformation gradient greatly helps in understanding how a body deforms and how we calculate the various deformation measures.
+share_post: facebook, google-plus, email, twitter&lt;/p&gt;
+&lt;h2 id="what is the deformation gradient?"&gt;What is the Deformation Gradient?&lt;/h2&gt;
+&lt;p&gt;Deformation Gradient is a measure of how different fibres of a body stretch when subjected to a deformation. We can try to understand it physically by taking an example of a 2D surface where each point is at its original location denoted by its coordinate $ (x,y) $ and which is mapped to a final position $ (X,Y) $ according to a deformation gradient &lt;strong&gt;[F]&lt;/strong&gt;. Here, &lt;strong&gt;[F]&lt;/strong&gt; is defined as follows: \[ F_{ij} = \frac{\partial{x_i}}{\partial{X_j}} \]&lt;/p&gt;
+&lt;p&gt;Let's see with an example:&lt;/p&gt;
+&lt;p&gt;Suppose there is deformation described as follows:
+\[ x = aX + bY \]
+and 
+\[ y = cX + dY \]&lt;/p&gt;
+&lt;p&gt;then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}a &amp;amp; b\\c &amp;amp; d\end{bmatrix} \]&lt;/p&gt;
+&lt;p&gt;and the deformation field is given as:&lt;/p&gt;
+&lt;p&gt;\[ u = x - X = (a-1)X + bY \]
+\[ v = y - Y = cX - (d-1)Y \]&lt;/p&gt;
+&lt;p&gt;The matrix &lt;strong&gt;F&lt;/strong&gt; gives the stretch of a fibre from the initial state to the deformed state. So, a fibre lying along x axis gets stretched by 'a' amount in the same direction but by 'b' in the perpendicular direction.&lt;/p&gt;
+&lt;h2 id="plots of some typical deformation gradients."&gt;Plots of some typical deformation gradients.&lt;/h2&gt;
+&lt;h3 id="case i"&gt;Case I&lt;/h3&gt;
+&lt;p&gt;\[ x = 1 + X \]
+and 
+\[ y = Y \]
+the displacements are:
+\[ u = 1 \]
+\[ v = 0 \]
+then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}1 &amp;amp; 0\\0 &amp;amp; 1\end{bmatrix} \]&lt;/p&gt;
+&lt;p&gt;The following code is used to plot the resulting displacement field&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt;
+
+&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;
+&lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+
+&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;Q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;quiver&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Displacement Field'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;which looks like &lt;/p&gt;
+&lt;p&gt;&lt;img alt="uniform" src="https://saiwal.github.io/images/def-grad1.png"/&gt;&lt;/p&gt;
+&lt;p&gt;Note that there is no stretching but merely a uniform displacement of 1 unit along the x-axis.&lt;/p&gt;
+&lt;h3 id="case ii"&gt;Case II&lt;/h3&gt;
+&lt;p&gt;\[ x = 1.2X \]
+and
+\[ y = Y \]
+the displacements are: 
+\[ u = 0.2X \]
+\[ v = 0 \]
+then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}1.2 &amp;amp; 0\\0 &amp;amp; 1\end{bmatrix} \]&lt;/p&gt;
+&lt;p&gt;The following code is used to plot the resulting displacement field&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt;
+
+&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;
+&lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+
+&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;Q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;quiver&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Displacement Field'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;which looks like &lt;/p&gt;
+&lt;p&gt;&lt;img alt="linear" src="https://saiwal.github.io/images/def-grad2.png"/&gt;&lt;/p&gt;
+&lt;p&gt;Note that now there is a linear variation in the stretching along the x-axis.&lt;/p&gt;
+&lt;h3 id="case iii"&gt;Case III&lt;/h3&gt;
+&lt;p&gt;\[ x = X + Y \]
+and 
+\[ y = Y \]
+the displacements are:
+\[ u = Y \]
+\[ v = 0 \]
+then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}1 &amp;amp; 1\\0 &amp;amp; 1\end{bmatrix} \]&lt;/p&gt;
+&lt;p&gt;The following code is used to plot the resulting displacement field&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt;
+
+&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Y&lt;/span&gt;
+&lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+
+&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;Q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;quiver&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Displacement Field'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;which looks like &lt;/p&gt;
+&lt;p&gt;&lt;img alt="shear" src="https://saiwal.github.io/images/def-grad3.png"/&gt;&lt;/p&gt;
+&lt;p&gt;This is a case of simple shear where the solid is sheared along the x-axis. Note the &lt;strong&gt;F&lt;/strong&gt; in this case and the significance of its values.&lt;/p&gt;
+&lt;h3 id="case iv"&gt;Case IV&lt;/h3&gt;
+&lt;p&gt;\[ x = X + Y \]
+and
+\[ y = 1.2X + 0.3Y \]
+the displacements are:
+\[ u = Y \]&lt;/p&gt;
+&lt;p&gt;\[ v = 1.2X - 0.7Y \]
+then the deformation gradient is given by:
+\[ \textbf{[F]} = \begin{bmatrix}1 &amp;amp; 1\\1.2 &amp;amp; 0.3\end{bmatrix} \]&lt;/p&gt;
+&lt;p&gt;The following code is used to plot the resulting displacement field&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt;
+
+&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;U&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Y&lt;/span&gt;
+&lt;span class="n"&gt;V&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;0.7&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt;
+
+&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;Q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;quiver&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;U&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;V&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Displacement Field'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;which looks like &lt;/p&gt;
+&lt;p&gt;&lt;img alt="mix" src="https://saiwal.github.io/images/def-grad4.png"/&gt;&lt;/p&gt;</content><category term="continuum-mechanics"></category></entry></feed>

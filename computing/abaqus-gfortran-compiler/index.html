@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Using gfortran compiler for user subroutines in ABAQUS 6.13</title>
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/main.css" />
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://saiwal.github.io/">Saiwal's Notes </a></h1>
+                <nav><ul>
+                    <li><a href="https://saiwal.github.io/category/academia.html">Academia</a></li>
+                    <li class="active"><a href="https://saiwal.github.io/category/computing.html">Computing</a></li>
+                    <li><a href="https://saiwal.github.io/category/engineering.html">Engineering</a></li>
+                    <li><a href="https://saiwal.github.io/category/misc.html">Misc</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://saiwal.github.io/computing/abaqus-gfortran-compiler/" rel="bookmark"
+           title="Permalink to Using gfortran compiler for user subroutines in ABAQUS 6.13">Using gfortran compiler for user subroutines in ABAQUS 6.13</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-09-25T00:00:00+05:30">
+                Published: Sun 25 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://saiwal.github.io/author/saiwal-krishna.html">Saiwal Krishna</a>
+        </address>
+<p>In <a href="https://saiwal.github.io/category/computing.html">Computing</a>.</p>
+<p>tags: <a href="https://saiwal.github.io/tags/abaqus.html">abaqus</a> </p>
+</footer><!-- /.post-info -->      <p>ABAQUS uses intel fortran compiler by default for compiling user subroutines. However a free alternative 'gfortran' can also be used. Here the main steps are outlined for using free gfortran compiler in linux to compile user subroutines for ABAQUS. This has been tested on ABAQUS 6.13, however this should also work for ABAQUS 6.10 and higher.</p>
+
+<p>This method has been tested and verified on ABAQUS 6.13 running on  xubuntu 16.04.1</p>
+<ol>
+<li>
+<p>Make sure gfortran is installed. If not install it by running</p>
+<div class="highlight"><pre><span></span> sudo apt-get install gfortran
+</pre></div>
+</li>
+<li>
+<p>Locate the abaqus_v6.env file. Its located in the installation folder under 613/6.13-4/SMA/site/</p>
+</li>
+<li>
+<p>rename it to ~abaqus_v6.env. This will server as a backup file incase something goes wrong.</p>
+</li>
+<li>
+<p>Replace it with <a href="{filename}/attachments/abaqus_v6.env">this file</a>.</p>
+</li>
+<li>
+<p>Be careful to replace the last few lines particularly <em>abaquslm_license_file=' '</em> about your licence information with the information in your backup file.</p>
+</li>
+<li>
+<p>Run the following command to verify:</p>
+<div class="highlight"><pre><span></span>abaqus verify -user_std
+</pre></div>
+</li>
+</ol>
+<p>The following will confirm a working fortran compiler.</p>
+<p><img alt="success" src="https://saiwal.github.io/images/success.png"/></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://iitk.ac.in">Indian Institute of Technology Kanpur</a></li>
+                            <li><a href="http://www.imechanica.org">iMechanica</a></li>
+                            <li><a href="http://iitk.ac.in/ce">IITK CE</a></li>
+                            <li><a href="http://solidmechanics.org/">Solid Mechanics</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/civil-and-environmental-engineering/">MIT OCW</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://home.iitk.ac.in/~saiwal/feeds/all.atom.xml">RSS</a></li>
+                            <li><a href="https://www.youtube.com/mrsaiwal">Youtube</a></li>
+                            <li><a href="https://github.com/saiwal">Github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
