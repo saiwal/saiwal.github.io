@@ -75,6 +75,8 @@
 <i class="fa fa-youtube fa-lg"></i></a>
                 <a href="https://github.com/saiwal" title="Github" >
 <i class="fa fa-github fa-lg"></i></a>
+                <a href="saiwalkrishna@gmail.com" title="Email" >
+<i class="fa  fa-lg"></i></a>
               </div>
             </div>
           </div>
@@ -175,6 +177,27 @@ LD_LIBRARY_PATH=&rdquo;/opt/intel/lib/intel64:$LD_LIBRARY_PATH&rdquo;
     }})
   </script>
 
+  <script type="text/javascript">
+    window.addEventListener('load', function(){
+      var e = document.querySelectorAll(".email");
+      for (var i = 0; i < e.length; i++) {
+        var email = e[i].getAttribute("data-email")
+        var title = e[i].getAttribute("data-title")
+        if (email){
+          e[i].href = email.split("").reverse().join("");
+          e[i].removeAttribute("data-email");
+          e[i].removeAttribute("data-title");
+          e[i].removeAttribute("class");
+          if (title){
+            e[i].setAttribute("title", title);
+          }
+          else{
+            e[i].removeAttribute("title");
+          }
+        }
+      }
+    })
+  </script>
 
 
 

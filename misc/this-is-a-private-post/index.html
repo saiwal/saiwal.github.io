@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Saiwal">
-  <meta name="description" content="[Encrypted] This is a private post. | LT/eu5mG+AhlCTln6c7oGA==;GMFgKB0Bh8c3kQAN06DSvSgVKu9lIKdRBQLAY01J2YGca+YhZhVErYGl60j9ngp3YqHGytN8NRHzB5/fWQ1RjBNCS92...">
+  <meta name="description" content="[Encrypted] This is a private post. | 1EA7HEX6YjLopOq/tG3eyQ==;AA/+7MKxQWrWPk8/Hqfc3JSTkhLWc6j+Ef2qrPceqCyZ+eCytAxrU8npcFq62GzaQ9szl+AbVe5d8rvS2ooRAiz/mDO...">
   
   <base href="https://saiwal.github.io">
 
@@ -75,6 +75,8 @@
 <i class="fa fa-youtube fa-lg"></i></a>
                 <a href="https://github.com/saiwal" title="Github" >
 <i class="fa fa-github fa-lg"></i></a>
+                <a href="saiwalkrishna@gmail.com" title="Email" >
+<i class="fa  fa-lg"></i></a>
               </div>
             </div>
           </div>
@@ -111,7 +113,7 @@
       </header><!-- .entry-header -->
       <div class="fb-like" data-href="https://saiwal.github.io/misc/this-is-a-private-post/" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
       <div class="entry-content">
-        <div id="pec-encrypted-content" style="display:none">LT/eu5mG+AhlCTln6c7oGA==;GMFgKB0Bh8c3kQAN06DSvSgVKu9lIKdRBQLAY01J2YGca+YhZhVErYGl60j9ngp3YqHGytN8NRHzB5/fWQ1RjBNCS92AvMtDb4bSlWqqga4rUNffggox+fvqjdDws7RPMpwmQK7N9GfjhWe9Dy2Ny9ijt9TZQrJsBZx/JTQoGAYCgbBPRjgMaW+LfZK2ULPQdD/JYiLeQtiHEGA3dTN5FQaduE9evv9WhSWqx6ii4hs6em/mCJcHPa4pgP+ItNTirgS0ATaA99HTWh/NlVkus54PE7j8lSFGzifN18bRE40dXNU8B0SM2pxdSLbhQZSH10aIC0mR3W3zIbdvucDXo3KwHrkxTKKxiIMAC0uwPdRGRidKX4bZ3IUtk6QFzLZ4;^</div>
+        <div id="pec-encrypted-content" style="display:none">1EA7HEX6YjLopOq/tG3eyQ==;AA/+7MKxQWrWPk8/Hqfc3JSTkhLWc6j+Ef2qrPceqCyZ+eCytAxrU8npcFq62GzaQ9szl+AbVe5d8rvS2ooRAiz/mDOX2IdtVAhbpHthHy2gCWgRu44mdMuUxDBCKLtQSHgN9FIyar5hK68saeszhtNj2cjrURnvXcOM7IrIGShn4YDETlZBx7DUBllhSYqDsW3wyEEWz8jGECm5SC1LxoY+KnETYxwMHkOxW1wBF+1aWLXbEmjODlfV2w2hebFOzoYmmtHQ55mYaWrdOt0rrxtgwXyMO5/IV+vOcRMfZnLU0sof8TD32nu+v43m0IkLxf+V+7xvkUsGlHTJHiPwTq8aoHfS/wpd7EqA6tHZLPhf8Pm64KToESLIUKx1EX6h;^</div>
 <div id="pec-decrypted-content">
     <h4><i>This content is encrypted. Send me an email request for the password if you wish to have access to the article.</i></h4>
 </div>
@@ -242,6 +244,27 @@
     }})
   </script>
 
+  <script type="text/javascript">
+    window.addEventListener('load', function(){
+      var e = document.querySelectorAll(".email");
+      for (var i = 0; i < e.length; i++) {
+        var email = e[i].getAttribute("data-email")
+        var title = e[i].getAttribute("data-title")
+        if (email){
+          e[i].href = email.split("").reverse().join("");
+          e[i].removeAttribute("data-email");
+          e[i].removeAttribute("data-title");
+          e[i].removeAttribute("class");
+          if (title){
+            e[i].setAttribute("title", title);
+          }
+          else{
+            e[i].removeAttribute("title");
+          }
+        }
+      }
+    })
+  </script>
 
 
 
