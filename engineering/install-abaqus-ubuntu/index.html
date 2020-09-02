@@ -1,128 +1,171 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Saiwal">
-  <meta name="description" content="Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr) | I have outlined the process to install ABAQUS on Ubuntu 14.04. The license information may...">
-  
-  <base href="https://saiwal.github.io">
-
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">  
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" media="all">
-  <link rel="stylesheet" href="https://saiwal.github.io/theme/css/font.css" type="text/css" media="all">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://saiwal.github.io/theme/css/style.css" type="text/css" media="all">
-
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://saiwal.github.io/theme/js/functions.min.js"></script>
-
-  
- 
-
-  <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Full Atom Feed" />
-
-<meta name="keywords" content="linux, abaqus">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="VxcwHlXJCVtEQYj8uZ6yQkDyecZru8ED5rzsE_fwOHs" />
+        <meta name="author" content="Saiwal" />
+        <meta name="keywords" content="linux,abaqus" />
+        <meta name="description" content="I have outlined the process to install ABAQUS on Ubuntu 14.04. The license information may vary depending on your product. Lots of folk have issues with switching to linux that there is not much support for fea softwares such as Abaqus. Here I show the installation procedure for Abaqus …" />
 
 
-  <title>Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)</title>
+    <title>Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr) - Saiwal's HomePage</title>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30714481-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/bootstrap.flatly.min.css" type="text/css"/>
 
-  gtag('config', 'UA-30714481-2');
+    <link href="https://saiwal.github.io/theme/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://saiwal.github.io/theme/css/pygments/native.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://saiwal.github.io/theme/tipuesearch/tipuesearch.css">
+        
+    <link href="https://saiwal.github.io/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Feeds -->
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Saiwal's HomePage ATOM Feed" />
+        <link href="https://saiwal.github.io/theme/custom.css" rel="stylesheet" />
+    <!-- jQuery Version 1.11.2 -->
+<script src="https://saiwal.github.io/theme/js/jquery-1.11.2.min.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
 </script>
-
-  
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
 </head>
-
-<body class="home blog">
-  <div>
-    <header class="site-header">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="row">
-            <div class="site-navigation-inner col-sm-12">
-              <div class="navbar-header">
-                <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </div>
-              <div class="collapse navbar-collapse navbar-ex1-collapse">
-              <ul id="menu-all-pages" class="nav navbar-nav">
-                <li class="menu-item"><a href="http://iitk.ac.in" >IITK
-<i class="fa  fa-lg"></i></a></li>
-                <li class="menu-item"><a href="http://home.iitk.ac.in/~saiwal" >IITK homepage
-<i class="fa  fa-lg"></i></a></li>
-                <li class="menu-item"><a href="search.html">Search</a></li>
-              </ul>
-              </div>
-              <div class="social">   
-                <a href="https://www.youtube.com/mrsaiwal" title="Youtube" >
-<i class="fa fa-youtube fa-lg"></i></a>
-                <a href="https://github.com/saiwal" title="Github" >
-<i class="fa fa-github fa-lg"></i></a>
-                <a data-email="moc.liamg@anhsirklawias:otliam" data-title="Email" title="You need javascript enabled to view this email" class="email">
-<i class="fa fa-envelope fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
+<body data-spy="scroll" data-target="#scrollspy">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper-small" class="twitchy-background">
+            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
+                <li>
+        <a href="https://saiwal.github.io" title="Saiwal's HomePage" class="collapsed">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+    </li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="https://saiwal.github.io/blog.html" title="Blog" class="collapsed">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+    </li>
+                
+                <!--    -->
+                <li class="nav-divider"></li>
+                <li>
+        <a href="#" title="Back to top" class="collapsed">
+            <span class="fa fa-arrow-up"></span>
+        </a>
+    </li>
+            </ul>
         </div>
-      </nav><!-- .site-navigation -->
+        <div id="sidebar-wrapper" class="twitchy-background">
+            <ul id="accordion" class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://saiwal.github.io/">
+                            <span class="glyphicon glyphicon-home padding-small"></span>
+                            Saiwal's HomePage
+                    </a>
+                </li>
+                
+                <li class="nav-divider"></li>
+<!--                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Pages
+                    </a>
+</li> -->
+                <li>
+                    <li>
+                        <a href="https://saiwal.github.io/blog.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://saiwal.github.io/research.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Research
+                        </a>
+                    </li>
+                </ul></li>
+                
+                 
+                
+                
+                <li class="nav-divider"></li>
 
-      <div class="container">
-      <div id="logo">
-        <span class="site-name"><a class="navbar-brand" href="https://saiwal.github.io"><img width="310" src="" class="attachment-full size-full" alt="Saiwal's Notes">          </a>
-        </span><!-- end of .site-name -->
-      </div><!-- end of #logo -->
-        <div class="tagline">
-                <a href="https://saiwal.github.io/category/academia.html" >Academia (3)</a> &#124; 
-                <a href="https://saiwal.github.io/category/engineering.html" >Engineering (16)</a> &#124; 
+            </ul>
+            
+            
         </div>
-    </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- open/close sidebar -->
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
+            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
+        </a>
+       <!-- /open/close sidebar -->
 
-  </header><!-- #masthead -->
-  </div>
-    <div id="content" class="site-content">
-      <div class="container main-content-area">
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+<section id="content">
+    <article>
         <div class="row">
-          <div class="main-content-inner col-sm-12 col-md-12">
-            <div id="primary" class="content-area">
-              <div id="main" class="site-main" role="main">
-                <div class="article-container">
-<article>
-  <div class="blog-item-wrap">
-    <div class="post-inner-content">
-      <header class="entry-header page-header">
-        <span class="cat-item"><time datetime="2015-06-19 16:20:42+05:30">Fri 19 June 2015</time></span>
-        <h1 class="entry-title"><a href="https://saiwal.github.io/engineering/install-abaqus-ubuntu/">Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)</a></h1>
-      </header><!-- .entry-header -->
-      <div class="fb-like" data-href="https://saiwal.github.io/engineering/install-abaqus-ubuntu/" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-      <div class="entry-content">
-        <p>I have outlined the process to install ABAQUS on Ubuntu 14.04. The license information may vary depending on your product.</p>
+            <div class="col-lg-9">
+                <header class="page-header">
+                    <h1>
+                        <a href="https://saiwal.github.io/engineering/install-abaqus-ubuntu/"
+                           rel="bookmark"
+                           title="Permalink to Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)">
+                            Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)
+                        </a>
+                        <small> 
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2015-06-19T16:20:42+05:30"> Fri 19 June 2015</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://saiwal.github.io/category/engineering.html">Engineering</a>
+            </span>
+            <span class="tags">
+                <i class="fa fa-tags padding-small"></i>
+                <a href="https://saiwal.github.io/tags/linux.html">linux</a> /                 <a href="https://saiwal.github.io/tags/abaqus.html">abaqus</a>            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                        </small>
+                    </h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="entry-content">
+                    <p>I have outlined the process to install ABAQUS on Ubuntu 14.04. The license information may vary depending on your product.</p>
 <p>Lots of folk have issues with switching to linux that there is not much support for fea softwares such as Abaqus. Here I show the installation procedure for Abaqus 6.11-2 on Ubuntu 14.04, I am using this software on IIT Kanpur campus so the license information would be different for your version.</p>
 <h1 id="prerequisites :">Prerequisites :</h1>
 <p>I successfully installed Abaqus on my machine running Ubuntu 14.04 64-bit. The following dependencies must be met before beginning with the installation procedure:</p>
-<div class="highlight"><pre><span></span>gcc, g++, gfortran, csh, tcsh, libstdc++5, build-essential, make, libjpeg62
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">gcc, g++, gfortran, csh, tcsh, libstdc++5, build-essential, make, libjpeg62</span>
+</code></pre></div>
 <p>You can check if they are installed by starting synaptic package manager and searching for the above mentioned.
 If not installed, install before starting the install procedure.
 or alternatively use the command from the terminal,</p>
-<div class="highlight"><pre><span></span>sudo apt-get install gcc g++ gfortran csh tcsh libstdc++5 build-essential make libjpeg62
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">sudo apt-get install gcc g++ gfortran csh tcsh libstdc++5 build-essential make libjpeg62</span>
+</code></pre></div>
 <p>before we begin the installation procedure, create the following directories:
 abaqus : to store the installlation files
 abaqustemp : to store temporary installation files
@@ -130,27 +173,27 @@ abaquswork : to store work files</p>
 <p>If you have the installation DVD in iso format, mount it using the mount command or you can simply extract the installation files in another folder. In my case the documentation files are stored in
     /home/saiwal/Downloads/DOC_SIMULIA_Abaqus_English.media/1/ 
 and the product is in</p>
-<div class="highlight"><pre><span></span>/home/saiwal/Downloads/SIM_Abaqus.media/1
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">/home/saiwal/Downloads/SIM_Abaqus.media/1</span>
+</code></pre></div>
 <p>Before we begin change the file permissions for setup so that you are the owner and it can be executed
 you might need to give this permission to other files too if &ldquo;permission denied&rdquo; pops up.
 The Installation steps:</p>
 <h1 id="step i - installing the documentation">Step I &ndash; Installing the documentation</h1>
 <p>cd to the directory where setup file is located in  DOC_SIMULIA_Abaqus_English.media/1/  and type the following commands :</p>
-<div class="highlight"><pre><span></span>csh
+<div class="highlight"><pre><span></span><code><span class="n">csh</span>
 
-/setup
-</pre></div>
+<span class="o">/</span><span class="n">setup</span>
+</code></pre></div>
 <p>(e.g. /home/saiwal/Downloads/DOC_SIMULIA_Abaqus_English.media/1/setup )
 give the location of scratch directory when asked ( /home/saiwal/abaqustemp )
 at this point the graphical interface would pop-up and the rest is intuitive. After completion exit by :
 exit</p>
 <h1 id="step ii - license server installation and product installation">Step II &ndash; License Server Installation and Product installation</h1>
 <p>cd to the directory where setup file is located in  SIM_Abaqus.media/1  and type the following commands :</p>
-<div class="highlight"><pre><span></span>csh
+<div class="highlight"><pre><span></span><code><span class="n">csh</span>
 
-/setup
-</pre></div>
+<span class="o">/</span><span class="n">setup</span>
+</code></pre></div>
 <p>give the location of scratch directory when asked ( /home/saiwal/abaqustemp )
 again the graphical user interface would pop-up and you can install the license server and then the product. When it asks for license server enter 29000@172.31.1.5 (for iit kanpur only)
 if there is an error message proceed as follows:
@@ -161,103 +204,124 @@ this would open the hosts file in gedit. substitute gedit for any other text edi
 <p>after this the installation should proceed normally. after the completion type exit to exit csh shell.</p>
 <h1 id="step iii - running abaqus">Step  III &ndash; Running Abaqus</h1>
 <p>There should be a folder &lsquo;Commands&rsquo; in the install folder abaqus, cd to the commands folder and run:</p>
-<div class="highlight"><pre><span></span>./abaqus cae
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">./abaqus cae</span>
+</code></pre></div>
 <p>type</p>
-<div class="highlight"><pre><span></span>./abaqus help
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">./abaqus help</span>
+</code></pre></div>
 <p>for more options.</p>
 <h2 id="running abaqus using ssh">Running ABAQUS using ssh</h2>
 <p>iitk has many powerful servers that can be used to run abaqus remotely. This is useful when you want to use the computing power available in cc while accessing the gui on your computer. To run abaqus remotely do the following:</p>
 <p>Note: You do not need ABAQUS installed on your computer to do this.</p>
 <h3 id="step i:">Step I:</h3>
 <p>ssh to the remote server by typing any of the following:</p>
-<div class="highlight"><pre><span></span>ssh -X -Y ccusername@akash1.cc.iitk.ac.in
-ssh -X -Y ccusername@akash2.cc.iitk.ac.in
-ssh -X -Y ccusername@falaq.cc.iitk.ac.in
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">ssh -X -Y ccusername@akash1.cc.iitk.ac.in</span>
+<span class="err">ssh -X -Y ccusername@akash2.cc.iitk.ac.in</span>
+<span class="err">ssh -X -Y ccusername@falaq.cc.iitk.ac.in</span>
+</code></pre></div>
 <p>replace ccusername with your cc login id.</p>
 <h3 id="step ii:">Step II:</h3>
 <p>export the following environment variable, this is an issue on some ubunutu machines which causes the abaqus gui to become transparent.</p>
-<div class="highlight"><pre><span></span>XLIB_SKIP_ARGB_VISUALS=1
-export XLIB_SKIP_ARGB_VISUALS
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">XLIB_SKIP_ARGB_VISUALS=1</span>
+<span class="err">export XLIB_SKIP_ARGB_VISUALS</span>
+</code></pre></div>
 <h3 id="step iii:">Step III:</h3>
 <p>Run abaqus</p>
-<div class="highlight"><pre><span></span>abaqus cae -mesa
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">abaqus cae -mesa</span>
+</code></pre></div>
 <p>-mesa is useful to avoid any conflict with your video driver.</p>
 <h1 id="useful links_2">Useful links</h1>
 <h3 id="online documentation (for iitk campus only)"><a href="http://172.31.1.4:2080/">Online documentation</a> (for iitk campus only)</h3>
 <h3 id="abaqus servers (campus only)">ABAQUS servers (campus only)</h3>
-<div class="highlight"><pre><span></span>172.31.1.2, 172.31.1.3, 172.31.1.4, 172.31.1.5, 172.31.1.6, 172.31.1.7
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">172.31.1.2, 172.31.1.3, 172.31.1.4, 172.31.1.5, 172.31.1.6, 172.31.1.7</span>
+</code></pre></div>
 <p><a href="http://imechanica.org/node/13804">useful link</a></p>
-      </div><!-- .entry-content -->
-      <br /><br />
-      <div class="article_meta">
-        Tags:
-          <a href="https://saiwal.github.io/tags/linux.html">linux</a>,          <a href="https://saiwal.github.io/tags/abaqus.html">abaqus</a>      </div>
-    </div>
-  </div>
-</article><!-- #post-## -->
                 </div>
-              </div><!-- #main -->
-          </div><!-- #primary -->
+                <footer class="text-right">
+                    <p>- Saiwal Krishna</p>
+                </footer>
+                
+ 
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://saiwal.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+
+    </section>
+ 
+            </div>
+    <div id="scrollspy">
+        <div class="col-lg-3 nav nav-stacked hidden-xs hidden-sm" data-spy="affix" data-offset-top="135">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)">Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)</a><ul><li><a class="toc-href" href="#prerequisites :" title="Prerequisites :">Prerequisites :</a></li><li><a class="toc-href" href="#step i - installing the documentation" title="Step I &ndash; Installing the documentation">Step I &ndash; Installing the documentation</a></li><li><a class="toc-href" href="#step ii - license server installation and product installation" title="Step II &ndash; License Server Installation and Product installation">Step II &ndash; License Server Installation and Product installation</a></li><li><a class="toc-href" href="#step iii - running abaqus" title="Step  III &ndash; Running Abaqus">Step  III &ndash; Running Abaqus</a><ul><li><a class="toc-href" href="#running abaqus using ssh" title="Running ABAQUS using ssh">Running ABAQUS using ssh</a><ul><li><a class="toc-href" href="#step i:" title="Step I:">Step I:</a></li><li><a class="toc-href" href="#step ii:" title="Step II:">Step II:</a></li><li><a class="toc-href" href="#step iii:" title="Step III:">Step III:</a></li></ul></li></ul></li><li><a class="toc-href" href="#useful links_2" title="Useful links">Useful links</a><ul><li><a class="toc-href" href="#online documentation (for iitk campus only)" title="Online documentation (for iitk campus only)">Online documentation (for iitk campus only)</a></li><li><a class="toc-href" href="#abaqus servers (campus only)" title="ABAQUS servers (campus only)">ABAQUS servers (campus only)</a></li></ul></li></ul></li></ul></div>
         </div>
-      </div><!-- close .row -->
-    </div><!-- close .container -->
-  </div><!-- close .site-content -->
-
-
-
-
-  <div id="footer-area">
-    <footer id="colophon" class="site-footer" role="contentinfo">
-      <div class="site-info container">
-        <div class="row">
-                    <div class="copyright col-md-12">
-                    <a href="https://saiwal.github.io/pages/privacy-policy">Privacy Policy</a> | 
-                    <a href="https://saiwal.github.io/feeds/all.atom.xml">Atom Feed</a> | 
-                    <a href="https://saiwal.github.io/sitemap.xml">Sitemap</a><br />
-                    This site uses the <a href="https://github.com/limbenjamin/voce">voce</a> theme by <a href="//limbenjamin.com/">Benjamin Lim</a><br />
-                    &copy; 2012-2016 <a href="https://saiwal.github.io">Saiwal</a> </div>
+    </div>
         </div>
-      </div><!-- .site-info -->
-      <div class="scroll-to-top" style="display: none;"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
-    </footer><!-- #colophon -->
-  </div>
+    </article>
+</section>
+                                
 
-  <script type="text/javascript">
-    window.addEventListener('load', function(){
-    if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
-      window.scroll(0, document.getElementById('main').offsetTop);
-    }})
-  </script>
+<div id="footer">
+    <hr>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <p><small>
+                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
+                &middot;                    &copy; 2020 Saiwal Krishna
+            </small></p>
+        </div>
+    </div>
+</div>            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://saiwal.github.io/theme/js/bootstrap.min.js"></script>
+    <script>
+		$("a[href='#top']").click(function() {
+		  $("html, body").animate({ scrollTop: 0 }, "slow");
+		  return false;
+		});
+    </script>
+    <script>
 
-  <script type="text/javascript">
-    window.addEventListener('load', function(){
-      var e = document.querySelectorAll(".email");
-      for (var i = 0; i < e.length; i++) {
-        var email = e[i].getAttribute("data-email")
-        var title = e[i].getAttribute("data-title")
-        if (email){
-          e[i].href = email.split("").reverse().join("");
-          e[i].removeAttribute("data-email");
-          e[i].removeAttribute("data-title");
-          e[i].removeAttribute("class");
-          if (title){
-            e[i].setAttribute("title", title);
-          }
-          else{
-            e[i].removeAttribute("title");
-          }
-        }
-      }
-    })
-  </script>
+	  $(document).ready(function() {
 
+	   var docHeight = $(window).height();
+	   var footerHeight = $('#footer').height();
+	   var footerTop = $('#footer').position().top + footerHeight;
 
-
+	   if (footerTop < docHeight) {
+		$('#footer').css('margin-top', -10+ (docHeight - footerTop) + 'px');
+	   }
+	  });
+	</script>
+    
+    <!-- twitchy Script -->
+    <script src="https://saiwal.github.io/theme/js/pelican_twitchy.min.js"></script>       
+    <script id="dsq-count-scr" src="//saiwal.disqus.com/count.js" async></script>
+    
+    
 </body>
 </html>

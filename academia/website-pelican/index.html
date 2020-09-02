@@ -1,124 +1,167 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Saiwal">
-  <meta name="description" content="Static Website/Blog with pelican | Create your own static website/blog with pelican. This website is generated using pelican. Pelican Pelican is one of...">
-  
-  <base href="https://saiwal.github.io">
-
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">  
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" media="all">
-  <link rel="stylesheet" href="https://saiwal.github.io/theme/css/font.css" type="text/css" media="all">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://saiwal.github.io/theme/css/style.css" type="text/css" media="all">
-
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://saiwal.github.io/theme/js/functions.min.js"></script>
-
-  
- 
-
-  <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Full Atom Feed" />
-
-<meta name="keywords" content="webdev">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="VxcwHlXJCVtEQYj8uZ6yQkDyecZru8ED5rzsE_fwOHs" />
+        <meta name="author" content="Saiwal" />
+        <meta name="keywords" content="webdev" />
+        <meta name="description" content="Create your own static website/blog with pelican. This website is generated using pelican. Pelican Pelican is one of the most popular website generators available. It is written in python and comes with a lot of plugins to extend its functionality. Pelican is free/open source. The fetures that make …" />
 
 
-  <title>Static Website/Blog with pelican</title>
+    <title>Static Website/Blog with pelican - Saiwal's HomePage</title>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30714481-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/bootstrap.flatly.min.css" type="text/css"/>
 
-  gtag('config', 'UA-30714481-2');
+    <link href="https://saiwal.github.io/theme/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://saiwal.github.io/theme/css/pygments/native.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://saiwal.github.io/theme/tipuesearch/tipuesearch.css">
+        
+    <link href="https://saiwal.github.io/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Feeds -->
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Saiwal's HomePage ATOM Feed" />
+        <link href="https://saiwal.github.io/theme/custom.css" rel="stylesheet" />
+    <!-- jQuery Version 1.11.2 -->
+<script src="https://saiwal.github.io/theme/js/jquery-1.11.2.min.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
 </script>
-
-  
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
 </head>
-
-<body class="home blog">
-  <div>
-    <header class="site-header">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="row">
-            <div class="site-navigation-inner col-sm-12">
-              <div class="navbar-header">
-                <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </div>
-              <div class="collapse navbar-collapse navbar-ex1-collapse">
-              <ul id="menu-all-pages" class="nav navbar-nav">
-                <li class="menu-item"><a href="http://iitk.ac.in" >IITK
-<i class="fa  fa-lg"></i></a></li>
-                <li class="menu-item"><a href="http://home.iitk.ac.in/~saiwal" >IITK homepage
-<i class="fa  fa-lg"></i></a></li>
-                <li class="menu-item"><a href="search.html">Search</a></li>
-              </ul>
-              </div>
-              <div class="social">   
-                <a href="https://www.youtube.com/mrsaiwal" title="Youtube" >
-<i class="fa fa-youtube fa-lg"></i></a>
-                <a href="https://github.com/saiwal" title="Github" >
-<i class="fa fa-github fa-lg"></i></a>
-                <a data-email="moc.liamg@anhsirklawias:otliam" data-title="Email" title="You need javascript enabled to view this email" class="email">
-<i class="fa fa-envelope fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
+<body data-spy="scroll" data-target="#scrollspy">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper-small" class="twitchy-background">
+            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
+                <li>
+        <a href="https://saiwal.github.io" title="Saiwal's HomePage" class="collapsed">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+    </li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="https://saiwal.github.io/blog.html" title="Blog" class="collapsed">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+    </li>
+                
+                <!--    -->
+                <li class="nav-divider"></li>
+                <li>
+        <a href="#" title="Back to top" class="collapsed">
+            <span class="fa fa-arrow-up"></span>
+        </a>
+    </li>
+            </ul>
         </div>
-      </nav><!-- .site-navigation -->
+        <div id="sidebar-wrapper" class="twitchy-background">
+            <ul id="accordion" class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://saiwal.github.io/">
+                            <span class="glyphicon glyphicon-home padding-small"></span>
+                            Saiwal's HomePage
+                    </a>
+                </li>
+                
+                <li class="nav-divider"></li>
+<!--                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Pages
+                    </a>
+</li> -->
+                <li>
+                    <li>
+                        <a href="https://saiwal.github.io/blog.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://saiwal.github.io/research.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Research
+                        </a>
+                    </li>
+                </ul></li>
+                
+                 
+                
+                
+                <li class="nav-divider"></li>
 
-      <div class="container">
-      <div id="logo">
-        <span class="site-name"><a class="navbar-brand" href="https://saiwal.github.io"><img width="310" src="" class="attachment-full size-full" alt="Saiwal's Notes">          </a>
-        </span><!-- end of .site-name -->
-      </div><!-- end of #logo -->
-        <div class="tagline">
-                <a href="https://saiwal.github.io/category/academia.html" >Academia (3)</a> &#124; 
-                <a href="https://saiwal.github.io/category/engineering.html" >Engineering (16)</a> &#124; 
+            </ul>
+            
+            
         </div>
-    </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- open/close sidebar -->
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
+            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
+        </a>
+       <!-- /open/close sidebar -->
 
-  </header><!-- #masthead -->
-  </div>
-    <div id="content" class="site-content">
-      <div class="container main-content-area">
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+<section id="content">
+    <article>
         <div class="row">
-          <div class="main-content-inner col-sm-12 col-md-12">
-            <div id="primary" class="content-area">
-              <div id="main" class="site-main" role="main">
-                <div class="article-container">
-<article>
-  <div class="blog-item-wrap">
-    <div class="post-inner-content">
-      <header class="entry-header page-header">
-        <span class="cat-item"><time datetime="2015-06-24 00:37:45+05:30">Wed 24 June 2015</time></span>
-        <h1 class="entry-title"><a href="https://saiwal.github.io/academia/website-pelican/">Static Website/Blog with pelican</a></h1>
-      </header><!-- .entry-header -->
-      <div class="fb-like" data-href="https://saiwal.github.io/academia/website-pelican/" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-      <div class="entry-content">
-        <p>Create your own static website/blog with pelican. This website is generated using pelican.</p>
+            <div class="col-lg-9">
+                <header class="page-header">
+                    <h1>
+                        <a href="https://saiwal.github.io/academia/website-pelican/"
+                           rel="bookmark"
+                           title="Permalink to Static Website/Blog with pelican">
+                            Static Website/Blog with pelican
+                        </a>
+                        <small> 
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2015-06-24T00:37:45+05:30"> Wed 24 June 2015</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://saiwal.github.io/category/academia.html">Academia</a>
+            </span>
+            <span class="tags">
+                <i class="fa fa-tags padding-small"></i>
+                <a href="https://saiwal.github.io/tags/webdev.html">webdev</a>            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                        </small>
+                    </h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="entry-content">
+                    <p>Create your own static website/blog with pelican. This website is generated using pelican.</p>
 <h2 id="pelican">Pelican</h2>
 <p>Pelican is one of the most popular website generators available. It is written in python and comes with a lot of plugins to extend its functionality. <a href="http://blog.getpelican.com/">Pelican</a> is free/open source. The fetures that make it easy to use are:
-<em> posts and pages are written in markdown. Custom html snippets can also be used.
-</em> A large collection of themes and plugins available.
-<em> write your own themes and plugins easily.
-</em> Completely static output, can host anywhere.</p>
+* posts and pages are written in markdown. Custom html snippets can also be used.
+* A large collection of themes and plugins available.
+* write your own themes and plugins easily.
+* Completely static output, can host anywhere.</p>
 <p><img alt="pelican" src="https://saiwal.github.io/images/pelican.png"/></p>
 <h2 id="this website">This website</h2>
 <p>My website uses the theme <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a>. The bootstrap theme has been changed to 'yeti'. My pelicanconfig.py is below:</p>
@@ -205,7 +248,7 @@
 81
 82
 83
-84</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+84</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*- #</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
@@ -220,9 +263,9 @@
 <span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s1">'en'</span>
 
 <span class="c1"># Feed generation is usually not desired when developing</span>
-<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">FEED_ALL_ATOM</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">CATEGORY_FEED_ATOM</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">THEME</span> <span class="o">=</span> <span class="s1">'pelican-twitchy'</span>
 <span class="n">BOOTSTRAP_THEME</span> <span class="o">=</span> <span class="s1">'superhero'</span>
 <span class="n">PYGMENTS_STYLE</span> <span class="o">=</span> <span class="s1">'emacs'</span>
@@ -238,7 +281,7 @@
 
 <span class="c1"># PLUGIN_PATHS = [ "something", ]</span>
 <span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">'toc'</span><span class="p">,</span><span class="s1">'sitemap'</span><span class="p">,</span> <span class="p">]</span>
-<span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="c1"># theme options</span>
 <span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s1">'xxxxxxxxxx'</span>
@@ -250,7 +293,7 @@
 <span class="n">GOOGLE_ANALYTICS</span> <span class="o">=</span> <span class="s1">'xxxxxxxxxx'</span>
 <span class="c1">#license</span>
 <span class="n">CC_LICENSE</span> <span class="o">=</span> <span class="s2">"CC-BY-NC-SA"</span>
-<span class="n">CC_ATTR_MARKUP</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">CC_ATTR_MARKUP</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="n">TOC</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">'TOC_HEADERS'</span> <span class="p">:</span> <span class="s1">'^h[1-6]'</span><span class="p">,</span>  <span class="c1"># What headers should be included in the generated toc</span>
@@ -260,12 +303,12 @@
                                 <span class="c1"># to 'true' no toc will be generated</span>
 <span class="p">}</span>
 
-<span class="n">DISPLAY_RECENT_POSTS_ON_MENU</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">DISPLAY_CATEGORIES_ON_MENU</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">DISPLAY_PAGES_ON_MENU</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">DISPLAY_TAGS_ON_MENU</span> <span class="o">=</span> <span class="bp">False</span>
-<span class="n">EXPAND_LATEST_ON_INDEX</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">USE_FOLDER_AS_CATEGORY</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">DISPLAY_RECENT_POSTS_ON_MENU</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">DISPLAY_CATEGORIES_ON_MENU</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">DISPLAY_PAGES_ON_MENU</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">DISPLAY_TAGS_ON_MENU</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">EXPAND_LATEST_ON_INDEX</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">USE_FOLDER_AS_CATEGORY</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">DEFAULT_DATE</span> <span class="o">=</span> <span class="s1">'fs'</span>
 <span class="c1">#DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search')</span>
 
@@ -283,13 +326,13 @@
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">ARTICLE_SAVE_AS</span> <span class="o">=</span> <span class="s1">'{slug}.html'</span>
-<span class="n">ARTICLE_URL</span> <span class="o">=</span> <span class="s1">'{slug}.html'</span>
+<span class="n">ARTICLE_SAVE_AS</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{slug}</span><span class="s1">.html'</span>
+<span class="n">ARTICLE_URL</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{slug}</span><span class="s1">.html'</span>
 <span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'images'</span><span class="p">,</span><span class="s1">'attachments'</span><span class="p">]</span>
 
 <span class="c1"># Uncomment following line if you want document-relative URLs when developing</span>
 <span class="c1">#RELATIVE_URLS = True</span>
-</pre></div>
+</code></pre></div>
 </td></tr></table>
 <h2 id="publishing a static website with pelican &amp; github">Publishing a static website with pelican &amp; github</h2>
 <h3 id="steps">Steps</h3>
@@ -306,71 +349,92 @@
 </ol>
 <h3 id="restoring repository">Restoring repository</h3>
 <p>If by chance you end up changing one of the files online, <code>make github</code> would refuse to upload your files, in this case clone the repository in your output folder and move the .git folder back to your working directory.</p>
-      </div><!-- .entry-content -->
-      <br /><br />
-      <div class="article_meta">
-        Tags:
-          <a href="https://saiwal.github.io/tags/webdev.html">webdev</a>      </div>
-    </div>
-  </div>
-</article><!-- #post-## -->
                 </div>
-              </div><!-- #main -->
-          </div><!-- #primary -->
+                <footer class="text-right">
+                    <p>- Saiwal Krishna</p>
+                </footer>
+                
+ 
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://saiwal.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+
+    </section>
+ 
+            </div>
+    <div id="scrollspy">
+        <div class="col-lg-3 nav nav-stacked hidden-xs hidden-sm" data-spy="affix" data-offset-top="135">
+            <div id="toc"><ul><li><a class="toc-href" href="#" title="Static Website/Blog with pelican">Static Website/Blog with pelican</a><ul><li><a class="toc-href" href="#pelican" title="Pelican">Pelican</a></li><li><a class="toc-href" href="#this website" title="This website">This website</a></li><li><a class="toc-href" href="#publishing a static website with pelican &amp; github" title="Publishing a static website with pelican &amp; github">Publishing a static website with pelican &amp; github</a><ul><li><a class="toc-href" href="#steps" title="Steps">Steps</a></li><li><a class="toc-href" href="#restoring repository" title="Restoring repository">Restoring repository</a></li></ul></li></ul></li></ul></div>
         </div>
-      </div><!-- close .row -->
-    </div><!-- close .container -->
-  </div><!-- close .site-content -->
-
-
-
-
-  <div id="footer-area">
-    <footer id="colophon" class="site-footer" role="contentinfo">
-      <div class="site-info container">
-        <div class="row">
-                    <div class="copyright col-md-12">
-                    <a href="https://saiwal.github.io/pages/privacy-policy">Privacy Policy</a> | 
-                    <a href="https://saiwal.github.io/feeds/all.atom.xml">Atom Feed</a> | 
-                    <a href="https://saiwal.github.io/sitemap.xml">Sitemap</a><br />
-                    This site uses the <a href="https://github.com/limbenjamin/voce">voce</a> theme by <a href="//limbenjamin.com/">Benjamin Lim</a><br />
-                    &copy; 2012-2016 <a href="https://saiwal.github.io">Saiwal</a> </div>
+    </div>
         </div>
-      </div><!-- .site-info -->
-      <div class="scroll-to-top" style="display: none;"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
-    </footer><!-- #colophon -->
-  </div>
+    </article>
+</section>
+                                
 
-  <script type="text/javascript">
-    window.addEventListener('load', function(){
-    if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
-      window.scroll(0, document.getElementById('main').offsetTop);
-    }})
-  </script>
+<div id="footer">
+    <hr>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <p><small>
+                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
+                &middot;                    &copy; 2020 Saiwal Krishna
+            </small></p>
+        </div>
+    </div>
+</div>            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://saiwal.github.io/theme/js/bootstrap.min.js"></script>
+    <script>
+		$("a[href='#top']").click(function() {
+		  $("html, body").animate({ scrollTop: 0 }, "slow");
+		  return false;
+		});
+    </script>
+    <script>
 
-  <script type="text/javascript">
-    window.addEventListener('load', function(){
-      var e = document.querySelectorAll(".email");
-      for (var i = 0; i < e.length; i++) {
-        var email = e[i].getAttribute("data-email")
-        var title = e[i].getAttribute("data-title")
-        if (email){
-          e[i].href = email.split("").reverse().join("");
-          e[i].removeAttribute("data-email");
-          e[i].removeAttribute("data-title");
-          e[i].removeAttribute("class");
-          if (title){
-            e[i].setAttribute("title", title);
-          }
-          else{
-            e[i].removeAttribute("title");
-          }
-        }
-      }
-    })
-  </script>
+	  $(document).ready(function() {
 
+	   var docHeight = $(window).height();
+	   var footerHeight = $('#footer').height();
+	   var footerTop = $('#footer').position().top + footerHeight;
 
-
+	   if (footerTop < docHeight) {
+		$('#footer').css('margin-top', -10+ (docHeight - footerTop) + 'px');
+	   }
+	  });
+	</script>
+    
+    <!-- twitchy Script -->
+    <script src="https://saiwal.github.io/theme/js/pelican_twitchy.min.js"></script>       
+    <script id="dsq-count-scr" src="//saiwal.disqus.com/count.js" async></script>
+    
+    
 </body>
 </html>

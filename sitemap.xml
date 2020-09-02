@@ -5,22 +5,57 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://saiwal.github.io/</loc>
-<lastmod>2019-08-06T20:45:57-00:00</lastmod>
+<lastmod>2020-09-02T18:55:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://saiwal.github.io/archives.html</loc>
-<lastmod>2019-08-06T20:45:57-00:00</lastmod>
+<lastmod>2020-09-02T18:55:09-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://saiwal.github.io/search.html</loc>
-<lastmod>2019-06-18T09:57:37+05:30</lastmod>
+<loc>https://saiwal.github.io/blog.html</loc>
+<lastmod>2018-11-28T10:26:48+05:30</lastmod>
 <changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://saiwal.github.io/teaching/ce642.html</loc>
+<lastmod>2017-03-29T17:07:48+05:30</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://saiwal.github.io/research.html</loc>
+<lastmod>2019-12-24T16:37:24+05:30</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://saiwal.github.io/teaching.html</loc>
+<lastmod>2017-12-05T23:50:32+05:30</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://saiwal.github.io/thesis-progress.html</loc>
+<lastmod>2016-02-06T04:20:12+05:30</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://saiwal.github.io/engineering/abaqus-gfortran-lapack-blas/</loc>
+<lastmod>2019-04-10T00:00:00+05:30</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -166,14 +201,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://saiwal.github.io/category/engineering.html</loc>
-<lastmod>2019-03-16T00:00:00+05:53</lastmod>
+<lastmod>2019-04-10T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://saiwal.github.io/tags/abaqus.html</loc>
-<lastmod>2018-11-30T00:00:00+05:53</lastmod>
+<lastmod>2019-04-10T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -242,15 +277,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://saiwal.github.io/author/saiwal.html</loc>
-<lastmod>2019-03-16T00:00:00+05:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://saiwal.github.io/author/saiwal-krishna.html</loc>
-<lastmod>2018-11-30T00:00:00+05:53</lastmod>
+<lastmod>2019-04-10T00:00:00+05:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="VxcwHlXJCVtEQYj8uZ6yQkDyecZru8ED5rzsE_fwOHs" />
+        <meta name="author" content="Saiwal" />
+
+
+    <title>Using PNEWDT within UEL/UMAT to control time incrementation scheme in ABAQUS - Saiwal's HomePage</title>
+
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <link href="https://saiwal.github.io/theme/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://saiwal.github.io/theme/css/pygments/native.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://saiwal.github.io/theme/tipuesearch/tipuesearch.css">
+        
+    <link href="https://saiwal.github.io/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Feeds -->
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Saiwal's HomePage ATOM Feed" />
+        <link href="https://saiwal.github.io/theme/custom.css" rel="stylesheet" />
+    <!-- jQuery Version 1.11.2 -->
+<script src="https://saiwal.github.io/theme/js/jquery-1.11.2.min.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
+</head>
+<body data-spy="scroll" data-target="#scrollspy">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper-small" class="twitchy-background">
+            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
+                <li>
+        <a href="https://saiwal.github.io" title="Saiwal's HomePage" class="collapsed">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+    </li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="https://saiwal.github.io/blog.html" title="Blog" class="collapsed">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+    </li>
+                
+                <!--    -->
+                <li class="nav-divider"></li>
+                <li>
+        <a href="#" title="Back to top" class="collapsed">
+            <span class="fa fa-arrow-up"></span>
+        </a>
+    </li>
+            </ul>
+        </div>
+        <div id="sidebar-wrapper" class="twitchy-background">
+            <ul id="accordion" class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://saiwal.github.io/">
+                            <span class="glyphicon glyphicon-home padding-small"></span>
+                            Saiwal's HomePage
+                    </a>
+                </li>
+                
+                <li class="nav-divider"></li>
+<!--                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Pages
+                    </a>
+</li> -->
+                <li>
+                    <li>
+                        <a href="https://saiwal.github.io/blog.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://saiwal.github.io/research.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Research
+                        </a>
+                    </li>
+                </ul></li>
+                
+                 
+                
+                
+                <li class="nav-divider"></li>
+
+            </ul>
+            
+            
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- open/close sidebar -->
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
+            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
+        </a>
+       <!-- /open/close sidebar -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+<section id="content">
+    <article>
+        <div class="row">
+            <div class="col-lg-9">
+                <header class="page-header">
+                    <h1>
+                        <a href="https://saiwal.github.io/drafts/using-pnewdt-within-uelumat-to-control-time-incrementation-scheme-in-abaqus.html"
+                           rel="bookmark"
+                           title="Permalink to Using PNEWDT within UEL/UMAT to control time incrementation scheme in ABAQUS">
+                            Using PNEWDT within UEL/UMAT to control time incrementation scheme in ABAQUS
+                        </a>
+                        <small> 
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2019-11-10T00:00:00+05:30"> Sun 10 November 2019</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://saiwal.github.io/category/engineering.html">Engineering</a>
+            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                        </small>
+                    </h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="entry-content">
+                    
+                </div>
+                <footer class="text-right">
+                    <p>- Saiwal Krishna, Mayank Chouksey</p>
+                </footer>
+                
+            </div>
+        </div>
+    </article>
+</section>
+                                
+
+<div id="footer">
+    <hr>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <p><small>
+                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
+                &middot;                    &copy; 2020 Saiwal Krishna
+            </small></p>
+        </div>
+    </div>
+</div>            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://saiwal.github.io/theme/js/bootstrap.min.js"></script>
+    <script>
+		$("a[href='#top']").click(function() {
+		  $("html, body").animate({ scrollTop: 0 }, "slow");
+		  return false;
+		});
+    </script>
+    <script>
+
+	  $(document).ready(function() {
+
+	   var docHeight = $(window).height();
+	   var footerHeight = $('#footer').height();
+	   var footerTop = $('#footer').position().top + footerHeight;
+
+	   if (footerTop < docHeight) {
+		$('#footer').css('margin-top', -10+ (docHeight - footerTop) + 'px');
+	   }
+	  });
+	</script>
+    
+    <!-- twitchy Script -->
+    <script src="https://saiwal.github.io/theme/js/pelican_twitchy.min.js"></script>       
+    <script id="dsq-count-scr" src="//saiwal.disqus.com/count.js" async></script>
+    
+    
+</body>
+</html>

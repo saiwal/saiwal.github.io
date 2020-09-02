@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Saiwal's Notes</title><link href="https://saiwal.github.io/" rel="alternate"></link><link href="https://saiwal.github.io/feeds/all.atom.xml" rel="self"></link><id>https://saiwal.github.io/</id><updated>2019-03-16T00:00:00+05:30</updated><entry><title>FreeCAD for Finite Element Analysis, a review</title><link href="https://saiwal.github.io/engineering/freecad-for-finite-element-analysis-a-review/" rel="alternate"></link><published>2019-03-16T00:00:00+05:30</published><updated>2019-03-16T00:00:00+05:30</updated><author><name>Saiwal</name></author><id>tag:saiwal.github.io,2019-03-16:/engineering/freecad-for-finite-element-analysis-a-review/</id><summary type="html">&lt;p&gt;Diving into the world of open-source software is not easy but its a rewarding experience. The opportunity to look behind the hood and tinker with things as you learn is both fun and an unparalleled experience. However when it comes to engineering, the number of tools available for CAD, FEA …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Diving into the world of open-source software is not easy but its a rewarding experience. The opportunity to look behind the hood and tinker with things as you learn is both fun and an unparalleled experience. However when it comes to engineering, the number of tools available for CAD, FEA, analysis and design are severly limited. &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Saiwal's HomePage</title><link href="https://saiwal.github.io/" rel="alternate"></link><link href="https://saiwal.github.io/feeds/all.atom.xml" rel="self"></link><id>https://saiwal.github.io/</id><updated>2019-04-10T00:00:00+05:30</updated><subtitle>A Personal Website and Blog</subtitle><entry><title>Using LAPACK/BLAS libraries in gfortran for user subroutines in ABAQUS</title><link href="https://saiwal.github.io/engineering/abaqus-gfortran-lapack-blas/" rel="alternate"></link><published>2019-04-10T00:00:00+05:30</published><updated>2019-04-10T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2019-04-10:/engineering/abaqus-gfortran-lapack-blas/</id><summary type="html">&lt;p&gt;Performing complex linear algebra computations necessitates writing large code which can be replaced using legacy subroutines easily available via LAPACK/BLAS libraries. However in order to use these with gfortran while compiling user-subroutines in ABAQUS requires some additional steps.&lt;/p&gt;
+
+&lt;p&gt;The following steps outline the procedure to get LAPACK installed and …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Performing complex linear algebra computations necessitates writing large code which can be replaced using legacy subroutines easily available via LAPACK/BLAS libraries. However in order to use these with gfortran while compiling user-subroutines in ABAQUS requires some additional steps.&lt;/p&gt;
+
+&lt;p&gt;The following steps outline the procedure to get LAPACK installed and configured to be used in user subroutines.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure gfortran is installed. If not install it by running&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt; sudo apt-get install gfortran&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Locate the &lt;code&gt;abaqus_v6.env&lt;/code&gt; file. Its located in the installation folder of ABAQUS. As an alternative a copy can be saved in the current working directory which can be modified without touching any installation files.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rename it to &lt;code&gt;~abaqus_v6.env&lt;/code&gt;. This will server as a backup file incase something goes wrong.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Look for the line that specifies compiler flags. It looks like the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;compile_fortran = (fortCmd + " -c -fPIC -I%I")&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Change it to &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;compile_fortran = (fortCmd + " -c -fPIC -I%I -L$HOME/libf77/$ARCH -llapack -lblas")&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now to install LAPACK library, you can compile it directly from source using the official source code available at &lt;a href="http://www.netlib.org/lapack/"&gt;http://www.netlib.org/lapack/&lt;/a&gt; or use official repositories/install methodof your OS.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Engineering"></category><category term="abaqus"></category></entry><entry><title>FreeCAD for Finite Element Analysis, a review</title><link href="https://saiwal.github.io/engineering/freecad-for-finite-element-analysis-a-review/" rel="alternate"></link><published>2019-03-16T00:00:00+05:30</published><updated>2019-03-16T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2019-03-16:/engineering/freecad-for-finite-element-analysis-a-review/</id><summary type="html">&lt;p&gt;Diving into the world of open-source software is not easy but its a rewarding experience. The opportunity to look behind the hood and tinker with things as you learn is both fun and an unparalleled experience. However when it comes to engineering, the number of tools available for CAD, FEA …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Diving into the world of open-source software is not easy but its a rewarding experience. The opportunity to look behind the hood and tinker with things as you learn is both fun and an unparalleled experience. However when it comes to engineering, the number of tools available for CAD, FEA, analysis and design are severly limited. &lt;/p&gt;
 &lt;p&gt;FreeCAD came as a surprisingly good option for 2D/3D drafting replacement in linux. However what blew my mind was discovering that it has a built in FEM toolbox! With a range of choices of solvers to choose from (CalculiX, Elmer, Z88, etc.) and the flexibilty of making your own additions to the program this seems like a perfect project to embark upon. The complete set of features are available &lt;a href="https://www.freecadweb.org/wiki/FEM_Module"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;I shall explore the fem and work out the implementation of various models in FreeCAD over time. &lt;/p&gt;
 &lt;h2 id="links:"&gt;Links:&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://forum.freecadweb.org/viewforum.php?f=18"&gt;The Forum&lt;/a&gt; for development related discussions.&lt;/p&gt;</content></entry><entry><title>Useful commands, tips for using ABAQUS over command-line in linux</title><link href="https://saiwal.github.io/engineering/useful-commands-tips-for-using-abaqus-over-command-line-in-linux/" rel="alternate"></link><published>2018-11-30T00:00:00+05:30</published><updated>2018-11-30T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2018-11-30:/engineering/useful-commands-tips-for-using-abaqus-over-command-line-in-linux/</id><summary type="html">&lt;h2 id="coming from windows"&gt;Coming from Windows&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://forum.freecadweb.org/viewforum.php?f=18"&gt;The Forum&lt;/a&gt; for development related discussions.&lt;/p&gt;</content><category term="Engineering"></category></entry><entry><title>Useful commands, tips for using ABAQUS over command-line in linux</title><link href="https://saiwal.github.io/engineering/useful-commands-tips-for-using-abaqus-over-command-line-in-linux/" rel="alternate"></link><published>2018-11-30T00:00:00+05:30</published><updated>2018-11-30T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2018-11-30:/engineering/useful-commands-tips-for-using-abaqus-over-command-line-in-linux/</id><summary type="html">&lt;h2 id="coming from windows"&gt;Coming from Windows&lt;/h2&gt;
 &lt;p&gt;If you are a windows user then you'll need a ssh client like 'putty' to have access to your remote server over ssh and a file transfer client such as 'FileZilla' for transferring large files across machines conveniently.&lt;/p&gt;
 &lt;p&gt;Once you have access to your remote server you …&lt;/p&gt;</summary><content type="html">&lt;h2 id="coming from windows"&gt;Coming from Windows&lt;/h2&gt;
 &lt;p&gt;If you are a windows user then you'll need a ssh client like 'putty' to have access to your remote server over ssh and a file transfer client such as 'FileZilla' for transferring large files across machines conveniently.&lt;/p&gt;
@@ -84,7 +112,7 @@
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;The environment file on the host computer should have the ques and server address defined. e.g. &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;onCaeStartup&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;onCaeStartup&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;makeQueues&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -94,11 +122,11 @@
           &lt;span class="n"&gt;hostName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'172.20.44.111'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
           &lt;span class="n"&gt;directory&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'/home/saiwal/scratch'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;addImportCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'job'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;makeQueues&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;The environment file on remote computer should also have queue class definition as below.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#Queue define&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#Queue define&lt;/span&gt;
 &lt;span class="n"&gt;run_mode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BATCH&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;driverQueues&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
 &lt;span class="n"&gt;queues&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'atq'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;AtQueue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -124,13 +152,13 @@
         &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;QueueError&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; \
           &lt;span class="s1"&gt;'"after" is not a valid argument for this queue.'&lt;/span&gt;
     &lt;span class="c1"&gt;# run nice under bourne shell to eliminate platform dependencies&lt;/span&gt;
-    &lt;span class="n"&gt;cmd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"/bin/bash -c 'nice &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt; python ./&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;.com 1&amp;amp;gt;./&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;.log 2&amp;amp;gt;&amp;amp;amp;1 &amp;amp;amp;'"&lt;/span&gt; \
+    &lt;span class="n"&gt;cmd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"/bin/bash -c 'nice &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt; python ./&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;.com 1&amp;gt;./&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s2"&gt;.log 2&amp;gt;&amp;amp;1 &amp;amp;'"&lt;/span&gt; \
           &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getDriverName&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;job&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;job&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spawn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="c1"&gt;#queue definitions&lt;/span&gt;
 &lt;span class="n"&gt;queues&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'myqueue'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;NiceQueue&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is merely an example, the parameters would change according to how you would like to submit your job.&lt;/p&gt;
 &lt;p&gt;Remember that queueName should be identical on both machines. The local machine would show &lt;code&gt;name&lt;/code&gt; as submission queue but the job would be submitted to the queue named &lt;code&gt;myqueue&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
@@ -138,15 +166,15 @@
 &lt;p&gt;While submitting the job make sure to choose remote queue in job submission dialogue box.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="connector" src="https://saiwal.github.io/images/remote-abaqus3.png"/&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content><category term="abaqus"></category><category term="linux"></category></entry><entry><title>Using gfortran compiler for user subroutines in ABAQUS 2016/2017</title><link href="https://saiwal.github.io/engineering/abaqus2016-2017-gfortran-compiler/" rel="alternate"></link><published>2017-05-04T00:00:00+05:30</published><updated>2017-05-04T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2017-05-04:/engineering/abaqus2016-2017-gfortran-compiler/</id><summary type="html">&lt;p&gt;My previous post showed how to get gfortran running on ABAQUS 6.13 for compiling user subroutines. ABAQUS 2016/2017 have changed the way environment files are used.&lt;/p&gt;
+&lt;/ol&gt;</content><category term="Engineering"></category><category term="abaqus"></category><category term="linux"></category></entry><entry><title>Using gfortran compiler for user subroutines in ABAQUS 2016/2017</title><link href="https://saiwal.github.io/engineering/abaqus2016-2017-gfortran-compiler/" rel="alternate"></link><published>2017-05-04T00:00:00+05:30</published><updated>2017-05-04T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2017-05-04:/engineering/abaqus2016-2017-gfortran-compiler/</id><summary type="html">&lt;p&gt;My previous post showed how to get gfortran running on ABAQUS 6.13 for compiling user subroutines. ABAQUS 2016/2017 have changed the way environment files are used.&lt;/p&gt;
 &lt;p&gt;ABAQUS uses intel fortran compiler by default for compiling user subroutines. However a free alternative 'gfortran' can also be used. Here the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;My previous post showed how to get gfortran running on ABAQUS 6.13 for compiling user subroutines. ABAQUS 2016/2017 have changed the way environment files are used.&lt;/p&gt;
 &lt;p&gt;ABAQUS uses intel fortran compiler by default for compiling user subroutines. However a free alternative 'gfortran' can also be used. Here the main steps are outlined for using free gfortran compiler in linux to compile user subroutines for ABAQUS. This has not been tested yet, however this should also work for ABAQUS 2016/2017 as the basic principle reamains the same.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Make sure gfortran is installed. If not install it by running&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; sudo apt-get install gfortran
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt; sudo apt-get install gfortran&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Locate the lnx86_64.env file. Its located in the installation folder under  /usr/local/softs/Abaqus2017/DassaultSystemes/SimulationServices/V6R2017x/linux_a64/SMA/site/&lt;/p&gt;
@@ -157,41 +185,41 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Change the following lines as shown below:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fortCmd = "ifort"   # &amp;amp;lt;-- Fortran compiler
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;fortCmd = "ifort"   # &amp;lt;-- Fortran compiler&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;should be changed to &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fortCmd = "gfortran"   # &amp;amp;lt;-- Fortran compiler
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;fortCmd = "gfortran"   # &amp;lt;-- Fortran compiler&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;and &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;compile_fortran = [fortCmd,
-       '-V',
-       '-c', '-fPIC', '-auto', '-mP2OPT_hpo_vec_divbyzero=F', '-extend_source',
-       '-fpp', '-WB', '-I%I']
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;compile_fortran = [fortCmd,&lt;/span&gt;
+&lt;span class="err"&gt;       '-V',&lt;/span&gt;
+&lt;span class="err"&gt;       '-c', '-fPIC', '-auto', '-mP2OPT_hpo_vec_divbyzero=F', '-extend_source',&lt;/span&gt;
+&lt;span class="err"&gt;       '-fpp', '-WB', '-I%I']&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;should be changed to&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;compile_fortran = (fortCmd + " -c -fPIC -I%I")
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;compile_fortran = (fortCmd + " -c -fPIC -I%I")&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;and,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;link_sl = [fortCmd,
-       '-V',
-       '-cxxlib', '-fPIC', '-threads', '-shared','-Wl,--add-needed',
-       '%E', '-Wl,-soname,%U', '-o', '%U', '%F', '%A', '%L', '%B', '-parallel',
-       '-Wl,-Bdynamic', '-shared-intel']
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;link_sl = [fortCmd,&lt;/span&gt;
+&lt;span class="err"&gt;       '-V',&lt;/span&gt;
+&lt;span class="err"&gt;       '-cxxlib', '-fPIC', '-threads', '-shared','-Wl,--add-needed',&lt;/span&gt;
+&lt;span class="err"&gt;       '%E', '-Wl,-soname,%U', '-o', '%U', '%F', '%A', '%L', '%B', '-parallel',&lt;/span&gt;
+&lt;span class="err"&gt;       '-Wl,-Bdynamic', '-shared-intel']&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;changed to&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;link_sl = (fortCmd + 
-   " -gcc-version=%i -fPIC -shared " + 
-   "%E -Wl,-soname,%U -o %U %F %A %L %B -Wl,-Bdynamic " +
-   " -lifport -lifcoremt")
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;link_sl = (fortCmd + &lt;/span&gt;
+&lt;span class="err"&gt;   " -gcc-version=%i -fPIC -shared " + &lt;/span&gt;
+&lt;span class="err"&gt;   "%E -Wl,-soname,%U -o %U %F %A %L %B -Wl,-Bdynamic " +&lt;/span&gt;
+&lt;span class="err"&gt;   " -lifport -lifcoremt")&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Rest of the file remains the same.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Run the following command to verify:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;abaqus verify -user_std
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;abaqus verify -user_std&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The following will confirm a working fortran compiler.&lt;/p&gt;
@@ -200,14 +228,14 @@
 &lt;p&gt;replace the ifort "-extend" option with:&lt;/p&gt;
 &lt;p&gt;"-ffixed-line-length-none"&lt;/p&gt;
 &lt;p&gt;for those who do not pay attention to the F77 72 column limit. &lt;/p&gt;
-&lt;p&gt;(this helpful tip was received from &lt;em&gt;Ben Hantz&lt;/em&gt;)&lt;/p&gt;</content><category term="abaqus"></category></entry><entry><title>Using gfortran compiler for user subroutines in ABAQUS 6.13</title><link href="https://saiwal.github.io/engineering/abaqus-gfortran-compiler/" rel="alternate"></link><published>2016-09-25T00:00:00+05:30</published><updated>2016-09-25T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2016-09-25:/engineering/abaqus-gfortran-compiler/</id><summary type="html">&lt;p&gt;ABAQUS uses intel fortran compiler by default for compiling user subroutines. However a free alternative 'gfortran' can also be used. Here the main steps are outlined for using free gfortran compiler in linux to compile user subroutines for ABAQUS. This has been tested on ABAQUS 6.13, however this should …&lt;/p&gt;</summary><content type="html">&lt;p&gt;ABAQUS uses intel fortran compiler by default for compiling user subroutines. However a free alternative 'gfortran' can also be used. Here the main steps are outlined for using free gfortran compiler in linux to compile user subroutines for ABAQUS. This has been tested on ABAQUS 6.13, however this should also work for ABAQUS 6.10 and higher.&lt;/p&gt;
+&lt;p&gt;(this helpful tip was received from &lt;em&gt;Ben Hantz&lt;/em&gt;)&lt;/p&gt;</content><category term="Engineering"></category><category term="abaqus"></category></entry><entry><title>Using gfortran compiler for user subroutines in ABAQUS 6.13</title><link href="https://saiwal.github.io/engineering/abaqus-gfortran-compiler/" rel="alternate"></link><published>2016-09-25T00:00:00+05:30</published><updated>2016-09-25T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2016-09-25:/engineering/abaqus-gfortran-compiler/</id><summary type="html">&lt;p&gt;ABAQUS uses intel fortran compiler by default for compiling user subroutines. However a free alternative 'gfortran' can also be used. Here the main steps are outlined for using free gfortran compiler in linux to compile user subroutines for ABAQUS. This has been tested on ABAQUS 6.13, however this should …&lt;/p&gt;</summary><content type="html">&lt;p&gt;ABAQUS uses intel fortran compiler by default for compiling user subroutines. However a free alternative 'gfortran' can also be used. Here the main steps are outlined for using free gfortran compiler in linux to compile user subroutines for ABAQUS. This has been tested on ABAQUS 6.13, however this should also work for ABAQUS 6.10 and higher.&lt;/p&gt;
 
 &lt;p&gt;This method has been tested and verified on ABAQUS 6.13 running on  xubuntu 16.04.1&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Make sure gfortran is installed. If not install it by running&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; sudo apt-get install gfortran
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt; sudo apt-get install gfortran&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Locate the abaqus_v6.env file. Its located in the installation folder under 613/6.13-4/SMA/site/&lt;/p&gt;
@@ -216,40 +244,40 @@
 &lt;p&gt;rename it to ~abaqus_v6.env. This will server as a backup file incase something goes wrong.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Replace it with &lt;a href="{filename}/attachments/abaqus_v6.env"&gt;this file&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Replace it with &lt;a href="https://saiwal.github.io/attachments/abaqus_v6.env"&gt;this file&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Be careful to replace the last few lines particularly &lt;em&gt;abaquslm_license_file=' '&lt;/em&gt; about your licence information with the information in your backup file.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Run the following command to verify:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;abaqus verify -user_std
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;abaqus verify -user_std&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The following will confirm a working fortran compiler.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="success" src="https://saiwal.github.io/images/success.png"/&gt;&lt;/p&gt;</content><category term="abaqus"></category></entry><entry><title>Installing Abaqus 2016 on Ubuntu</title><link href="https://saiwal.github.io/engineering/install-abaqus2016-ubuntu/" rel="alternate"></link><published>2016-09-19T00:00:00+05:30</published><updated>2016-09-19T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2016-09-19:/engineering/install-abaqus2016-ubuntu/</id><summary type="html">&lt;p&gt;Abaqus 2016 adopted a new installation method and refuses to install on Ubuntu system with the following error message:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1/StartGUI.sh
-CurrentMediaDir initial="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"
-CurrentMediaDir="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"
-Current …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Abaqus 2016 adopted a new installation method and refuses to install on Ubuntu system with the following error message:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1/StartGUI.sh
-CurrentMediaDir initial="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"
-CurrentMediaDir="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"
-Current operating system: "Linux"
-DSY_OS_Release="Ubuntu"
-Unknown linux release "Ubuntu"
-exit 8
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img alt="success" src="https://saiwal.github.io/images/success.png"/&gt;&lt;/p&gt;</content><category term="Engineering"></category><category term="abaqus"></category></entry><entry><title>Installing Abaqus 2016 and later on Ubuntu</title><link href="https://saiwal.github.io/engineering/install-abaqus2016-ubuntu/" rel="alternate"></link><published>2016-09-19T00:00:00+05:30</published><updated>2016-09-19T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2016-09-19:/engineering/install-abaqus2016-ubuntu/</id><summary type="html">&lt;p&gt;Abaqus 2016 adopted a new installation method and refuses to install on Ubuntu system with the following error message:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;~/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1/StartGUI.sh&lt;/span&gt;
+&lt;span class="err"&gt;CurrentMediaDir initial="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"&lt;/span&gt;
+&lt;span class="err"&gt;CurrentMediaDir="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"&lt;/span&gt;
+&lt;span class="err"&gt;Current …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Abaqus 2016 adopted a new installation method and refuses to install on Ubuntu system with the following error message:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;~/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1/StartGUI.sh&lt;/span&gt;
+&lt;span class="err"&gt;CurrentMediaDir initial="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"&lt;/span&gt;
+&lt;span class="err"&gt;CurrentMediaDir="/home/saiwal/Downloads/AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1"&lt;/span&gt;
+&lt;span class="err"&gt;Current operating system: "Linux"&lt;/span&gt;
+&lt;span class="err"&gt;DSY_OS_Release="Ubuntu"&lt;/span&gt;
+&lt;span class="err"&gt;Unknown linux release "Ubuntu"&lt;/span&gt;
+&lt;span class="err"&gt;exit 8&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To force an installation I found a way to disguise system operating system name to CentOS to proceed with the installation. The process is as follows:&lt;/p&gt;
 &lt;p&gt;After extracting the installation files, open the following file in a text editor:
     AM_SIM_Abaqus.AllOS/1/SIMULIA_Abaqus_CAE/Linux64/1/inst/common/init/Linux.sh&lt;/p&gt;
 &lt;p&gt;edit line 4 from&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;DSY_OS_Release=`lsb_release --short --id |sed 's/ //g'`
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;DSY_OS_Release=`lsb_release --short --id |sed 's/ //g'`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;to&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;DSY_OS_Release="CentOS"
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;DSY_OS_Release="CentOS"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img alt="edit" src="https://saiwal.github.io/images/abq2016_2.png"/&gt;&lt;/p&gt;
 &lt;p&gt;and that's it.&lt;/p&gt;
 &lt;p&gt;The rest of the installation procedure is similar and straight forward.&lt;/p&gt;
@@ -258,9 +286,11 @@ exit 8
 &lt;h1 id="useful links"&gt;Useful links&lt;/h1&gt;
 &lt;h3 id="online documentation (for iitk campus only)"&gt;&lt;a href="http://172.31.1.4:2080/"&gt;Online documentation&lt;/a&gt; (for iitk campus only)&lt;/h3&gt;
 &lt;h3 id="abaqus servers (campus only)"&gt;ABAQUS servers (campus only)&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;172.31.1.2, 172.31.1.3, 172.31.1.4, 172.31.1.5, 172.31.1.6, 172.31.1.7
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href="http://imechanica.org/node/13804"&gt;useful link&lt;/a&gt;&lt;/p&gt;</content><category term="linux"></category><category term="abaqus"></category></entry><entry><title>Setup $ \LaTeX $ on a Ubuntu/Linux system</title><link href="https://saiwal.github.io/engineering/setup-latex-on-ubuntu/" rel="alternate"></link><published>2016-01-16T18:12:43+05:30</published><updated>2016-01-16T18:12:43+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2016-01-16:/engineering/setup-latex-on-ubuntu/</id><summary type="html">&lt;h2 id="latex environment"&gt;Latex Environment&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;172.31.1.2, 172.31.1.3, 172.31.1.4, 172.31.1.5, 172.31.1.6, 172.31.1.7&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href="http://imechanica.org/node/13804"&gt;useful link&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="abaqus 2019 on ubuntu"&gt;ABAQUS 2019 on Ubuntu&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/imirzov/Install-Abaqus-2019-on-Ubuntu-18.04-LTS"&gt;https://github.com/imirzov/Install-Abaqus-2019-on-Ubuntu-18.04-LTS&lt;/a&gt; provides a comprehensive and helpful guide on getting latest ABAQUS 2019 on Ubuntu 18 working while avoiding systemchecks.&lt;/p&gt;</content><category term="Engineering"></category><category term="linux"></category><category term="abaqus"></category></entry><entry><title>Setup $ \LaTeX $ on a Ubuntu/Linux system</title><link href="https://saiwal.github.io/engineering/setup-latex-on-ubuntu/" rel="alternate"></link><published>2016-01-16T18:12:43+05:30</published><updated>2016-01-16T18:12:43+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2016-01-16:/engineering/setup-latex-on-ubuntu/</id><summary type="html">&lt;h2 id="latex environment"&gt;Latex Environment&lt;/h2&gt;
 &lt;p&gt;Latex is a versatile typsetting system that allows you to produce professional looking books, articles, presentations, handouts, thesis or any other publication. Setting up latex on ubuntu is straight forward. The main requirements for a complete setup are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A &lt;strong&gt;Latex distribution&lt;/strong&gt;, this is a set of programs and …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2 id="latex environment"&gt;Latex Environment&lt;/h2&gt;
@@ -280,21 +310,21 @@ highlighting, code completion, ease of inserting special symbols, troubleshootin
 &lt;p&gt;A full install is recommended if data usage is not an issue. In case of a basic install, other missing packages can also be installed later as required.&lt;/p&gt;
 &lt;h3 id="latex editor"&gt;Latex Editor&lt;/h3&gt;
 &lt;p&gt;From personal experience I would recommend Texstudio for use as an editor. To install use the following command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install texstudio
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo apt-get install texstudio&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="using latex online_1"&gt;Using Latex Online&lt;/h2&gt;
 &lt;p&gt;Apart from installing Latex on your system you can also try it out online at &lt;a href="http://www.sharelatex.com"&gt;http://www.sharelatex.com&lt;/a&gt;. There are lots of templates available online to choose from. &lt;/p&gt;
 &lt;h2 id="help and resources"&gt;Help and resources&lt;/h2&gt;
-&lt;p&gt;There are plenty of online resources to get you started. The most helpful incase you run into any problem is &lt;a href="https://tex.stackexchange.com"&gt;https://tex.stackexchange.com&lt;/a&gt;. A simple google search would lead you to the solution most of the times as someone else has almost always encountered the problem that you are facing now. There are also plenty of books available to gert started. Learning Latex by Griffiths, Higham is a good start.&lt;/p&gt;</content><category term="latex"></category><category term="linux"></category></entry><entry><title>Setting up Computing environment on ubuntu using python</title><link href="https://saiwal.github.io/engineering/computing-environment-python-anaconda/" rel="alternate"></link><published>2016-01-05T23:44:32+05:30</published><updated>2016-01-05T23:44:32+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2016-01-05:/engineering/computing-environment-python-anaconda/</id><summary type="html">&lt;p&gt;&lt;a href="http://continuum.io/"&gt;Continuum Analytics&lt;/a&gt; provides Anaconda, a platform which provides many python libraries bundled together as a single environment package. The bundle can be &lt;a href="https://www.continuum.io/downloads"&gt;downloaded&lt;/a&gt; from the website for different OS. Once installed you can set it up to use as a separate environment for computing without interfering with the already installed …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://continuum.io/"&gt;Continuum Analytics&lt;/a&gt; provides Anaconda, a platform which provides many python libraries bundled together as a single environment package. The bundle can be &lt;a href="https://www.continuum.io/downloads"&gt;downloaded&lt;/a&gt; from the website for different OS. Once installed you can set it up to use as a separate environment for computing without interfering with the already installed python modules on your system.&lt;/p&gt;
+&lt;p&gt;There are plenty of online resources to get you started. The most helpful incase you run into any problem is &lt;a href="https://tex.stackexchange.com"&gt;https://tex.stackexchange.com&lt;/a&gt;. A simple google search would lead you to the solution most of the times as someone else has almost always encountered the problem that you are facing now. There are also plenty of books available to gert started. Learning Latex by Griffiths, Higham is a good start.&lt;/p&gt;</content><category term="Engineering"></category><category term="latex"></category><category term="linux"></category></entry><entry><title>Setting up Computing environment on ubuntu using python</title><link href="https://saiwal.github.io/engineering/computing-environment-python-anaconda/" rel="alternate"></link><published>2016-01-05T23:44:32+05:30</published><updated>2016-01-05T23:44:32+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2016-01-05:/engineering/computing-environment-python-anaconda/</id><summary type="html">&lt;p&gt;&lt;a href="http://continuum.io/"&gt;Continuum Analytics&lt;/a&gt; provides Anaconda, a platform which provides many python libraries bundled together as a single environment package. The bundle can be &lt;a href="https://www.continuum.io/downloads"&gt;downloaded&lt;/a&gt; from the website for different OS. Once installed you can set it up to use as a separate environment for computing without interfering with the already installed …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://continuum.io/"&gt;Continuum Analytics&lt;/a&gt; provides Anaconda, a platform which provides many python libraries bundled together as a single environment package. The bundle can be &lt;a href="https://www.continuum.io/downloads"&gt;downloaded&lt;/a&gt; from the website for different OS. Once installed you can set it up to use as a separate environment for computing without interfering with the already installed python modules on your system.&lt;/p&gt;
 &lt;p&gt;To activate the environment, we use the commmand&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd anaconda3/
-source ~/bin/activate ~/anaconda3/
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;cd anaconda3/&lt;/span&gt;
+&lt;span class="err"&gt;source ~/bin/activate ~/anaconda3/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Assuming the the anaconda package has been installed at &lt;em&gt;~/anaconda3/&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;To deactivate after you're done, use :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source deactivate
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The package also includes &lt;em&gt;spyder&lt;/em&gt; which provides a very helpful interface to code and inspect variables in matlab style.&lt;/p&gt;</content><category term="python"></category><category term="research"></category><category term="linux"></category></entry><entry><title>Volumetric Strain</title><link href="https://saiwal.github.io/engineering/volumetric-strain/" rel="alternate"></link><published>2015-11-09T18:58:41+05:30</published><updated>2015-11-09T18:58:41+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-11-09:/engineering/volumetric-strain/</id><summary type="html">&lt;p&gt;Visualize the approximation of volumetric strain to the hydrostatic strain.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;source deactivate&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The package also includes &lt;em&gt;spyder&lt;/em&gt; which provides a very helpful interface to code and inspect variables in matlab style.&lt;/p&gt;</content><category term="Engineering"></category><category term="python"></category><category term="research"></category><category term="linux"></category></entry><entry><title>Volumetric Strain</title><link href="https://saiwal.github.io/engineering/volumetric-strain/" rel="alternate"></link><published>2015-11-09T18:58:41+05:30</published><updated>2015-11-09T18:58:41+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-11-09:/engineering/volumetric-strain/</id><summary type="html">&lt;p&gt;Visualize the approximation of volumetric strain to the hydrostatic strain.&lt;/p&gt;
 &lt;p&gt;The hydrostatic strain is given by&lt;/p&gt;
 &lt;p&gt;\[ \epsilon_h = \frac{\epsilon_{1}+\epsilon_{2}+\epsilon_{3}}{3} \]&lt;/p&gt;
 &lt;p&gt;Consider a small element of a deformable material in the shape of a cuboid of some edge length with its sides oriented along the axes …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Visualize the approximation of volumetric strain to the hydrostatic strain.&lt;/p&gt;
@@ -323,7 +353,7 @@ or,
 &lt;p&gt;if we represent volumetric strain by $ \epsilon_v = \frac{\Delta V}{V_0} $ then, we get,
 \[ \epsilon_v = \epsilon_1 +\epsilon_2 + \epsilon_3 \]
 or,
-\[ \epsilon_v = 3\epsilon_h \]&lt;/p&gt;</content><category term="continuum-mechanics"></category></entry><entry><title>The illustrated guide to a Ph.D. (reblog)</title><link href="https://saiwal.github.io/academia/guide-to-phd/" rel="alternate"></link><published>2015-11-09T02:10:43+05:30</published><updated>2015-11-09T02:10:43+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-11-09:/academia/guide-to-phd/</id><summary type="html">&lt;p&gt;Imagine a circle that contains all of human knowledge: 
+\[ \epsilon_v = 3\epsilon_h \]&lt;/p&gt;</content><category term="Engineering"></category><category term="continuum-mechanics"></category></entry><entry><title>The illustrated guide to a Ph.D. (reblog)</title><link href="https://saiwal.github.io/academia/guide-to-phd/" rel="alternate"></link><published>2015-11-09T02:10:43+05:30</published><updated>2015-11-09T02:10:43+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-11-09:/academia/guide-to-phd/</id><summary type="html">&lt;p&gt;Imagine a circle that contains all of human knowledge: 
  
 &lt;img alt="image1" src="https://saiwal.github.io/images/PhDKnowledge.001.jpg"/&gt;&lt;/p&gt;
 &lt;p&gt;By the time you finish elementary school, you know a little:&lt;/p&gt;
@@ -360,7 +390,7 @@ or,
 &lt;p&gt;So, don't forget the bigger picture:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="image1" src="https://saiwal.github.io/images/PhDKnowledge.012.jpg"/&gt;&lt;/p&gt;
 &lt;p&gt;Keep pushing.&lt;/p&gt;
-&lt;p&gt;source: &lt;a href="http://matt.might.net/articles/phd-school-in-pictures/"&gt;Matt Might&lt;/a&gt;&lt;/p&gt;</content><category term="research"></category></entry><entry><title>How to Write a Great Research Paper</title><link href="https://saiwal.github.io/academia/write-great-paper/" rel="alternate"></link><published>2015-09-30T15:09:30+05:30</published><updated>2015-09-30T15:09:30+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-09-30:/academia/write-great-paper/</id><summary type="html">&lt;p&gt;Dr.  Simon Peyton Jones gives a great presentation on how to write a great research paper.  Included are tips on what to do, how to approadch your topic and how to get the readers attention and make your paper interesting.
+&lt;p&gt;source: &lt;a href="http://matt.might.net/articles/phd-school-in-pictures/"&gt;Matt Might&lt;/a&gt;&lt;/p&gt;</content><category term="Academia"></category><category term="research"></category></entry><entry><title>How to Write a Great Research Paper</title><link href="https://saiwal.github.io/academia/write-great-paper/" rel="alternate"></link><published>2015-09-30T15:09:30+05:30</published><updated>2015-09-30T15:09:30+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-09-30:/academia/write-great-paper/</id><summary type="html">&lt;p&gt;Dr.  Simon Peyton Jones gives a great presentation on how to write a great research paper.  Included are tips on what to do, how to approadch your topic and how to get the readers attention and make your paper interesting.
 
 &lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/g3dkRsTqdDA" width="420"&gt;&lt;/iframe&gt;&lt;/p&gt;
 &lt;p&gt;The pdf of the slides is also available &lt;a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/giving-a-talk/writing-a-paper-slides.pdf"&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -368,7 +398,7 @@ or,
 
 &lt;iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/g3dkRsTqdDA" width="420"&gt;&lt;/iframe&gt;&lt;/p&gt;
 &lt;p&gt;The pdf of the slides is also available &lt;a href="http://research.microsoft.com/en-us/um/people/simonpj/papers/giving-a-talk/writing-a-paper-slides.pdf"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Have fun writing !&lt;/p&gt;</content><category term="research"></category></entry><entry><title>Complex functions as mappings</title><link href="https://saiwal.github.io/engineering/complex-mappings/" rel="alternate"></link><published>2015-07-28T09:30:42+05:30</published><updated>2015-07-28T09:30:42+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-07-28:/engineering/complex-mappings/</id><summary type="html">&lt;p&gt;I have plotted various complex functions as a mapping showing how the complex plane is transformed when subjected to a complex function.&lt;/p&gt;
+&lt;p&gt;Have fun writing !&lt;/p&gt;</content><category term="Academia"></category><category term="research"></category></entry><entry><title>Complex functions as mappings</title><link href="https://saiwal.github.io/engineering/complex-mappings/" rel="alternate"></link><published>2015-07-28T09:30:42+05:30</published><updated>2015-07-28T09:30:42+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-07-28:/engineering/complex-mappings/</id><summary type="html">&lt;p&gt;I have plotted various complex functions as a mapping showing how the complex plane is transformed when subjected to a complex function.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Complex Analysis is a topic which is not very easy to grasp. While the mathematics behind it is straight forward with simple rules, it is often difficult …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have plotted various complex functions as a mapping showing how the complex plane is transformed when subjected to a complex function.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
@@ -382,7 +412,7 @@ or,
 &lt;p&gt;I have plotted some more examples of complex functions using python. The code is also provided if you feel like experimenting. &lt;/p&gt;
 &lt;h3 id="example i (simple multiplication by a complex number)"&gt;Example I (Simple multiplication by a complex number)&lt;/h3&gt;
 &lt;p&gt;When $ w = z*(a + jb) $ the effect is that of stretching and subsequent rotation of the plane. The stretch amount is equal to the magnitude $ \sqrt{(a^2 + b^2)} $  and the rotation is by the amount $ tan^{-1} (b/a) $. Lets consider multiplication by 2 + 3j. In this case the points should stretch $ sqrt(13) $ times and rotate by 56.3 degrees.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;Created on Tue Jul 28 09:00:40 2015&lt;/span&gt;
 
@@ -390,13 +420,13 @@ or,
 &lt;span class="sd"&gt;"""&lt;/span&gt;
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
 
-&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;z0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uu&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1j&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt;
-&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;3j&lt;/span&gt;
+&lt;span class="n"&gt;z0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uu&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt;
+&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;
 &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z0&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;
 &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;vv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
@@ -406,21 +436,21 @@ or,
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'real points'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Re(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Im(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;real&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="kp"&gt;imag&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'mapped points'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Re(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Im(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gray&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The plot is shown below, note that the rotation and stretching do not depend on the sequence in which it is done. &lt;/p&gt;
 &lt;p&gt;&lt;img alt="mapping2" src="https://saiwal.github.io/images/mapping2.jpg"/&gt;&lt;/p&gt;
 &lt;h3 id="example ii (inverse of z)"&gt;Example II (Inverse of z)&lt;/h3&gt;
 &lt;p&gt;Now we try to see how $ 1/z $ looks when plotted. This mapping has a singularity at the origin so we should be careful while choosing the domain to plot.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="sd"&gt;"""&lt;/span&gt;
 &lt;span class="sd"&gt;Created on Tue Jul 28 09:00:40 2015&lt;/span&gt;
 
@@ -428,12 +458,12 @@ or,
 &lt;span class="sd"&gt;"""&lt;/span&gt;
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
 
-&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;z0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uu&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1j&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt;
+&lt;span class="n"&gt;z0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uu&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;vv&lt;/span&gt;
 &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;z0&lt;/span&gt;
 &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;arctan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;uu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;vv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
@@ -443,16 +473,16 @@ or,
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'real points'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Re(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Im(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;real&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="kp"&gt;imag&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'mapped points'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Re(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Im(z)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gray&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The plot is shown below, note the inversion that happens. Also the mapping may be verified manually by computing the maps of the four corner points.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="mapping3" src="https://saiwal.github.io/images/mapping3.png"/&gt;&lt;/p&gt;
 &lt;p&gt;Another plot showing the whole plane,&lt;/p&gt;
@@ -475,7 +505,7 @@ Argument = 11.53 deg&lt;/p&gt;
 &lt;p&gt;$ z^n $ can be interpreted as raising the modulus to power n and multiplying the argument $ \theta $ by $ n $.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt; Plot of $ z^2 $ &lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;I plotted the domain from Re(0,3) and Im(0,3) to $ z^2 $ and the result is shown. It is clearly visible that the argument is multiplied by 2 and the modulus is squared.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="mapping8" src="https://saiwal.github.io/images/mapping8.jpg"/&gt;&lt;/p&gt;</content><category term="mathematics"></category></entry><entry><title>Having fun with Deformation Gradients (2D)</title><link href="https://saiwal.github.io/engineering/def-grad-fun/" rel="alternate"></link><published>2015-07-09T00:32:29+05:30</published><updated>2015-07-09T00:32:29+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-07-09:/engineering/def-grad-fun/</id><summary type="html">&lt;p&gt;In this article I plotted various deformation gradient on a 2-D grid to show how the displacement field would look like. Visualizing a deformation gradient greatly helps in understanding how a body deforms and how we calculate the various deformation measures.
+&lt;p&gt;&lt;img alt="mapping8" src="https://saiwal.github.io/images/mapping8.jpg"/&gt;&lt;/p&gt;</content><category term="Engineering"></category><category term="mathematics"></category></entry><entry><title>Having fun with Deformation Gradients (2D)</title><link href="https://saiwal.github.io/engineering/def-grad-fun/" rel="alternate"></link><published>2015-07-09T00:32:29+05:30</published><updated>2015-07-09T00:32:29+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-07-09:/engineering/def-grad-fun/</id><summary type="html">&lt;p&gt;In this article I plotted various deformation gradient on a 2-D grid to show how the displacement field would look like. Visualizing a deformation gradient greatly helps in understanding how a body deforms and how we calculate the various deformation measures.
 share_post: facebook, google-plus, email, twitter&lt;/p&gt;
 &lt;h2 id="what is the deformation gradient?"&gt;What is the Deformation …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;In this article I plotted various deformation gradient on a 2-D grid to show how the displacement field would look like. Visualizing a deformation gradient greatly helps in understanding how a body deforms and how we calculate the various deformation measures.
 share_post: facebook, google-plus, email, twitter&lt;/p&gt;
@@ -503,7 +533,7 @@ the displacements are:
 then the deformation gradient is given by:
 \[ \textbf{[F]} = \begin{bmatrix}1 &amp;amp; 0\\0 &amp;amp; 1\end{bmatrix} \]&lt;/p&gt;
 &lt;p&gt;The following code is used to plot the resulting displacement field&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt;
 
 &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
@@ -515,7 +545,7 @@ then the deformation gradient is given by:
 &lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Displacement Field'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;which looks like &lt;/p&gt;
 &lt;p&gt;&lt;img alt="uniform" src="https://saiwal.github.io/images/def-grad1.png"/&gt;&lt;/p&gt;
 &lt;p&gt;Note that there is no stretching but merely a uniform displacement of 1 unit along the x-axis.&lt;/p&gt;
@@ -529,7 +559,7 @@ the displacements are:
 then the deformation gradient is given by:
 \[ \textbf{[F]} = \begin{bmatrix}1.2 &amp;amp; 0\\0 &amp;amp; 1\end{bmatrix} \]&lt;/p&gt;
 &lt;p&gt;The following code is used to plot the resulting displacement field&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt;
 
 &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
@@ -541,7 +571,7 @@ then the deformation gradient is given by:
 &lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Displacement Field'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;which looks like &lt;/p&gt;
 &lt;p&gt;&lt;img alt="linear" src="https://saiwal.github.io/images/def-grad2.png"/&gt;&lt;/p&gt;
 &lt;p&gt;Note that now there is a linear variation in the stretching along the x-axis.&lt;/p&gt;
@@ -555,7 +585,7 @@ the displacements are:
 then the deformation gradient is given by:
 \[ \textbf{[F]} = \begin{bmatrix}1 &amp;amp; 1\\0 &amp;amp; 1\end{bmatrix} \]&lt;/p&gt;
 &lt;p&gt;The following code is used to plot the resulting displacement field&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt;
 
 &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
@@ -567,7 +597,7 @@ then the deformation gradient is given by:
 &lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Displacement Field'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;which looks like &lt;/p&gt;
 &lt;p&gt;&lt;img alt="shear" src="https://saiwal.github.io/images/def-grad3.png"/&gt;&lt;/p&gt;
 &lt;p&gt;This is a case of simple shear where the solid is sheared along the x-axis. Note the &lt;strong&gt;F&lt;/strong&gt; in this case and the significance of its values.&lt;/p&gt;
@@ -581,7 +611,7 @@ the displacements are:
 then the deformation gradient is given by:
 \[ \textbf{[F]} = \begin{bmatrix}1 &amp;amp; 1\\1.2 &amp;amp; 0.3\end{bmatrix} \]&lt;/p&gt;
 &lt;p&gt;The following code is used to plot the resulting displacement field&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ma&lt;/span&gt;
 
 &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;meshgrid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
@@ -593,16 +623,16 @@ then the deformation gradient is given by:
 &lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'x'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'y'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Displacement Field'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;which looks like &lt;/p&gt;
-&lt;p&gt;&lt;img alt="mix" src="https://saiwal.github.io/images/def-grad4.png"/&gt;&lt;/p&gt;</content><category term="continuum-mechanics"></category></entry><entry><title>Install ANSYS 15 on ubuntu (x64)</title><link href="https://saiwal.github.io/engineering/ansys-ubuntu-install/" rel="alternate"></link><published>2015-06-30T15:39:31+05:30</published><updated>2015-06-30T15:39:31+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-30:/engineering/ansys-ubuntu-install/</id><summary type="html">&lt;p&gt;I've outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i followed to get ansys running on my machine. If you face any problems other than those shown here, it could be an unavailable library issue.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="mix" src="https://saiwal.github.io/images/def-grad4.png"/&gt;&lt;/p&gt;</content><category term="Engineering"></category><category term="continuum-mechanics"></category></entry><entry><title>Install ANSYS 15 on ubuntu (x64)</title><link href="https://saiwal.github.io/engineering/ansys-ubuntu-install/" rel="alternate"></link><published>2015-06-30T15:39:31+05:30</published><updated>2015-06-30T15:39:31+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-30:/engineering/ansys-ubuntu-install/</id><summary type="html">&lt;p&gt;I've outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i followed to get ansys running on my machine. If you face any problems other than those shown here, it could be an unavailable library issue.&lt;/p&gt;
 &lt;p&gt;Files Required:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Ansys …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;I've outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i followed to get ansys running on my machine. If you face any problems other than those shown here, it could be an unavailable library issue.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Ansys …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;I've outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i followed to get ansys running on my machine. If you face any problems other than those shown here, it could be an unavailable library issue.&lt;/p&gt;
 &lt;p&gt;Files Required:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Ansys setup
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Ansys&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
 
-License files
-&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="n"&gt;License&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Procedure&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -631,77 +661,77 @@ Method for typing in the terminal code: VIM.Bashrc&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Open.Bashrc, paste the following code:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# add environment variables:
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt; &lt;span class="n"&gt;environment&lt;/span&gt; &lt;span class="n"&gt;variables&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 
-#ANSYS
+&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;ANSYS&lt;/span&gt;
 
-PATH=/usr/ansys_inc/v150/ansys/bin:$PATH
-Export PATH
+&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ansys_inc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v150&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ansys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;span class="n"&gt;Export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;
 
-#CFX
+&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;CFX&lt;/span&gt;
 
-PATH=/usr/ansys_inc/v150/CFX/bin:$PATH
-Export PATH
+&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ansys_inc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v150&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;CFX&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;span class="n"&gt;Export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;
 
-#FLUENT
+&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;FLUENT&lt;/span&gt;
 
-PATH=/usr/ansys_inc/v150/fluent/bin:$PATH
-Export PATH
+&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ansys_inc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v150&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fluent&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;span class="n"&gt;Export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;
 
-#ICEM
+&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;ICEM&lt;/span&gt;
 
-PATH=/usr/ansys_inc/v150/icemcfd/linux64_amd/bin:$PATH
-Export PATH
+&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ansys_inc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v150&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;icemcfd&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;linux64_amd&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;span class="n"&gt;Export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;
 
-#WORKBENCH
+&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;WORKBENCH&lt;/span&gt;
 
-PATH=/usr/ansys_inc/v150/Framework/bin/Linux64:$PATH
-Export PATH
+&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ansys_inc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v150&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Framework&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Linux64&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;span class="n"&gt;Export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;
 
-#TurboGrid
+&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;TurboGrid&lt;/span&gt;
 
-PATH=/usr/ansys_inc/v150/TurboGrid/bin:$PATH
-Export PATH
+&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ansys_inc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v150&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;TurboGrid&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;span class="n"&gt;Export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;
 
-#ANSYS Sevice Manager
-PATH=/usr/ansys_inc/shared_files/licensing/lic_admin:$PATH
+&lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;ANSYS&lt;/span&gt; &lt;span class="n"&gt;Sevice&lt;/span&gt; &lt;span class="n"&gt;Manager&lt;/span&gt;
+&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ansys_inc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;shared_files&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;licensing&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lic_admin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;
 
-Export PATH
-&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="n"&gt;Export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And then let it take effect in the terminal, type the following code&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source .Bashrc
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;source .Bashrc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol&gt;
 &lt;li&gt;To start ansys use any of the following commands:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Ansys CFX Launcher&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CFX5
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;CFX5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;CFX-pre &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cfx5pre
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;cfx5pre&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;CFX-Solver Manager&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cfx5-solve
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;cfx5-solve&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;CFD-post &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cfdpost
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;cfdpost&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Turborid &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cfxtg
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;cfxtg&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Fluent &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;fluent
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;fluent&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;ICEM CFD &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;icemcfd
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;icemcfd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Ansys APDL &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ansys150       # is really in command mode
-Ansys150 -g    # graphics mode
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;ansys150       # is really in command mode&lt;/span&gt;
+&lt;span class="err"&gt;Ansys150 -g    # graphics mode&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Ansys Workbench &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;runwb2
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;runwb2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Use the get command to help command -help&lt;/p&gt;
 &lt;p&gt;Note: The Linux version of Ansys is installed in the Ubuntu is installed by default in /usr/ansys_inc. If you change the default installation location, please modify the path specified in the ansyslmd.ini. Use VIM to open ansyslmd.ini, as follows
     ANSYSLI_NOFLEX=1
@@ -709,15 +739,15 @@ Ansys150 -g    # graphics mode
 &lt;p&gt;If the fonts are not displayed correctly in gui, run the following:
     sudo apt-get install xfonts-75dpi xfonts-100dpi xterm ttf-mscorefonts-installer&lt;/p&gt;
 &lt;p&gt;You do need to restart your system (it might be enough to restart the X server)! &lt;/p&gt;
-&lt;p&gt;&lt;img alt="ansys" src="https://saiwal.github.io/images/Ansys_logo.jpg"/&gt;&lt;/p&gt;</content><category term="ansys"></category><category term="linux"></category></entry><entry><title>Static Website/Blog with pelican</title><link href="https://saiwal.github.io/academia/website-pelican/" rel="alternate"></link><published>2015-06-24T00:37:45+05:30</published><updated>2015-06-24T00:37:45+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-24:/academia/website-pelican/</id><summary type="html">&lt;p&gt;Create your own static website/blog with pelican. This website is generated using pelican.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ansys" src="https://saiwal.github.io/images/Ansys_logo.jpg"/&gt;&lt;/p&gt;</content><category term="Engineering"></category><category term="ansys"></category><category term="linux"></category></entry><entry><title>Static Website/Blog with pelican</title><link href="https://saiwal.github.io/academia/website-pelican/" rel="alternate"></link><published>2015-06-24T00:37:45+05:30</published><updated>2015-06-24T00:37:45+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-24:/academia/website-pelican/</id><summary type="html">&lt;p&gt;Create your own static website/blog with pelican. This website is generated using pelican.&lt;/p&gt;
 &lt;h2 id="pelican"&gt;Pelican&lt;/h2&gt;
 &lt;p&gt;Pelican is one of the most popular website generators available. It is written in python and comes with a lot of plugins to extend its functionality. &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; is free/open source. The fetures that make …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Create your own static website/blog with pelican. This website is generated using pelican.&lt;/p&gt;
 &lt;h2 id="pelican"&gt;Pelican&lt;/h2&gt;
 &lt;p&gt;Pelican is one of the most popular website generators available. It is written in python and comes with a lot of plugins to extend its functionality. &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; is free/open source. The fetures that make it easy to use are:
-&lt;em&gt; posts and pages are written in markdown. Custom html snippets can also be used.
-&lt;/em&gt; A large collection of themes and plugins available.
-&lt;em&gt; write your own themes and plugins easily.
-&lt;/em&gt; Completely static output, can host anywhere.&lt;/p&gt;
+* posts and pages are written in markdown. Custom html snippets can also be used.
+* A large collection of themes and plugins available.
+* write your own themes and plugins easily.
+* Completely static output, can host anywhere.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="pelican" src="https://saiwal.github.io/images/pelican.png"/&gt;&lt;/p&gt;
 &lt;h2 id="this website"&gt;This website&lt;/h2&gt;
 &lt;p&gt;My website uses the theme &lt;a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3"&gt;pelican-bootstrap3&lt;/a&gt;. The bootstrap theme has been changed to 'yeti'. My pelicanconfig.py is below:&lt;/p&gt;
@@ -804,7 +834,7 @@ Ansys150 -g    # graphics mode
 81
 82
 83
-84&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+84&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
 &lt;span class="c1"&gt;# -*- coding: utf-8 -*- #&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;unicode_literals&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;datetime&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;
@@ -819,9 +849,9 @@ Ansys150 -g    # graphics mode
 &lt;span class="n"&gt;DEFAULT_LANG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'en'&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Feed generation is usually not desired when developing&lt;/span&gt;
-&lt;span class="n"&gt;FEED_ALL_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
-&lt;span class="n"&gt;CATEGORY_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
-&lt;span class="n"&gt;TRANSLATION_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+&lt;span class="n"&gt;FEED_ALL_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
+&lt;span class="n"&gt;CATEGORY_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
+&lt;span class="n"&gt;TRANSLATION_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
 &lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'pelican-twitchy'&lt;/span&gt;
 &lt;span class="n"&gt;BOOTSTRAP_THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'superhero'&lt;/span&gt;
 &lt;span class="n"&gt;PYGMENTS_STYLE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'emacs'&lt;/span&gt;
@@ -837,7 +867,7 @@ Ansys150 -g    # graphics mode
 
 &lt;span class="c1"&gt;# PLUGIN_PATHS = [ "something", ]&lt;/span&gt;
 &lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s1"&gt;'toc'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'sitemap'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;DEFAULT_PAGINATION&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;span class="n"&gt;DEFAULT_PAGINATION&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
 
 &lt;span class="c1"&gt;# theme options&lt;/span&gt;
 &lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'xxxxxxxxxx'&lt;/span&gt;
@@ -849,7 +879,7 @@ Ansys150 -g    # graphics mode
 &lt;span class="n"&gt;GOOGLE_ANALYTICS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'xxxxxxxxxx'&lt;/span&gt;
 &lt;span class="c1"&gt;#license&lt;/span&gt;
 &lt;span class="n"&gt;CC_LICENSE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"CC-BY-NC-SA"&lt;/span&gt;
-&lt;span class="n"&gt;CC_ATTR_MARKUP&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;CC_ATTR_MARKUP&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
 
 &lt;span class="n"&gt;TOC&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="s1"&gt;'TOC_HEADERS'&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'^h[1-6]'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="c1"&gt;# What headers should be included in the generated toc&lt;/span&gt;
@@ -859,12 +889,12 @@ Ansys150 -g    # graphics mode
                                 &lt;span class="c1"&gt;# to 'true' no toc will be generated&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="n"&gt;DISPLAY_RECENT_POSTS_ON_MENU&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
-&lt;span class="n"&gt;DISPLAY_CATEGORIES_ON_MENU&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
-&lt;span class="n"&gt;DISPLAY_PAGES_ON_MENU&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
-&lt;span class="n"&gt;DISPLAY_TAGS_ON_MENU&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
-&lt;span class="n"&gt;EXPAND_LATEST_ON_INDEX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
-&lt;span class="n"&gt;USE_FOLDER_AS_CATEGORY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;DISPLAY_RECENT_POSTS_ON_MENU&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;DISPLAY_CATEGORIES_ON_MENU&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;DISPLAY_PAGES_ON_MENU&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;DISPLAY_TAGS_ON_MENU&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+&lt;span class="n"&gt;EXPAND_LATEST_ON_INDEX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;USE_FOLDER_AS_CATEGORY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
 &lt;span class="n"&gt;DEFAULT_DATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'fs'&lt;/span&gt;
 &lt;span class="c1"&gt;#DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search')&lt;/span&gt;
 
@@ -882,13 +912,13 @@ Ansys150 -g    # graphics mode
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="n"&gt;ARTICLE_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'{slug}.html'&lt;/span&gt;
-&lt;span class="n"&gt;ARTICLE_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'{slug}.html'&lt;/span&gt;
+&lt;span class="n"&gt;ARTICLE_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;{slug}&lt;/span&gt;&lt;span class="s1"&gt;.html'&lt;/span&gt;
+&lt;span class="n"&gt;ARTICLE_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;{slug}&lt;/span&gt;&lt;span class="s1"&gt;.html'&lt;/span&gt;
 &lt;span class="n"&gt;STATIC_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'images'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'attachments'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Uncomment following line if you want document-relative URLs when developing&lt;/span&gt;
 &lt;span class="c1"&gt;#RELATIVE_URLS = True&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;h2 id="publishing a static website with pelican &amp;amp; github"&gt;Publishing a static website with pelican &amp;amp; github&lt;/h2&gt;
 &lt;h3 id="steps"&gt;Steps&lt;/h3&gt;
@@ -904,7 +934,7 @@ Ansys150 -g    # graphics mode
 &lt;li&gt;To upload your website to github, use &lt;code&gt;make github&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id="restoring repository"&gt;Restoring repository&lt;/h3&gt;
-&lt;p&gt;If by chance you end up changing one of the files online, &lt;code&gt;make github&lt;/code&gt; would refuse to upload your files, in this case clone the repository in your output folder and move the .git folder back to your working directory.&lt;/p&gt;</content><category term="webdev"></category></entry><entry><title>SymPy for symbolic calculations</title><link href="https://saiwal.github.io/engineering/sympy-program/" rel="alternate"></link><published>2015-06-19T17:51:20+05:30</published><updated>2015-06-19T17:51:20+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-19:/engineering/sympy-program/</id><summary type="html">&lt;p&gt;Continuing our journey towards python for research, we take a look at sympy, a library for symbolic math. Installation on a linux system is simple through apt-get. The most efficient way to use this package would be through ipython notebook. Lets take a look.
+&lt;p&gt;If by chance you end up changing one of the files online, &lt;code&gt;make github&lt;/code&gt; would refuse to upload your files, in this case clone the repository in your output folder and move the .git folder back to your working directory.&lt;/p&gt;</content><category term="Academia"></category><category term="webdev"></category></entry><entry><title>SymPy for symbolic calculations</title><link href="https://saiwal.github.io/engineering/sympy-program/" rel="alternate"></link><published>2015-06-19T17:51:20+05:30</published><updated>2015-06-19T17:51:20+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-19:/engineering/sympy-program/</id><summary type="html">&lt;p&gt;Continuing our journey towards python for research, we take a look at sympy, a library for symbolic math. Installation on a linux system is simple through apt-get. The most efficient way to use this package would be through ipython notebook. Lets take a look.
 Start a ipython notebook by typing …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Continuing our journey towards python for research, we take a look at sympy, a library for symbolic math. Installation on a linux system is simple through apt-get. The most efficient way to use this package would be through ipython notebook. Lets take a look.
 Start a ipython notebook by typing ipython notebook at the terminal. The browser should open a new window. Click on new notebook to open a new worksheet. This is what it should look like:
 &lt;img alt="sympy" src="https://saiwal.github.io/images/sympy.png"/&gt;
@@ -915,7 +945,7 @@ The first line imports the libraries from sympy. the second line is used for pre
 &lt;img alt="sympy" src="https://saiwal.github.io/images/sympy3.png"/&gt;&lt;/p&gt;
 &lt;p&gt;Repeated differentiation can also be performed as shown:
 &lt;img alt="sympy" src="https://saiwal.github.io/images/sympy4.png"/&gt;&lt;/p&gt;
-&lt;p&gt;There are tons of other stuff you can do. Will post more in next posts&amp;hellip;&lt;/p&gt;</content><category term="Linux"></category><category term="python"></category></entry><entry><title>Python for Researchers</title><link href="https://saiwal.github.io/engineering/python-research/" rel="alternate"></link><published>2015-06-19T17:46:33+05:30</published><updated>2015-06-19T17:46:33+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-19:/engineering/python-research/</id><summary type="html">&lt;h2 id="python for computing"&gt;Python for computing&lt;/h2&gt;
+&lt;p&gt;There are tons of other stuff you can do. Will post more in next posts&amp;hellip;&lt;/p&gt;</content><category term="Engineering"></category><category term="Linux"></category><category term="python"></category></entry><entry><title>Python for Researchers</title><link href="https://saiwal.github.io/engineering/python-research/" rel="alternate"></link><published>2015-06-19T17:46:33+05:30</published><updated>2015-06-19T17:46:33+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-19:/engineering/python-research/</id><summary type="html">&lt;h2 id="python for computing"&gt;Python for computing&lt;/h2&gt;
 &lt;p&gt;While switching to ubuntu from windows I also decided to embrace open-source softwares for my research/academic work. After a lot of reading on what to use as an optimum computing package I decided to use python as it had the best reviews. Using python as a …&lt;/p&gt;</summary><content type="html">&lt;h2 id="python for computing"&gt;Python for computing&lt;/h2&gt;
 &lt;p&gt;While switching to ubuntu from windows I also decided to embrace open-source softwares for my research/academic work. After a lot of reading on what to use as an optimum computing package I decided to use python as it had the best reviews. Using python as a calculator is pretty simple. Simply type python at the terminal and you&amp;rsquo;ll get the python interpreter as :&lt;/p&gt;
 &lt;p&gt;&lt;img alt="python" src="https://saiwal.github.io/images/python.png"/&gt;&lt;/p&gt;
@@ -933,18 +963,18 @@ The first line imports the libraries from sympy. the second line is used for pre
 &lt;p&gt;Looks familiar? It is ! and here&amp;rsquo;s it plotting some data:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="spyder" src="https://saiwal.github.io/images/spyder2.jpg"/&gt;&lt;/p&gt;
 &lt;p&gt;It has a variable explorer, a command line interpreter and an editor for writing code. Feel free to explore !&lt;/p&gt;
-&lt;p&gt;Next we will look into SymPy for symbolic math operations like integrating, differentiating and solving differential equations.&lt;/p&gt;</content><category term="python"></category><category term="linux"></category></entry><entry><title>Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)</title><link href="https://saiwal.github.io/engineering/install-abaqus-ubuntu/" rel="alternate"></link><published>2015-06-19T16:20:42+05:30</published><updated>2015-06-19T16:20:42+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-19:/engineering/install-abaqus-ubuntu/</id><summary type="html">&lt;p&gt;I have outlined the process to install ABAQUS on Ubuntu 14.04. The license information may vary depending on your product.&lt;/p&gt;
+&lt;p&gt;Next we will look into SymPy for symbolic math operations like integrating, differentiating and solving differential equations.&lt;/p&gt;</content><category term="Engineering"></category><category term="python"></category><category term="linux"></category></entry><entry><title>Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)</title><link href="https://saiwal.github.io/engineering/install-abaqus-ubuntu/" rel="alternate"></link><published>2015-06-19T16:20:42+05:30</published><updated>2015-06-19T16:20:42+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-06-19:/engineering/install-abaqus-ubuntu/</id><summary type="html">&lt;p&gt;I have outlined the process to install ABAQUS on Ubuntu 14.04. The license information may vary depending on your product.&lt;/p&gt;
 &lt;p&gt;Lots of folk have issues with switching to linux that there is not much support for fea softwares such as Abaqus. Here I show the installation procedure for Abaqus …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I have outlined the process to install ABAQUS on Ubuntu 14.04. The license information may vary depending on your product.&lt;/p&gt;
 &lt;p&gt;Lots of folk have issues with switching to linux that there is not much support for fea softwares such as Abaqus. Here I show the installation procedure for Abaqus 6.11-2 on Ubuntu 14.04, I am using this software on IIT Kanpur campus so the license information would be different for your version.&lt;/p&gt;
 &lt;h1 id="prerequisites :"&gt;Prerequisites :&lt;/h1&gt;
 &lt;p&gt;I successfully installed Abaqus on my machine running Ubuntu 14.04 64-bit. The following dependencies must be met before beginning with the installation procedure:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gcc, g++, gfortran, csh, tcsh, libstdc++5, build-essential, make, libjpeg62
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;gcc, g++, gfortran, csh, tcsh, libstdc++5, build-essential, make, libjpeg62&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You can check if they are installed by starting synaptic package manager and searching for the above mentioned.
 If not installed, install before starting the install procedure.
 or alternatively use the command from the terminal,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gcc g++ gfortran csh tcsh libstdc++5 build-essential make libjpeg62
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;sudo apt-get install gcc g++ gfortran csh tcsh libstdc++5 build-essential make libjpeg62&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;before we begin the installation procedure, create the following directories:
 abaqus : to store the installlation files
 abaqustemp : to store temporary installation files
@@ -952,27 +982,27 @@ abaquswork : to store work files&lt;/p&gt;
 &lt;p&gt;If you have the installation DVD in iso format, mount it using the mount command or you can simply extract the installation files in another folder. In my case the documentation files are stored in
     /home/saiwal/Downloads/DOC_SIMULIA_Abaqus_English.media/1/ 
 and the product is in&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/home/saiwal/Downloads/SIM_Abaqus.media/1
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;/home/saiwal/Downloads/SIM_Abaqus.media/1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Before we begin change the file permissions for setup so that you are the owner and it can be executed
 you might need to give this permission to other files too if &amp;ldquo;permission denied&amp;rdquo; pops up.
 The Installation steps:&lt;/p&gt;
 &lt;h1 id="step i - installing the documentation"&gt;Step I &amp;ndash; Installing the documentation&lt;/h1&gt;
 &lt;p&gt;cd to the directory where setup file is located in  DOC_SIMULIA_Abaqus_English.media/1/  and type the following commands :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;csh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;csh&lt;/span&gt;
 
-/setup
-&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;setup&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;(e.g. /home/saiwal/Downloads/DOC_SIMULIA_Abaqus_English.media/1/setup )
 give the location of scratch directory when asked ( /home/saiwal/abaqustemp )
 at this point the graphical interface would pop-up and the rest is intuitive. After completion exit by :
 exit&lt;/p&gt;
 &lt;h1 id="step ii - license server installation and product installation"&gt;Step II &amp;ndash; License Server Installation and Product installation&lt;/h1&gt;
 &lt;p&gt;cd to the directory where setup file is located in  SIM_Abaqus.media/1  and type the following commands :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;csh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;csh&lt;/span&gt;
 
-/setup
-&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;setup&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;give the location of scratch directory when asked ( /home/saiwal/abaqustemp )
 again the graphical user interface would pop-up and you can install the license server and then the product. When it asks for license server enter 29000@172.31.1.5 (for iit kanpur only)
 if there is an error message proceed as follows:
@@ -983,38 +1013,38 @@ this would open the hosts file in gedit. substitute gedit for any other text edi
 &lt;p&gt;after this the installation should proceed normally. after the completion type exit to exit csh shell.&lt;/p&gt;
 &lt;h1 id="step iii - running abaqus"&gt;Step  III &amp;ndash; Running Abaqus&lt;/h1&gt;
 &lt;p&gt;There should be a folder &amp;lsquo;Commands&amp;rsquo; in the install folder abaqus, cd to the commands folder and run:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./abaqus cae
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;./abaqus cae&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;type&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./abaqus help
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;./abaqus help&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;for more options.&lt;/p&gt;
 &lt;h2 id="running abaqus using ssh"&gt;Running ABAQUS using ssh&lt;/h2&gt;
 &lt;p&gt;iitk has many powerful servers that can be used to run abaqus remotely. This is useful when you want to use the computing power available in cc while accessing the gui on your computer. To run abaqus remotely do the following:&lt;/p&gt;
 &lt;p&gt;Note: You do not need ABAQUS installed on your computer to do this.&lt;/p&gt;
 &lt;h3 id="step i:"&gt;Step I:&lt;/h3&gt;
 &lt;p&gt;ssh to the remote server by typing any of the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -X -Y ccusername@akash1.cc.iitk.ac.in
-ssh -X -Y ccusername@akash2.cc.iitk.ac.in
-ssh -X -Y ccusername@falaq.cc.iitk.ac.in
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;ssh -X -Y ccusername@akash1.cc.iitk.ac.in&lt;/span&gt;
+&lt;span class="err"&gt;ssh -X -Y ccusername@akash2.cc.iitk.ac.in&lt;/span&gt;
+&lt;span class="err"&gt;ssh -X -Y ccusername@falaq.cc.iitk.ac.in&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;replace ccusername with your cc login id.&lt;/p&gt;
 &lt;h3 id="step ii:"&gt;Step II:&lt;/h3&gt;
 &lt;p&gt;export the following environment variable, this is an issue on some ubunutu machines which causes the abaqus gui to become transparent.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;XLIB_SKIP_ARGB_VISUALS=1
-export XLIB_SKIP_ARGB_VISUALS
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;XLIB_SKIP_ARGB_VISUALS=1&lt;/span&gt;
+&lt;span class="err"&gt;export XLIB_SKIP_ARGB_VISUALS&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id="step iii:"&gt;Step III:&lt;/h3&gt;
 &lt;p&gt;Run abaqus&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;abaqus cae -mesa
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;abaqus cae -mesa&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;-mesa is useful to avoid any conflict with your video driver.&lt;/p&gt;
 &lt;h1 id="useful links_2"&gt;Useful links&lt;/h1&gt;
 &lt;h3 id="online documentation (for iitk campus only)"&gt;&lt;a href="http://172.31.1.4:2080/"&gt;Online documentation&lt;/a&gt; (for iitk campus only)&lt;/h3&gt;
 &lt;h3 id="abaqus servers (campus only)"&gt;ABAQUS servers (campus only)&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;172.31.1.2, 172.31.1.3, 172.31.1.4, 172.31.1.5, 172.31.1.6, 172.31.1.7
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href="http://imechanica.org/node/13804"&gt;useful link&lt;/a&gt;&lt;/p&gt;</content><category term="linux"></category><category term="abaqus"></category></entry><entry><title>Latex template for Thesis (IITK)</title><link href="https://saiwal.github.io/engineering/latexthesis/" rel="alternate"></link><published>2015-05-29T00:12:09+05:30</published><updated>2015-05-29T00:12:09+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-05-29:/engineering/latexthesis/</id><summary type="html">&lt;p&gt;A template in Latex for PhD/Masters degree. Includes chapters, bibliography, toc, appendix, etc. complete template.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;172.31.1.2, 172.31.1.3, 172.31.1.4, 172.31.1.5, 172.31.1.6, 172.31.1.7&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href="http://imechanica.org/node/13804"&gt;useful link&lt;/a&gt;&lt;/p&gt;</content><category term="Engineering"></category><category term="linux"></category><category term="abaqus"></category></entry><entry><title>Latex template for Thesis (IITK)</title><link href="https://saiwal.github.io/engineering/latexthesis/" rel="alternate"></link><published>2015-05-29T00:12:09+05:30</published><updated>2015-05-29T00:12:09+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2015-05-29:/engineering/latexthesis/</id><summary type="html">&lt;p&gt;A template in Latex for PhD/Masters degree. Includes chapters, bibliography, toc, appendix, etc. complete template.&lt;/p&gt;
 &lt;h2 id="download"&gt;Download&lt;/h2&gt;
 &lt;p&gt;The entire package can be downloaded from &lt;a href="https://github.com/saiwal/latexthesis"&gt;here&lt;/a&gt;. A sample of the final layout can be seen &lt;a href="https://github.com/saiwal/latexthesis/blob/master/main.pdf"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="installing latex"&gt;Installing Latex&lt;/h2&gt;
@@ -1027,7 +1057,7 @@ export XLIB_SKIP_ARGB_VISUALS
 &lt;p&gt;Extract the contents to the folder of your choice. Replace the user variables, i.e. authorname, supervisor name, thesis title, etc. in the file &amp;ldquo;Thesis.cls&amp;rdquo;. The bibliography can be cited using &amp;ldquo;/cite&amp;rdquo;. The bibliography file is already filled with entries to serve as a template. Replace the fields as required. Add Chapters as per the template in the folder &amp;lsquo;Chapter&amp;rsquo;.&lt;/p&gt;
 &lt;h2 id="editor"&gt;Editor&lt;/h2&gt;
 &lt;p&gt;The editor I use for managing latex projects is TexStudio. It has a great interface, easy to use and an inbuilt document viewer.&lt;/p&gt;
-&lt;p&gt;The editor window is shown below: &lt;img alt="texstudio" src="https://saiwal.github.io/images/texstudio.jpg"/&gt;&lt;/p&gt;</content><category term="Latex"></category><category term="research"></category><category term="iitk"></category></entry><entry><title>Linking Intel fortran compiler to ABAQUS and using UMAT</title><link href="https://saiwal.github.io/engineering/intel-abaqus/" rel="alternate"></link><published>2014-06-30T00:00:00+05:30</published><updated>2014-06-30T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2014-06-30:/engineering/intel-abaqus/</id><summary type="html">&lt;p&gt;Prerequisites:
+&lt;p&gt;The editor window is shown below: &lt;img alt="texstudio" src="https://saiwal.github.io/images/texstudio.jpg"/&gt;&lt;/p&gt;</content><category term="Engineering"></category><category term="Latex"></category><category term="research"></category><category term="iitk"></category></entry><entry><title>Linking Intel fortran compiler to ABAQUS and using UMAT</title><link href="https://saiwal.github.io/engineering/intel-abaqus/" rel="alternate"></link><published>2014-06-30T00:00:00+05:30</published><updated>2014-06-30T00:00:00+05:30</updated><author><name>Saiwal Krishna</name></author><id>tag:saiwal.github.io,2014-06-30:/engineering/intel-abaqus/</id><summary type="html">&lt;p&gt;Prerequisites:
     sudo apt-get install rpm build-essential
     sudo apt-get install libstdc++6
     sudo apt-get install ia32-libs&lt;/p&gt;
@@ -1043,15 +1073,15 @@ You will recieve activation code via email.&lt;/p&gt;
 &lt;p&gt;The installer is of the form l_fcompxe_online_2013_sp1.3.174.sh
 Execute the file from terminal with root privileges. Install the compiler. you may choose not to install other components.&lt;/p&gt;
 &lt;p&gt;Add compiler path to ~/.bashrc by adding following lines at the end:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;PATH=&amp;rdquo;/opt/intel/composer_xe_2013_sp1.3.174/bin/intel64:$PATH&amp;rdquo;
-export PATH
-LD_LIBRARY_PATH=&amp;rdquo;/opt/intel/lib/intel64:$LD_LIBRARY_PATH&amp;rdquo;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;PATH=&amp;rdquo;/opt/intel/composer_xe_2013_sp1.3.174/bin/intel64:$PATH&amp;rdquo;&lt;/span&gt;
+&lt;span class="err"&gt;export PATH&lt;/span&gt;
+&lt;span class="err"&gt;LD_LIBRARY_PATH=&amp;rdquo;/opt/intel/lib/intel64:$LD_LIBRARY_PATH&amp;rdquo;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;then run the following,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source .bashrc
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;source .bashrc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;check for the path, change it appropriately according to your system. the intel64 at the end of lines would change to intel32 for 32 bit systems.&lt;/p&gt;
 &lt;p&gt;type the command ifort in the terminal and check if compiler is recognized.&lt;/p&gt;
 &lt;p&gt;to submit a job to abaqus using command line use the following syntax:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;abaqus job=(job name) inp=(input file name) user=(user subroutine)
-&lt;/pre&gt;&lt;/div&gt;</content><category term="abaqus"></category></entry></feed>
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;abaqus job=(job name) inp=(input file name) user=(user subroutine)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Engineering"></category><category term="abaqus"></category></entry></feed>

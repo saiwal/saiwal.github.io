@@ -1,228 +1,257 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Saiwal">
-  <meta name="description" content="A listing of all articles on this site">
-  
-  <base href="https://saiwal.github.io">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="VxcwHlXJCVtEQYj8uZ6yQkDyecZru8ED5rzsE_fwOHs" />
+        <meta name="author" content="Saiwal Krishna" />
+        <meta name="description" content="A Personal Website and Blog" />
 
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">  
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" media="all">
-  <link rel="stylesheet" href="https://saiwal.github.io/theme/css/font.css" type="text/css" media="all">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://saiwal.github.io/theme/css/style.css" type="text/css" media="all">
 
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://saiwal.github.io/theme/js/functions.min.js"></script>
+    <title>Recent Articles - Saiwal's HomePage</title>
 
-  
- 
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/bootstrap.flatly.min.css" type="text/css"/>
 
-  <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Full Atom Feed" />
+    <link href="https://saiwal.github.io/theme/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://saiwal.github.io/theme/css/pygments/native.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://saiwal.github.io/theme/tipuesearch/tipuesearch.css">
+        
+    <link href="https://saiwal.github.io/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Feeds -->
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Saiwal's HomePage ATOM Feed" />
+        <link href="https://saiwal.github.io/theme/custom.css" rel="stylesheet" />
+    <!-- jQuery Version 1.11.2 -->
+<script src="https://saiwal.github.io/theme/js/jquery-1.11.2.min.js"></script>
 
-  <meta name="keywords" content="abaqus, linux, latex, python, research, continuum-mechanics, mathematics, ansys, webdev, iitk">
-
-  <title>Archive</title>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30714481-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-30714481-2');
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
 </script>
-
-  
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
 </head>
-
-<body class="home blog">
-  <div>
-    <header class="site-header">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="row">
-            <div class="site-navigation-inner col-sm-12">
-              <div class="navbar-header">
-                <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </div>
-              <div class="collapse navbar-collapse navbar-ex1-collapse">
-              <ul id="menu-all-pages" class="nav navbar-nav">
-                <li class="menu-item"><a href="http://iitk.ac.in" >IITK
-<i class="fa  fa-lg"></i></a></li>
-                <li class="menu-item"><a href="http://home.iitk.ac.in/~saiwal" >IITK homepage
-<i class="fa  fa-lg"></i></a></li>
-                <li class="menu-item"><a href="search.html">Search</a></li>
-              </ul>
-              </div>
-              <div class="social">   
-                <a href="https://www.youtube.com/mrsaiwal" title="Youtube" >
-<i class="fa fa-youtube fa-lg"></i></a>
-                <a href="https://github.com/saiwal" title="Github" >
-<i class="fa fa-github fa-lg"></i></a>
-                <a data-email="moc.liamg@anhsirklawias:otliam" data-title="Email" title="You need javascript enabled to view this email" class="email">
-<i class="fa fa-envelope fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
+<body data-spy="scroll" data-target="#scrollspy">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper-small" class="twitchy-background">
+            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
+                <li>
+        <a href="https://saiwal.github.io" title="Saiwal's HomePage" class="collapsed">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+    </li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="https://saiwal.github.io/blog.html" title="Blog" class="collapsed">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+    </li>
+                
+                <!--    -->
+                <li class="nav-divider"></li>
+                <li>
+        <a href="#" title="Back to top" class="collapsed">
+            <span class="fa fa-arrow-up"></span>
+        </a>
+    </li>
+            </ul>
         </div>
-      </nav><!-- .site-navigation -->
+        <div id="sidebar-wrapper" class="twitchy-background">
+            <ul id="accordion" class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://saiwal.github.io/">
+                            <span class="glyphicon glyphicon-home padding-small"></span>
+                            Saiwal's HomePage
+                    </a>
+                </li>
+                
+                <li class="nav-divider"></li>
+<!--                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Pages
+                    </a>
+</li> -->
+                <li>
+                    <li>
+                        <a href="https://saiwal.github.io/blog.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://saiwal.github.io/research.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Research
+                        </a>
+                    </li>
+                </ul></li>
+                
+                 
+                
+                
+                <li class="nav-divider"></li>
 
-      <div class="container">
-      <div id="logo">
-        <span class="site-name"><a class="navbar-brand" href="https://saiwal.github.io"><img width="310" src="" class="attachment-full size-full" alt="Saiwal's Notes">          </a>
-        </span><!-- end of .site-name -->
-      </div><!-- end of #logo -->
-        <div class="tagline">
-                <a href="https://saiwal.github.io/category/academia.html" >Academia (3)</a> &#124; 
-                <a href="https://saiwal.github.io/category/engineering.html" >Engineering (16)</a> &#124; 
+            </ul>
+            
+            
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- open/close sidebar -->
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
+            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
+        </a>
+       <!-- /open/close sidebar -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+<div class="row">
+    <div class="col-lg-9">
+        <header class="page-header">
+            <h1>Archive</h1>
+        </header>
+    </div>
+</div>
+<section id="content">
+
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/abaqus-gfortran-lapack-blas/">Using LAPACK/BLAS libraries in gfortran for user subroutines in ABAQUS</a></b></d><br>
+          <em class="text-success">Posted on </em>Wed 10 April 2019<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/freecad-for-finite-element-analysis-a-review/">FreeCAD for Finite Element Analysis, a review</a></b></d><br>
+          <em class="text-success">Posted on </em>Sat 16 March 2019<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/useful-commands-tips-for-using-abaqus-over-command-line-in-linux/">Useful commands, tips for using ABAQUS over command-line in linux</a></b></d><br>
+          <em class="text-success">Posted on </em>Fri 30 November 2018<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/abaqus2016-2017-gfortran-compiler/">Using gfortran compiler for user subroutines in ABAQUS 2016/2017</a></b></d><br>
+          <em class="text-success">Posted on </em>Thu 04 May 2017<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/abaqus-gfortran-compiler/">Using gfortran compiler for user subroutines in ABAQUS 6.13</a></b></d><br>
+          <em class="text-success">Posted on </em>Sun 25 September 2016<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/install-abaqus2016-ubuntu/">Installing Abaqus 2016 and later on Ubuntu</a></b></d><br>
+          <em class="text-success">Posted on </em>Mon 19 September 2016<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/setup-latex-on-ubuntu/">Setup $ \LaTeX $ on a Ubuntu/Linux system</a></b></d><br>
+          <em class="text-success">Posted on </em>Sat 16 January 2016<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/computing-environment-python-anaconda/">Setting up Computing environment on ubuntu using python</a></b></d><br>
+          <em class="text-success">Posted on </em>Tue 05 January 2016<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/volumetric-strain/">Volumetric Strain</a></b></d><br>
+          <em class="text-success">Posted on </em>Mon 09 November 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/academia/guide-to-phd/">The illustrated guide to a Ph.D. (reblog)</a></b></d><br>
+          <em class="text-success">Posted on </em>Mon 09 November 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/academia/write-great-paper/">How to Write a Great Research Paper</a></b></d><br>
+          <em class="text-success">Posted on </em>Wed 30 September 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/complex-mappings/">Complex functions as mappings</a></b></d><br>
+          <em class="text-success">Posted on </em>Tue 28 July 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/def-grad-fun/">Having fun with Deformation Gradients (2D)</a></b></d><br>
+          <em class="text-success">Posted on </em>Thu 09 July 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/ansys-ubuntu-install/">Install ANSYS 15 on ubuntu (x64)</a></b></d><br>
+          <em class="text-success">Posted on </em>Tue 30 June 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/academia/website-pelican/">Static Website/Blog with pelican</a></b></d><br>
+          <em class="text-success">Posted on </em>Wed 24 June 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/sympy-program/">SymPy for symbolic calculations</a></b></d><br>
+          <em class="text-success">Posted on </em>Fri 19 June 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/python-research/">Python for Researchers</a></b></d><br>
+          <em class="text-success">Posted on </em>Fri 19 June 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/install-abaqus-ubuntu/">Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)</a></b></d><br>
+          <em class="text-success">Posted on </em>Fri 19 June 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/latexthesis/">Latex template for Thesis (IITK)</a></b></d><br>
+          <em class="text-success">Posted on </em>Fri 29 May 2015<br>
+          <hr>
+          <d class="lead"><b><a href="https://saiwal.github.io/engineering/intel-abaqus/">Linking Intel fortran compiler to ABAQUS and using UMAT</a></b></d><br>
+          <em class="text-success">Posted on </em>Mon 30 June 2014<br>
+          <hr>
+</section>
+                                
+
+<div id="footer">
+    <hr>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <p><small>
+                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
+                &middot;                    &copy; 2020 Saiwal Krishna
+            </small></p>
         </div>
     </div>
-
-  </header><!-- #masthead -->
-  </div>
-    <div id="content" class="site-content">
-      <div class="container main-content-area">
-        <div class="row">
-          <div class="main-content-inner col-sm-12 col-md-12">
-            <div id="primary" class="content-area">
-              <div id="main" class="site-main" role="main">
-                <div class="article-container">
-<article>
-  <div class="article_text">
-    <dl>
-        <h2>2019</h2>
-          <h3>March</h3>
-          <ul>
-              <li><time datetime="2019-03-16T00:00:00+05:30">Mar 16, 2019</time> - <a href="https://saiwal.github.io/engineering/freecad-for-finite-element-analysis-a-review/">FreeCAD for Finite Element Analysis, a review</a></li>
-          </ul>
-        <h2>2018</h2>
-          <h3>November</h3>
-          <ul>
-              <li><time datetime="2018-11-30T00:00:00+05:30">Nov 30, 2018</time> - <a href="https://saiwal.github.io/engineering/useful-commands-tips-for-using-abaqus-over-command-line-in-linux/">Useful commands, tips for using ABAQUS over command-line in linux</a></li>
-          </ul>
-        <h2>2017</h2>
-          <h3>May</h3>
-          <ul>
-              <li><time datetime="2017-05-04T00:00:00+05:30">May 04, 2017</time> - <a href="https://saiwal.github.io/engineering/abaqus2016-2017-gfortran-compiler/">Using gfortran compiler for user subroutines in ABAQUS 2016/2017</a></li>
-          </ul>
-        <h2>2016</h2>
-          <h3>September</h3>
-          <ul>
-              <li><time datetime="2016-09-25T00:00:00+05:30">Sep 25, 2016</time> - <a href="https://saiwal.github.io/engineering/abaqus-gfortran-compiler/">Using gfortran compiler for user subroutines in ABAQUS 6.13</a></li>
-              <li><time datetime="2016-09-19T00:00:00+05:30">Sep 19, 2016</time> - <a href="https://saiwal.github.io/engineering/install-abaqus2016-ubuntu/">Installing Abaqus 2016 on Ubuntu</a></li>
-          </ul>
-          <h3>January</h3>
-          <ul>
-              <li><time datetime="2016-01-16T18:12:43+05:30">Jan 16, 2016</time> - <a href="https://saiwal.github.io/engineering/setup-latex-on-ubuntu/">Setup $ \LaTeX $ on a Ubuntu/Linux system</a></li>
-              <li><time datetime="2016-01-05T23:44:32+05:30">Jan 05, 2016</time> - <a href="https://saiwal.github.io/engineering/computing-environment-python-anaconda/">Setting up Computing environment on ubuntu using python</a></li>
-          </ul>
-        <h2>2015</h2>
-          <h3>November</h3>
-          <ul>
-              <li><time datetime="2015-11-09T18:58:41+05:30">Nov 09, 2015</time> - <a href="https://saiwal.github.io/engineering/volumetric-strain/">Volumetric Strain</a></li>
-              <li><time datetime="2015-11-09T02:10:43+05:30">Nov 09, 2015</time> - <a href="https://saiwal.github.io/academia/guide-to-phd/">The illustrated guide to a Ph.D. (reblog)</a></li>
-          </ul>
-          <h3>September</h3>
-          <ul>
-              <li><time datetime="2015-09-30T15:09:30+05:30">Sep 30, 2015</time> - <a href="https://saiwal.github.io/academia/write-great-paper/">How to Write a Great Research Paper</a></li>
-          </ul>
-          <h3>July</h3>
-          <ul>
-              <li><time datetime="2015-07-28T09:30:42+05:30">Jul 28, 2015</time> - <a href="https://saiwal.github.io/engineering/complex-mappings/">Complex functions as mappings</a></li>
-              <li><time datetime="2015-07-09T00:32:29+05:30">Jul 09, 2015</time> - <a href="https://saiwal.github.io/engineering/def-grad-fun/">Having fun with Deformation Gradients (2D)</a></li>
-          </ul>
-          <h3>June</h3>
-          <ul>
-              <li><time datetime="2015-06-30T15:39:31+05:30">Jun 30, 2015</time> - <a href="https://saiwal.github.io/engineering/ansys-ubuntu-install/">Install ANSYS 15 on ubuntu (x64)</a></li>
-              <li><time datetime="2015-06-24T00:37:45+05:30">Jun 24, 2015</time> - <a href="https://saiwal.github.io/academia/website-pelican/">Static Website/Blog with pelican</a></li>
-              <li><time datetime="2015-06-19T17:51:20+05:30">Jun 19, 2015</time> - <a href="https://saiwal.github.io/engineering/sympy-program/">SymPy for symbolic calculations</a></li>
-              <li><time datetime="2015-06-19T17:46:33+05:30">Jun 19, 2015</time> - <a href="https://saiwal.github.io/engineering/python-research/">Python for Researchers</a></li>
-              <li><time datetime="2015-06-19T16:20:42+05:30">Jun 19, 2015</time> - <a href="https://saiwal.github.io/engineering/install-abaqus-ubuntu/">Installing Abaqus 6.11-2 on Ubuntu 14.04LTS (Trusty Tahr)</a></li>
-          </ul>
-          <h3>May</h3>
-          <ul>
-              <li><time datetime="2015-05-29T00:12:09+05:30">May 29, 2015</time> - <a href="https://saiwal.github.io/engineering/latexthesis/">Latex template for Thesis (IITK)</a></li>
-          </ul>
-        <h2>2014</h2>
-          <h3>June</h3>
-          <ul>
-              <li><time datetime="2014-06-30T00:00:00+05:30">Jun 30, 2014</time> - <a href="https://saiwal.github.io/engineering/intel-abaqus/">Linking Intel fortran compiler to ABAQUS and using UMAT</a></li>
-          </ul>
-    </dl>
-  </div>
-  <div class="article_meta"></div>
-</article>
-                </div>
-              </div><!-- #main -->
-          </div><!-- #primary -->
+</div>            </div>
         </div>
-      </div><!-- close .row -->
-    </div><!-- close .container -->
-  </div><!-- close .site-content -->
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://saiwal.github.io/theme/js/bootstrap.min.js"></script>
+    <script>
+		$("a[href='#top']").click(function() {
+		  $("html, body").animate({ scrollTop: 0 }, "slow");
+		  return false;
+		});
+    </script>
+    <script>
 
+	  $(document).ready(function() {
 
+	   var docHeight = $(window).height();
+	   var footerHeight = $('#footer').height();
+	   var footerTop = $('#footer').position().top + footerHeight;
 
+	   if (footerTop < docHeight) {
+		$('#footer').css('margin-top', -10+ (docHeight - footerTop) + 'px');
+	   }
+	  });
+	</script>
+    
+    <!-- twitchy Script -->
+    <script src="https://saiwal.github.io/theme/js/pelican_twitchy.min.js"></script>       
+    <script id="dsq-count-scr" src="//saiwal.disqus.com/count.js" async></script>
+    
+    
+<script>
+    function FadeInOnScroll(ObjectList){
+        ObjectList.each(function(i) {
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-  <div id="footer-area">
-    <footer id="colophon" class="site-footer" role="contentinfo">
-      <div class="site-info container">
-        <div class="row">
-                    <div class="copyright col-md-12">
-                    <a href="https://saiwal.github.io/pages/privacy-policy">Privacy Policy</a> | 
-                    <a href="https://saiwal.github.io/feeds/all.atom.xml">Atom Feed</a> | 
-                    <a href="https://saiwal.github.io/sitemap.xml">Sitemap</a><br />
-                    This site uses the <a href="https://github.com/limbenjamin/voce">voce</a> theme by <a href="//limbenjamin.com/">Benjamin Lim</a><br />
-                    &copy; 2012-2016 <a href="https://saiwal.github.io">Saiwal</a> </div>
-        </div>
-      </div><!-- .site-info -->
-      <div class="scroll-to-top" style="display: none;"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
-    </footer><!-- #colophon -->
-  </div>
+            if( bottom_of_window > bottom_of_object ){
+                $(this).fadeTo(750,1);
+            }
+        });
+    }
 
-  <script type="text/javascript">
-    window.addEventListener('load', function(){
-    if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
-      window.scroll(0, document.getElementById('main').offsetTop);
-    }})
-  </script>
+    articles = $("article").fadeTo(0, 0.05);
+    FadeInOnScroll(articles)
 
-  <script type="text/javascript">
-    window.addEventListener('load', function(){
-      var e = document.querySelectorAll(".email");
-      for (var i = 0; i < e.length; i++) {
-        var email = e[i].getAttribute("data-email")
-        var title = e[i].getAttribute("data-title")
-        if (email){
-          e[i].href = email.split("").reverse().join("");
-          e[i].removeAttribute("data-email");
-          e[i].removeAttribute("data-title");
-          e[i].removeAttribute("class");
-          if (title){
-            e[i].setAttribute("title", title);
-          }
-          else{
-            e[i].removeAttribute("title");
-          }
-        }
-      }
-    })
-  </script>
-
-
+    $(window).scroll(function() {
+        FadeInOnScroll(articles)
+    });
+</script>
 </body>
 </html>

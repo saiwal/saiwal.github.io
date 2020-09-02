@@ -1,123 +1,166 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Saiwal">
-  <meta name="description" content="Install ANSYS 15 on ubuntu (x64) | I&#39;ve outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i...">
-  
-  <base href="https://saiwal.github.io">
-
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">  
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" media="all">
-  <link rel="stylesheet" href="https://saiwal.github.io/theme/css/font.css" type="text/css" media="all">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://saiwal.github.io/theme/css/style.css" type="text/css" media="all">
-
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://saiwal.github.io/theme/js/functions.min.js"></script>
-
-  
- 
-
-  <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Saiwal's Notes Full Atom Feed" />
-
-<meta name="keywords" content="ansys, linux">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="VxcwHlXJCVtEQYj8uZ6yQkDyecZru8ED5rzsE_fwOHs" />
+        <meta name="author" content="Saiwal" />
+        <meta name="keywords" content="ansys,linux" />
+        <meta name="description" content="I&#39;ve outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i followed to get ansys running on my machine. If you face any problems other than those shown here, it could be an unavailable library issue. Files Required: Ansys …" />
 
 
-  <title>Install ANSYS 15 on ubuntu (x64)</title>
+    <title>Install ANSYS 15 on ubuntu (x64) - Saiwal's HomePage</title>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-30714481-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <link rel="stylesheet" href="https://saiwal.github.io/theme/css/bootstrap.flatly.min.css" type="text/css"/>
 
-  gtag('config', 'UA-30714481-2');
+    <link href="https://saiwal.github.io/theme/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://saiwal.github.io/theme/css/pygments/native.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://saiwal.github.io/theme/tipuesearch/tipuesearch.css">
+        
+    <link href="https://saiwal.github.io/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Feeds -->
+        <link href="https://saiwal.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Saiwal's HomePage ATOM Feed" />
+        <link href="https://saiwal.github.io/theme/custom.css" rel="stylesheet" />
+    <!-- jQuery Version 1.11.2 -->
+<script src="https://saiwal.github.io/theme/js/jquery-1.11.2.min.js"></script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
 </script>
-
-  
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    
 </head>
-
-<body class="home blog">
-  <div>
-    <header class="site-header">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="row">
-            <div class="site-navigation-inner col-sm-12">
-              <div class="navbar-header">
-                <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </div>
-              <div class="collapse navbar-collapse navbar-ex1-collapse">
-              <ul id="menu-all-pages" class="nav navbar-nav">
-                <li class="menu-item"><a href="http://iitk.ac.in" >IITK
-<i class="fa  fa-lg"></i></a></li>
-                <li class="menu-item"><a href="http://home.iitk.ac.in/~saiwal" >IITK homepage
-<i class="fa  fa-lg"></i></a></li>
-                <li class="menu-item"><a href="search.html">Search</a></li>
-              </ul>
-              </div>
-              <div class="social">   
-                <a href="https://www.youtube.com/mrsaiwal" title="Youtube" >
-<i class="fa fa-youtube fa-lg"></i></a>
-                <a href="https://github.com/saiwal" title="Github" >
-<i class="fa fa-github fa-lg"></i></a>
-                <a data-email="moc.liamg@anhsirklawias:otliam" data-title="Email" title="You need javascript enabled to view this email" class="email">
-<i class="fa fa-envelope fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
+<body data-spy="scroll" data-target="#scrollspy">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper-small" class="twitchy-background">
+            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
+                <li>
+        <a href="https://saiwal.github.io" title="Saiwal's HomePage" class="collapsed">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+    </li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="https://saiwal.github.io/blog.html" title="Blog" class="collapsed">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+    </li>
+                
+                <!--    -->
+                <li class="nav-divider"></li>
+                <li>
+        <a href="#" title="Back to top" class="collapsed">
+            <span class="fa fa-arrow-up"></span>
+        </a>
+    </li>
+            </ul>
         </div>
-      </nav><!-- .site-navigation -->
+        <div id="sidebar-wrapper" class="twitchy-background">
+            <ul id="accordion" class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://saiwal.github.io/">
+                            <span class="glyphicon glyphicon-home padding-small"></span>
+                            Saiwal's HomePage
+                    </a>
+                </li>
+                
+                <li class="nav-divider"></li>
+<!--                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Pages
+                    </a>
+</li> -->
+                <li>
+                    <li>
+                        <a href="https://saiwal.github.io/blog.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://saiwal.github.io/research.html">
+                            <i class="fa fa-file-text padding-small"></i>
+                            Research
+                        </a>
+                    </li>
+                </ul></li>
+                
+                 
+                
+                
+                <li class="nav-divider"></li>
 
-      <div class="container">
-      <div id="logo">
-        <span class="site-name"><a class="navbar-brand" href="https://saiwal.github.io"><img width="310" src="" class="attachment-full size-full" alt="Saiwal's Notes">          </a>
-        </span><!-- end of .site-name -->
-      </div><!-- end of #logo -->
-        <div class="tagline">
-                <a href="https://saiwal.github.io/category/academia.html" >Academia (3)</a> &#124; 
-                <a href="https://saiwal.github.io/category/engineering.html" >Engineering (16)</a> &#124; 
+            </ul>
+            
+            
         </div>
-    </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- open/close sidebar -->
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
+            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
+        </a>
+       <!-- /open/close sidebar -->
 
-  </header><!-- #masthead -->
-  </div>
-    <div id="content" class="site-content">
-      <div class="container main-content-area">
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+<section id="content">
+    <article>
         <div class="row">
-          <div class="main-content-inner col-sm-12 col-md-12">
-            <div id="primary" class="content-area">
-              <div id="main" class="site-main" role="main">
-                <div class="article-container">
-<article>
-  <div class="blog-item-wrap">
-    <div class="post-inner-content">
-      <header class="entry-header page-header">
-        <span class="cat-item"><time datetime="2015-06-30 15:39:31+05:30">Tue 30 June 2015</time></span>
-        <h1 class="entry-title"><a href="https://saiwal.github.io/engineering/ansys-ubuntu-install/">Install ANSYS 15 on ubuntu (x64)</a></h1>
-      </header><!-- .entry-header -->
-      <div class="fb-like" data-href="https://saiwal.github.io/engineering/ansys-ubuntu-install/" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-      <div class="entry-content">
-        <p>I've outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i followed to get ansys running on my machine. If you face any problems other than those shown here, it could be an unavailable library issue.</p>
+            <div class="col-lg-9">
+                <header class="page-header">
+                    <h1>
+                        <a href="https://saiwal.github.io/engineering/ansys-ubuntu-install/"
+                           rel="bookmark"
+                           title="Permalink to Install ANSYS 15 on ubuntu (x64)">
+                            Install ANSYS 15 on ubuntu (x64)
+                        </a>
+                        <small> 
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2015-06-30T15:39:31+05:30"> Tue 30 June 2015</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://saiwal.github.io/category/engineering.html">Engineering</a>
+            </span>
+            <span class="tags">
+                <i class="fa fa-tags padding-small"></i>
+                <a href="https://saiwal.github.io/tags/ansys.html">ansys</a> /                 <a href="https://saiwal.github.io/tags/linux.html">linux</a>            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                        </small>
+                    </h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="entry-content">
+                    <p>I've outlined the steps involved in installing ANSYS 15 on a ubuntu machine. This is the step by step procedure that i followed to get ansys running on my machine. If you face any problems other than those shown here, it could be an unavailable library issue.</p>
 <p>Files Required:</p>
-<div class="highlight"><pre><span></span>Ansys setup
+<div class="highlight"><pre><span></span><code><span class="n">Ansys</span> <span class="n">setup</span>
 
-License files
-</pre></div>
+<span class="n">License</span> <span class="n">files</span>
+</code></pre></div>
 <p>Procedure</p>
 <ol>
 <li>
@@ -146,77 +189,77 @@ Method for typing in the terminal code: VIM.Bashrc</p>
 </li>
 </ol>
 <p>Open.Bashrc, paste the following code:</p>
-<div class="highlight"><pre><span></span># add environment variables:
+<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="k">add</span> <span class="n">environment</span> <span class="n">variables</span><span class="p">:</span>
 
-#ANSYS
+<span class="o">#</span><span class="n">ANSYS</span>
 
-PATH=/usr/ansys_inc/v150/ansys/bin:$PATH
-Export PATH
+<span class="n">PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v150</span><span class="o">/</span><span class="n">ansys</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+<span class="n">Export</span> <span class="n">PATH</span>
 
-#CFX
+<span class="o">#</span><span class="n">CFX</span>
 
-PATH=/usr/ansys_inc/v150/CFX/bin:$PATH
-Export PATH
+<span class="n">PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v150</span><span class="o">/</span><span class="n">CFX</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+<span class="n">Export</span> <span class="n">PATH</span>
 
-#FLUENT
+<span class="o">#</span><span class="n">FLUENT</span>
 
-PATH=/usr/ansys_inc/v150/fluent/bin:$PATH
-Export PATH
+<span class="n">PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v150</span><span class="o">/</span><span class="n">fluent</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+<span class="n">Export</span> <span class="n">PATH</span>
 
-#ICEM
+<span class="o">#</span><span class="n">ICEM</span>
 
-PATH=/usr/ansys_inc/v150/icemcfd/linux64_amd/bin:$PATH
-Export PATH
+<span class="n">PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v150</span><span class="o">/</span><span class="n">icemcfd</span><span class="o">/</span><span class="n">linux64_amd</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+<span class="n">Export</span> <span class="n">PATH</span>
 
-#WORKBENCH
+<span class="o">#</span><span class="n">WORKBENCH</span>
 
-PATH=/usr/ansys_inc/v150/Framework/bin/Linux64:$PATH
-Export PATH
+<span class="n">PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v150</span><span class="o">/</span><span class="n">Framework</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">Linux64</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+<span class="n">Export</span> <span class="n">PATH</span>
 
-#TurboGrid
+<span class="o">#</span><span class="n">TurboGrid</span>
 
-PATH=/usr/ansys_inc/v150/TurboGrid/bin:$PATH
-Export PATH
+<span class="n">PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v150</span><span class="o">/</span><span class="n">TurboGrid</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+<span class="n">Export</span> <span class="n">PATH</span>
 
-#ANSYS Sevice Manager
-PATH=/usr/ansys_inc/shared_files/licensing/lic_admin:$PATH
+<span class="o">#</span><span class="n">ANSYS</span> <span class="n">Sevice</span> <span class="n">Manager</span>
+<span class="n">PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">shared_files</span><span class="o">/</span><span class="n">licensing</span><span class="o">/</span><span class="n">lic_admin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
 
-Export PATH
-</pre></div>
+<span class="n">Export</span> <span class="n">PATH</span>
+</code></pre></div>
 <p>And then let it take effect in the terminal, type the following code</p>
-<div class="highlight"><pre><span></span>source .Bashrc
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">source .Bashrc</span>
+</code></pre></div>
 <ol>
 <li>To start ansys use any of the following commands:</li>
 </ol>
 <p>Ansys CFX Launcher</p>
-<div class="highlight"><pre><span></span>CFX5
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">CFX5</span>
+</code></pre></div>
 <p>CFX-pre </p>
-<div class="highlight"><pre><span></span>cfx5pre
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">cfx5pre</span>
+</code></pre></div>
 <p>CFX-Solver Manager</p>
-<div class="highlight"><pre><span></span>cfx5-solve
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">cfx5-solve</span>
+</code></pre></div>
 <p>CFD-post </p>
-<div class="highlight"><pre><span></span>cfdpost
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">cfdpost</span>
+</code></pre></div>
 <p>Turborid </p>
-<div class="highlight"><pre><span></span>cfxtg
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">cfxtg</span>
+</code></pre></div>
 <p>Fluent </p>
-<div class="highlight"><pre><span></span>fluent
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">fluent</span>
+</code></pre></div>
 <p>ICEM CFD </p>
-<div class="highlight"><pre><span></span>icemcfd
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">icemcfd</span>
+</code></pre></div>
 <p>Ansys APDL </p>
-<div class="highlight"><pre><span></span>ansys150       # is really in command mode
-Ansys150 -g    # graphics mode
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">ansys150       # is really in command mode</span>
+<span class="err">Ansys150 -g    # graphics mode</span>
+</code></pre></div>
 <p>Ansys Workbench </p>
-<div class="highlight"><pre><span></span>runwb2
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">runwb2</span>
+</code></pre></div>
 <p>Use the get command to help command -help</p>
 <p>Note: The Linux version of Ansys is installed in the Ubuntu is installed by default in /usr/ansys_inc. If you change the default installation location, please modify the path specified in the ansyslmd.ini. Use VIM to open ansyslmd.ini, as follows
     ANSYSLI_NOFLEX=1
@@ -225,71 +268,87 @@ Ansys150 -g    # graphics mode
     sudo apt-get install xfonts-75dpi xfonts-100dpi xterm ttf-mscorefonts-installer</p>
 <p>You do need to restart your system (it might be enough to restart the X server)! </p>
 <p><img alt="ansys" src="https://saiwal.github.io/images/Ansys_logo.jpg"/></p>
-      </div><!-- .entry-content -->
-      <br /><br />
-      <div class="article_meta">
-        Tags:
-          <a href="https://saiwal.github.io/tags/ansys.html">ansys</a>,          <a href="https://saiwal.github.io/tags/linux.html">linux</a>      </div>
-    </div>
-  </div>
-</article><!-- #post-## -->
                 </div>
-              </div><!-- #main -->
-          </div><!-- #primary -->
+                <footer class="text-right">
+                    <p>- Saiwal Krishna</p>
+                </footer>
+                
+ 
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+    <div id="disqus_thread"></div>
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://saiwal.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+
+    </section>
+ 
+            </div>
         </div>
-      </div><!-- close .row -->
-    </div><!-- close .container -->
-  </div><!-- close .site-content -->
+    </article>
+</section>
+                                
 
-
-
-
-  <div id="footer-area">
-    <footer id="colophon" class="site-footer" role="contentinfo">
-      <div class="site-info container">
-        <div class="row">
-                    <div class="copyright col-md-12">
-                    <a href="https://saiwal.github.io/pages/privacy-policy">Privacy Policy</a> | 
-                    <a href="https://saiwal.github.io/feeds/all.atom.xml">Atom Feed</a> | 
-                    <a href="https://saiwal.github.io/sitemap.xml">Sitemap</a><br />
-                    This site uses the <a href="https://github.com/limbenjamin/voce">voce</a> theme by <a href="//limbenjamin.com/">Benjamin Lim</a><br />
-                    &copy; 2012-2016 <a href="https://saiwal.github.io">Saiwal</a> </div>
+<div id="footer">
+    <hr>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <p><small>
+                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
+                &middot;                    &copy; 2020 Saiwal Krishna
+            </small></p>
         </div>
-      </div><!-- .site-info -->
-      <div class="scroll-to-top" style="display: none;"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
-    </footer><!-- #colophon -->
-  </div>
+    </div>
+</div>            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://saiwal.github.io/theme/js/bootstrap.min.js"></script>
+    <script>
+		$("a[href='#top']").click(function() {
+		  $("html, body").animate({ scrollTop: 0 }, "slow");
+		  return false;
+		});
+    </script>
+    <script>
 
-  <script type="text/javascript">
-    window.addEventListener('load', function(){
-    if (window.location.pathname != '/' && window.location.pathname != '/index.html'){
-      window.scroll(0, document.getElementById('main').offsetTop);
-    }})
-  </script>
+	  $(document).ready(function() {
 
-  <script type="text/javascript">
-    window.addEventListener('load', function(){
-      var e = document.querySelectorAll(".email");
-      for (var i = 0; i < e.length; i++) {
-        var email = e[i].getAttribute("data-email")
-        var title = e[i].getAttribute("data-title")
-        if (email){
-          e[i].href = email.split("").reverse().join("");
-          e[i].removeAttribute("data-email");
-          e[i].removeAttribute("data-title");
-          e[i].removeAttribute("class");
-          if (title){
-            e[i].setAttribute("title", title);
-          }
-          else{
-            e[i].removeAttribute("title");
-          }
-        }
-      }
-    })
-  </script>
+	   var docHeight = $(window).height();
+	   var footerHeight = $('#footer').height();
+	   var footerTop = $('#footer').position().top + footerHeight;
 
-
-
+	   if (footerTop < docHeight) {
+		$('#footer').css('margin-top', -10+ (docHeight - footerTop) + 'px');
+	   }
+	  });
+	</script>
+    
+    <!-- twitchy Script -->
+    <script src="https://saiwal.github.io/theme/js/pelican_twitchy.min.js"></script>       
+    <script id="dsq-count-scr" src="//saiwal.disqus.com/count.js" async></script>
+    
+    
 </body>
 </html>
